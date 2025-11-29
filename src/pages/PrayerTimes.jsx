@@ -8,8 +8,21 @@ export default function PrayerTimes() {
     const [locationName, setLocationName] = useState('Locating...');
     const audioRef = useRef(new Audio());
     const [isPlaying, setIsPlaying] = useState(false);
+    const [simulatedTime, setSimulatedTime] = useState(null);
 
-    // Audio Sources
+    // Settings State: 'sound' | 'notification' | 'off'
+    const [adzanSettings, setAdzanSettings] = useState(() => {
+        const saved = localStorage.getItem('adzanSettings');
+        return saved ? JSON.parse(saved) : {
+            fajr: 'sound',
+            sunrise: 'off', // Default off for sunrise
+            dhuhr: 'sound',
+            asr: 'sound',
+            maghrib: 'sound',
+            isha: 'sound'
+        };
+    });
+
     // Audio Sources
     // Using local files (downloaded from GitHub)
     const ADZAN_FAJR = '/audio/adzan-fajr.mp3';
@@ -31,7 +44,11 @@ export default function PrayerTimes() {
     useEffect(() => {
         const timer = setInterval(updateCountdown, 1000);
         return () => clearInterval(timer);
-    }, [prayerTimes]);
+    }, [prayerTimes, simulatedTime, adzanSettings]);
+
+    useEffect(() => {
+        localStorage.setItem('adzanSettings', JSON.stringify(adzanSettings));
+    }, [adzanSettings]);
 
     const success = (position) => {
         const { latitude, longitude } = position.coords;
@@ -69,19 +86,28 @@ export default function PrayerTimes() {
     };
 
     const playAdzan = (prayerName) => {
-        const isFajr = prayerName.toLowerCase() === 'fajr';
-        const audioSrc = isFajr ? ADZAN_FAJR : ADZAN_NORMAL;
+        const key = prayerName.toLowerCase();
+        const setting = adzanSettings[key] || 'sound'; // Default to sound if testing or unknown
 
-        // Only update src if it's different to avoid reloading if already set (though here we want to ensure correct one)
-        if (audioRef.current.src !== audioSrc) {
-            audioRef.current.src = audioSrc;
+        if (setting === 'off') return;
+
+        const isFajr = key === 'fajr';
+
+        // Play Audio only if setting is 'sound'
+        if (setting === 'sound') {
+            const audioSrc = isFajr ? ADZAN_FAJR : ADZAN_NORMAL;
+
+            if (audioRef.current.src !== window.location.origin + audioSrc) {
+                audioRef.current.src = audioSrc;
+            }
+
+            audioRef.current.play().catch(e => {
+                console.error("Audio play failed:", e);
+                // Only alert if user explicitly wanted sound
+                alert("Gagal memutar suara. Pastikan file audio sudah terdownload dengan benar.");
+            });
+            setIsPlaying(true);
         }
-
-        audioRef.current.play().catch(e => {
-            console.error("Audio play failed:", e);
-            alert("Gagal memutar suara. Pastikan file audio sudah terdownload dengan benar.");
-        });
-        setIsPlaying(true);
 
         if ("Notification" in window && Notification.permission === "granted") {
             new Notification(`It's time for ${prayerName} prayer!`, {
@@ -97,37 +123,66 @@ export default function PrayerTimes() {
         setIsPlaying(false);
     };
 
+    const startSimulation = () => {
+        // Set simulated time to 10 seconds from now
+        setSimulatedTime(new Date(Date.now() + 10000));
+    };
+
+    const toggleSetting = (prayerName) => {
+        setAdzanSettings(prev => {
+            const current = prev[prayerName];
+            let next;
+            if (current === 'sound') next = 'notification';
+            else if (current === 'notification') next = 'off';
+            else next = 'sound';
+
+            return { ...prev, [prayerName]: next };
+        });
+    };
+
     const updateCountdown = () => {
-        if (!prayerTimes) return;
-
         const now = new Date();
-        const timeNames = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
         let next = null;
-        let minDiff = Infinity;
 
-        for (const name of timeNames) {
-            const time = prayerTimes[name];
-            if (time > now) {
-                const diff = time - now;
-                if (diff < minDiff) {
-                    minDiff = diff;
-                    next = { name, time };
+        // Priority: Simulation
+        if (simulatedTime) {
+            const diff = simulatedTime - now;
+            if (diff <= 0) {
+                playAdzan('Simulasi');
+                setSimulatedTime(null);
+                return;
+            }
+            next = { name: 'Simulasi (Test)', time: simulatedTime };
+        } else {
+            if (!prayerTimes) return;
+
+            const timeNames = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+            let minDiff = Infinity;
+
+            for (const name of timeNames) {
+                const time = prayerTimes[name];
+                if (time > now) {
+                    const diff = time - now;
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        next = { name, time };
+                    }
                 }
             }
-        }
 
-        // Check if we just passed a prayer time
-        for (const name of timeNames) {
-            const time = prayerTimes[name];
-            const diff = Math.abs(now - time);
-            if (diff < 1500 && !isPlaying) { // 1.5 seconds tolerance
-                playAdzan(name);
+            // Check if we just passed a prayer time
+            for (const name of timeNames) {
+                const time = prayerTimes[name];
+                const diff = Math.abs(now - time);
+                if (diff < 1500 && !isPlaying) { // 1.5 seconds tolerance
+                    playAdzan(name);
+                }
             }
-        }
 
-        // If no next prayer today, it's Fajr tomorrow (simplified)
-        if (!next) {
-            next = { name: 'fajr', time: new Date(prayerTimes.fajr.getTime() + 24 * 60 * 60 * 1000) };
+            // If no next prayer today, it's Fajr tomorrow (simplified)
+            if (!next) {
+                next = { name: 'fajr', time: new Date(prayerTimes.fajr.getTime() + 24 * 60 * 60 * 1000) };
+            }
         }
 
         setNextPrayer(next);
@@ -158,7 +213,7 @@ export default function PrayerTimes() {
                     <h2>{nextPrayer?.name.charAt(0).toUpperCase() + nextPrayer?.name.slice(1)}</h2>
                     <div className="countdown">{countdown}</div>
                 </div>
-                <div style={{ marginTop: '15px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <div style={{ marginTop: '15px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                     {!isPlaying ? (
                         <>
                             <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={() => playAdzan('Dhuhr')}>
@@ -166,6 +221,9 @@ export default function PrayerTimes() {
                             </button>
                             <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={() => playAdzan('Fajr')}>
                                 <i className="fa-solid fa-moon"></i> Test Shubuh
+                            </button>
+                            <button className="icon-btn" style={{ background: 'rgba(255,255,0,0.2)', color: 'yellow', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={startSimulation}>
+                                <i className="fa-solid fa-clock"></i> Simulasi (10s)
                             </button>
                         </>
                     ) : (
@@ -179,7 +237,29 @@ export default function PrayerTimes() {
                 {['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'].map(name => (
                     <div key={name} className={`prayer-row ${nextPrayer?.name === name ? 'active' : ''}`}>
                         <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
-                        <span>{formatTime(prayerTimes[name])}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <span>{formatTime(prayerTimes[name])}</span>
+                            <button
+                                className="icon-btn"
+                                onClick={() => toggleSetting(name)}
+                                style={{
+                                    background: 'transparent',
+                                    border: '1px solid rgba(255,255,255,0.3)',
+                                    padding: '5px',
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: adzanSettings[name] === 'off' ? 'rgba(255,255,255,0.3)' : 'white'
+                                }}
+                            >
+                                {adzanSettings[name] === 'sound' && <i className="fa-solid fa-volume-high"></i>}
+                                {adzanSettings[name] === 'notification' && <i className="fa-solid fa-bell"></i>}
+                                {adzanSettings[name] === 'off' && <i className="fa-solid fa-bell-slash"></i>}
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
