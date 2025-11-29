@@ -26,7 +26,7 @@ export default function QuranList() {
             surah.name_arabic.includes(search);
 
         if (filter === 'bookmarks') {
-            const bookmarks = getBookmarks();
+            const bookmarks = getBookmarks().map(b => parseInt(b));
             return matchesSearch && bookmarks.includes(surah.id);
         }
         return matchesSearch;
