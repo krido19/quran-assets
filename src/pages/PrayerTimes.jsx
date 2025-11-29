@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Coordinates, CalculationMethod, PrayerTimes as AdhanPrayerTimes } from 'adhan';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { Geolocation } from '@capacitor/geolocation';
+import { getHijriDate } from '../lib/hijri';
 
 export default function PrayerTimes() {
     const [prayerTimes, setPrayerTimes] = useState(null);
@@ -345,6 +346,9 @@ export default function PrayerTimes() {
                     <div className="location-badge">
                         <i className="fa-solid fa-location-dot"></i>
                         <span>{locationName}</span>
+                    </div>
+                    <div style={{ fontSize: '14px', opacity: 0.8, marginTop: '5px' }}>
+                        {getHijriDate()}
                     </div>
 
                     {/* Permission Request UI */}

@@ -19,9 +19,9 @@ export default function Navbar() {
                 <i className="fa-solid fa-fingerprint"></i>
                 <span>Tasbih</span>
             </NavLink>
-            <NavLink to="/profile" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-                <i className="fa-regular fa-user"></i>
-                <span>Profile</span>
+            <NavLink to="/menu" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+                <i className="fa-solid fa-bars"></i>
+                <span>Menu</span>
             </NavLink>
         </nav>
     );

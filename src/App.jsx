@@ -9,6 +9,9 @@ import QiblaCompass from './pages/QiblaCompass';
 import Tasbih from './pages/Tasbih';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import AsmaulHusna from './pages/AsmaulHusna';
+import DailyPrayers from './pages/DailyPrayers';
+import Menu from './pages/Menu';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
               <Route path="/tasbih" element={<Tasbih />} />
               <Route path="/profile" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/asmaul-husna" element={<AsmaulHusna />} />
+              <Route path="/daily-prayers" element={<DailyPrayers />} />
+              <Route path="/menu" element={<Menu />} />
             </Routes>
           </main>
           <Navbar />

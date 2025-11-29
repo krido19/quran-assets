@@ -1,0 +1,596 @@
+[
+    {
+        "id": 1,
+        "arabic": "الرَّحْمَنُ",
+        "latin": "Ar Rahman",
+        "meaning": "Yang Maha Pengasih"
+    },
+    {
+        "id": 2,
+        "arabic": "الرَّحِيمُ",
+        "latin": "Ar Rahiim",
+        "meaning": "Yang Maha Penyayang"
+    },
+    {
+        "id": 3,
+        "arabic": "الْمَلِكُ",
+        "latin": "Al Malik",
+        "meaning": "Yang Maha Merajai"
+    },
+    {
+        "id": 4,
+        "arabic": "الْقُدُّوسُ",
+        "latin": "Al Quddus",
+        "meaning": "Yang Maha Suci"
+    },
+    {
+        "id": 5,
+        "arabic": "السَّلاَمُ",
+        "latin": "As Salaam",
+        "meaning": "Yang Maha Memberi Kesejahteraan"
+    },
+    {
+        "id": 6,
+        "arabic": "الْمُؤْمِنُ",
+        "latin": "Al Mu'min",
+        "meaning": "Yang Maha Memberi Keamanan"
+    },
+    {
+        "id": 7,
+        "arabic": "الْمُهَيْمِنُ",
+        "latin": "Al Muhaimin",
+        "meaning": "Yang Maha Pemelihara"
+    },
+    {
+        "id": 8,
+        "arabic": "الْعَزِيزُ",
+        "latin": "Al 'Aziz",
+        "meaning": "Yang Maha Perkasa"
+    },
+    {
+        "id": 9,
+        "arabic": "الْجَبَّارُ",
+        "latin": "Al Jabbar",
+        "meaning": "Yang Memiliki Mutlak Kegagahan"
+    },
+    {
+        "id": 10,
+        "arabic": "الْمُتَكَبِّرُ",
+        "latin": "Al Mutakabbir",
+        "meaning": "Yang Maha Megah"
+    },
+    {
+        "id": 11,
+        "arabic": "الْخَالِقُ",
+        "latin": "Al Khaliq",
+        "meaning": "Yang Maha Pencipta"
+    },
+    {
+        "id": 12,
+        "arabic": "الْبَارِئُ",
+        "latin": "Al Baari'",
+        "meaning": "Yang Maha Melepaskan"
+    },
+    {
+        "id": 13,
+        "arabic": "الْمُصَوِّرُ",
+        "latin": "Al Mushawwir",
+        "meaning": "Yang Maha Membentuk Rupa"
+    },
+    {
+        "id": 14,
+        "arabic": "الْغَفَّارُ",
+        "latin": "Al Ghaffar",
+        "meaning": "Yang Maha Pengampun"
+    },
+    {
+        "id": 15,
+        "arabic": "الْقَهَّارُ",
+        "latin": "Al Qahhar",
+        "meaning": "Yang Maha Memaksa"
+    },
+    {
+        "id": 16,
+        "arabic": "الْوَهَّابُ",
+        "latin": "Al Wahhab",
+        "meaning": "Yang Maha Pemberi Karunia"
+    },
+    {
+        "id": 17,
+        "arabic": "الرَّزَّاقُ",
+        "latin": "Ar Razzaq",
+        "meaning": "Yang Maha Pemberi Rezeki"
+    },
+    {
+        "id": 18,
+        "arabic": "الْفَتَّاحُ",
+        "latin": "Al Fattaah",
+        "meaning": "Yang Maha Pembuka Rahmat"
+    },
+    {
+        "id": 19,
+        "arabic": "الْعَلِيمُ",
+        "latin": "Al 'Aliim",
+        "meaning": "Yang Maha Mengetahui"
+    },
+    {
+        "id": 20,
+        "arabic": "الْقَابِضُ",
+        "latin": "Al Qaabidh",
+        "meaning": "Yang Maha Menyempitkan"
+    },
+    {
+        "id": 21,
+        "arabic": "الْبَاسِطُ",
+        "latin": "Al Baasith",
+        "meaning": "Yang Maha Melapangkan"
+    },
+    {
+        "id": 22,
+        "arabic": "الْخَافِضُ",
+        "latin": "Al Khaafidh",
+        "meaning": "Yang Maha Merendahkan"
+    },
+    {
+        "id": 23,
+        "arabic": "الرَّافِعُ",
+        "latin": "Ar Raafi'",
+        "meaning": "Yang Maha Meninggikan"
+    },
+    {
+        "id": 24,
+        "arabic": "الْمُعِزُّ",
+        "latin": "Al Mu'izz",
+        "meaning": "Yang Maha Memuliakan"
+    },
+    {
+        "id": 25,
+        "arabic": "الْمُذِلُّ",
+        "latin": "Al Mudzil",
+        "meaning": "Yang Maha Menghinakan"
+    },
+    {
+        "id": 26,
+        "arabic": "السَّمِيعُ",
+        "latin": "Al Samii'",
+        "meaning": "Yang Maha Mendengar"
+    },
+    {
+        "id": 27,
+        "arabic": "الْبَصِيرُ",
+        "latin": "Al Bashiir",
+        "meaning": "Yang Maha Melihat"
+    },
+    {
+        "id": 28,
+        "arabic": "الْحَكَمُ",
+        "latin": "Al Hakam",
+        "meaning": "Yang Maha Menetapkan"
+    },
+    {
+        "id": 29,
+        "arabic": "الْعَدْلُ",
+        "latin": "Al 'Adl",
+        "meaning": "Yang Maha Adil"
+    },
+    {
+        "id": 30,
+        "arabic": "اللَّطِيفُ",
+        "latin": "Al Lathiif",
+        "meaning": "Yang Maha Lembut"
+    },
+    {
+        "id": 31,
+        "arabic": "الْخَبِيرُ",
+        "latin": "Al Khabiir",
+        "meaning": "Yang Maha Mengenal"
+    },
+    {
+        "id": 32,
+        "arabic": "الْحَلِيمُ",
+        "latin": "Al Haliim",
+        "meaning": "Yang Maha Penyantun"
+    },
+    {
+        "id": 33,
+        "arabic": "الْعَظِيمُ",
+        "latin": "Al 'Azhiim",
+        "meaning": "Yang Maha Agung"
+    },
+    {
+        "id": 34,
+        "arabic": "الْغَفُورُ",
+        "latin": "Al Ghafuur",
+        "meaning": "Yang Maha Memberi Pengampunan"
+    },
+    {
+        "id": 35,
+        "arabic": "الشَّكُورُ",
+        "latin": "As Syakuur",
+        "meaning": "Yang Maha Pembalas Budi"
+    },
+    {
+        "id": 36,
+        "arabic": "الْعَلِيُّ",
+        "latin": "Al 'Aliy",
+        "meaning": "Yang Maha Tinggi"
+    },
+    {
+        "id": 37,
+        "arabic": "الْكَبِيرُ",
+        "latin": "Al Kabiir",
+        "meaning": "Yang Maha Besar"
+    },
+    {
+        "id": 38,
+        "arabic": "الْحَفِيظُ",
+        "latin": "Al Hafizh",
+        "meaning": "Yang Maha Memelihara"
+    },
+    {
+        "id": 39,
+        "arabic": "الْمُقِيتُ",
+        "latin": "Al Muqiit",
+        "meaning": "Yang Maha Pemberi Kecukupan"
+    },
+    {
+        "id": 40,
+        "arabic": "الْحَسِيبُ",
+        "latin": "Al Hasiib",
+        "meaning": "Yang Maha Membuat Perhitungan"
+    },
+    {
+        "id": 41,
+        "arabic": "الْجَلِيلُ",
+        "latin": "Al Jaliil",
+        "meaning": "Yang Maha Luhur"
+    },
+    {
+        "id": 42,
+        "arabic": "الْكَرِيمُ",
+        "latin": "Al Kariim",
+        "meaning": "Yang Maha Pemurah"
+    },
+    {
+        "id": 43,
+        "arabic": "الرَّقِيبُ",
+        "latin": "Ar Raqiib",
+        "meaning": "Yang Maha Mengawasi"
+    },
+    {
+        "id": 44,
+        "arabic": "الْمُجِيبُ",
+        "latin": "Al Mujiib",
+        "meaning": "Yang Maha Mengabulkan"
+    },
+    {
+        "id": 45,
+        "arabic": "الْوَاسِعُ",
+        "latin": "Al Waasi'",
+        "meaning": "Yang Maha Luas"
+    },
+    {
+        "id": 46,
+        "arabic": "الْحَكِيمُ",
+        "latin": "Al Hakiim",
+        "meaning": "Yang Maha Bijaksana"
+    },
+    {
+        "id": 47,
+        "arabic": "الْوَدُودُ",
+        "latin": "Al Waduud",
+        "meaning": "Yang Maha Mengasihi"
+    },
+    {
+        "id": 48,
+        "arabic": "الْمَجِيدُ",
+        "latin": "Al Majiid",
+        "meaning": "Yang Maha Mulia"
+    },
+    {
+        "id": 49,
+        "arabic": "الْبَاعِثُ",
+        "latin": "Al Baa'its",
+        "meaning": "Yang Maha Membangkitkan"
+    },
+    {
+        "id": 50,
+        "arabic": "الشَّهِيدُ",
+        "latin": "As Syahiid",
+        "meaning": "Yang Maha Menyaksikan"
+    },
+    {
+        "id": 51,
+        "arabic": "الْحَقُّ",
+        "latin": "Al Haqq",
+        "meaning": "Yang Maha Benar"
+    },
+    {
+        "id": 52,
+        "arabic": "الْوَكِيلُ",
+        "latin": "Al Wakiil",
+        "meaning": "Yang Maha Memelihara"
+    },
+    {
+        "id": 53,
+        "arabic": "الْقَوِيُّ",
+        "latin": "Al Qawiyyu",
+        "meaning": "Yang Maha Kuat"
+    },
+    {
+        "id": 54,
+        "arabic": "الْمَتِينُ",
+        "latin": "Al Matiin",
+        "meaning": "Yang Maha Kokoh"
+    },
+    {
+        "id": 55,
+        "arabic": "الْوَلِيُّ",
+        "latin": "Al Waliyy",
+        "meaning": "Yang Maha Melindungi"
+    },
+    {
+        "id": 56,
+        "arabic": "الْحَمِيدُ",
+        "latin": "Al Hamiid",
+        "meaning": "Yang Maha Terpuji"
+    },
+    {
+        "id": 57,
+        "arabic": "الْمُحْصِي",
+        "latin": "Al Muhshii",
+        "meaning": "Yang Maha Menghitung"
+    },
+    {
+        "id": 58,
+        "arabic": "الْمُبْدِئُ",
+        "latin": "Al Mubdi'",
+        "meaning": "Yang Maha Memulai"
+    },
+    {
+        "id": 59,
+        "arabic": "الْمُعِيدُ",
+        "latin": "Al Mu'iid",
+        "meaning": "Yang Maha Mengembalikan Kehidupan"
+    },
+    {
+        "id": 60,
+        "arabic": "الْمُحْيِي",
+        "latin": "Al Muhyii",
+        "meaning": "Yang Maha Menghidupkan"
+    },
+    {
+        "id": 61,
+        "arabic": "الْمُمِيتُ",
+        "latin": "Al Mumiit",
+        "meaning": "Yang Maha Mematikan"
+    },
+    {
+        "id": 62,
+        "arabic": "الْحَيُّ",
+        "latin": "Al Hayyu",
+        "meaning": "Yang Maha Hidup"
+    },
+    {
+        "id": 63,
+        "arabic": "الْقَيُّومُ",
+        "latin": "Al Qayyum",
+        "meaning": "Yang Maha Mandiri"
+    },
+    {
+        "id": 64,
+        "arabic": "الْوَاجِدُ",
+        "latin": "Al Waajid",
+        "meaning": "Yang Maha Penemu"
+    },
+    {
+        "id": 65,
+        "arabic": "الْمَاجِدُ",
+        "latin": "Al Maajid",
+        "meaning": "Yang Maha Mulia"
+    },
+    {
+        "id": 66,
+        "arabic": "الْوَاحِدُ",
+        "latin": "Al Wahid",
+        "meaning": "Yang Maha Tunggal"
+    },
+    {
+        "id": 67,
+        "arabic": "الْأَحَدُ",
+        "latin": "Al Ahad",
+        "meaning": "Yang Maha Esa"
+    },
+    {
+        "id": 68,
+        "arabic": "الصَّمَدُ",
+        "latin": "As Shamad",
+        "meaning": "Yang Maha Dibutuhkan"
+    },
+    {
+        "id": 69,
+        "arabic": "الْقَادِرُ",
+        "latin": "Al Qaadir",
+        "meaning": "Yang Maha Menentukan"
+    },
+    {
+        "id": 70,
+        "arabic": "الْمُقْتَدِرُ",
+        "latin": "Al Muqtadir",
+        "meaning": "Yang Maha Berkuasa"
+    },
+    {
+        "id": 71,
+        "arabic": "الْمُقَدِّمُ",
+        "latin": "Al Muqaddim",
+        "meaning": "Yang Maha Mendahulukan"
+    },
+    {
+        "id": 72,
+        "arabic": "الْمُؤَخِّرُ",
+        "latin": "Al Mu'akkhir",
+        "meaning": "Yang Maha Mengakhirkan"
+    },
+    {
+        "id": 73,
+        "arabic": "الْأَوَّلُ",
+        "latin": "Al Awwal",
+        "meaning": "Yang Maha Awal"
+    },
+    {
+        "id": 74,
+        "arabic": "الْآخِرُ",
+        "latin": "Al Aakhir",
+        "meaning": "Yang Maha Akhir"
+    },
+    {
+        "id": 75,
+        "arabic": "الظَّاهِرُ",
+        "latin": "Az Zhaahir",
+        "meaning": "Yang Maha Nyata"
+    },
+    {
+        "id": 76,
+        "arabic": "الْبَاطِنُ",
+        "latin": "Al Baathin",
+        "meaning": "Yang Maha Ghaib"
+    },
+    {
+        "id": 77,
+        "arabic": "الْوَالِي",
+        "latin": "Al Waali",
+        "meaning": "Yang Maha Memerintah"
+    },
+    {
+        "id": 78,
+        "arabic": "الْمُتَعَالِي",
+        "latin": "Al Muta'aalii",
+        "meaning": "Yang Maha Tinggi"
+    },
+    {
+        "id": 79,
+        "arabic": "الْبَرُّ",
+        "latin": "Al Barr",
+        "meaning": "Yang Maha Penderma"
+    },
+    {
+        "id": 80,
+        "arabic": "التَّوَّابُ",
+        "latin": "At Tawwaab",
+        "meaning": "Yang Maha Penerima Taubat"
+    },
+    {
+        "id": 81,
+        "arabic": "الْمُنْتَقِمُ",
+        "latin": "Al Muntaqim",
+        "meaning": "Yang Maha Pemberi Balasan"
+    },
+    {
+        "id": 82,
+        "arabic": "الْعَفُوُّ",
+        "latin": "Al Afuww",
+        "meaning": "Yang Maha Pemaaf"
+    },
+    {
+        "id": 83,
+        "arabic": "الرَّءُوفُ",
+        "latin": "Ar Ra'uuf",
+        "meaning": "Yang Maha Pengasuh"
+    },
+    {
+        "id": 84,
+        "arabic": "مَالِكُ الْمُلْكِ",
+        "latin": "Malikul Mulk",
+        "meaning": "Yang Maha Penguasa Kerajaan"
+    },
+    {
+        "id": 85,
+        "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+        "latin": "Dzul Jalaali Wal Ikraam",
+        "meaning": "Yang Maha Pemilik Kebesaran dan Kemuliaan"
+    },
+    {
+        "id": 86,
+        "arabic": "الْمُقْسِطُ",
+        "latin": "Al Muqsith",
+        "meaning": "Yang Maha Pemberi Keadilan"
+    },
+    {
+        "id": 87,
+        "arabic": "الْجَامِعُ",
+        "latin": "Al Jaami'",
+        "meaning": "Yang Maha Mengumpulkan"
+    },
+    {
+        "id": 88,
+        "arabic": "الْغَنِيُّ",
+        "latin": "Al Ghaniyy",
+        "meaning": "Yang Maha Kaya"
+    },
+    {
+        "id": 89,
+        "arabic": "الْمُغْنِي",
+        "latin": "Al Mughni",
+        "meaning": "Yang Maha Pemberi Kekayaan"
+    },
+    {
+        "id": 90,
+        "arabic": "الْمَانِعُ",
+        "latin": "Al Maani",
+        "meaning": "Yang Maha Mencegah"
+    },
+    {
+        "id": 91,
+        "arabic": "الضَّارُّ",
+        "latin": "Ad Dhaar",
+        "meaning": "Yang Maha Penimpa Kemudharatan"
+    },
+    {
+        "id": 92,
+        "arabic": "النَّافِعُ",
+        "latin": "An Naafi'",
+        "meaning": "Yang Maha Memberi Manfaat"
+    },
+    {
+        "id": 93,
+        "arabic": "النُّورُ",
+        "latin": "An Nuur",
+        "meaning": "Yang Maha Bercahaya"
+    },
+    {
+        "id": 94,
+        "arabic": "الْهَادِي",
+        "latin": "Al Haadi",
+        "meaning": "Yang Maha Pemberi Petunjuk"
+    },
+    {
+        "id": 95,
+        "arabic": "الْبَدِيعُ",
+        "latin": "Al Badii'",
+        "meaning": "Yang Maha Pencipta"
+    },
+    {
+        "id": 96,
+        "arabic": "الْبَاقِي",
+        "latin": "Al Baaqii",
+        "meaning": "Yang Maha Kekal"
+    },
+    {
+        "id": 97,
+        "arabic": "الْوَارِثُ",
+        "latin": "Al Waarits",
+        "meaning": "Yang Maha Pewaris"
+    },
+    {
+        "id": 98,
+        "arabic": "الرَّشِيدُ",
+        "latin": "Ar Rasyiid",
+        "meaning": "Yang Maha Pandai"
+    },
+    {
+        "id": 99,
+        "arabic": "الصَّبُورُ",
+        "latin": "As Shabuur",
+        "meaning": "Yang Maha Sabar"
+    }
+]
