@@ -67,7 +67,8 @@ export default function Tasbih() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
+                    transition: 'transform 0.1s'
                 }}
             >
                 <i className="fa-solid fa-fingerprint" style={{ fontSize: '40px', marginBottom: '10px', opacity: 0.7 }}></i>
@@ -79,10 +80,12 @@ export default function Tasbih() {
                     onClick={resetCount}
                     className="icon-btn"
                     style={{
-                        background: 'rgba(255,0,0,0.2)',
-                        color: '#ff6b6b',
+                        background: 'rgba(255, 0, 0, 0.1)',
+                        color: '#ef4444',
                         padding: '10px 20px',
-                        borderRadius: '20px'
+                        borderRadius: '20px',
+                        fontWeight: 'bold',
+                        border: '1px solid rgba(255, 0, 0, 0.2)'
                     }}
                 >
                     <i className="fa-solid fa-rotate-right"></i> Reset
@@ -92,11 +95,13 @@ export default function Tasbih() {
                     value={target}
                     onChange={(e) => setTarget(parseInt(e.target.value))}
                     style={{
-                        background: 'rgba(255,255,255,0.1)',
-                        color: 'white',
-                        border: '1px solid rgba(255,255,255,0.2)',
+                        background: 'var(--bg-card)',
+                        color: 'var(--text-main)',
+                        border: '1px solid var(--text-muted)',
                         padding: '10px',
-                        borderRadius: '20px'
+                        borderRadius: '20px',
+                        outline: 'none',
+                        cursor: 'pointer'
                     }}
                 >
                     <option value="33">Target: 33</option>

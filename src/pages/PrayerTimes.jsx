@@ -68,32 +68,56 @@ export default function PrayerTimes() {
 
             if (status.location === 'granted') {
                 getCurrentLocation();
+            } else {
+                // If not granted yet, show default location so UI appears
+                fallbackLocation();
             }
         } catch (e) {
             console.log("Error checking permissions (browser?)", e);
             // Fallback to browser API if native fails
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(success, error);
+                navigator.geolocation.getCurrentPosition(success, error, { timeout: 10000 });
+            } else {
+                fallbackLocation();
             }
         }
     };
 
     const requestLocationPermission = async () => {
         try {
+            // Try Capacitor first
             const status = await Geolocation.requestPermissions();
             setPermissionStatus(status.location);
             if (status.location === 'granted') {
                 getCurrentLocation();
+            } else {
+                // If denied/prompt, try forcing a browser prompt via getCurrentPosition
+                throw new Error("Permission not granted via Capacitor");
             }
         } catch (e) {
-            console.log("Error requesting permissions", e);
-            alert("Gagal meminta izin lokasi. Pastikan GPS aktif.");
+            console.log("Error requesting permissions, trying browser fallback", e);
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        setPermissionStatus('granted');
+                        success(position);
+                    },
+                    (err) => {
+                        console.error(err);
+                        alert("Gagal mendapatkan lokasi. Pastikan izin lokasi diberikan di browser.");
+                        fallbackLocation();
+                    },
+                    { timeout: 10000 }
+                );
+            } else {
+                alert("Browser tidak mendukung geolokasi.");
+            }
         }
     };
 
     const getCurrentLocation = async () => {
         try {
-            const position = await Geolocation.getCurrentPosition();
+            const position = await Geolocation.getCurrentPosition({ timeout: 10000 });
             success(position);
         } catch (e) {
             console.log("Error getting location", e);
