@@ -27,7 +27,10 @@ export default function QuranList() {
 
         if (filter === 'bookmarks') {
             const bookmarks = getBookmarks().map(b => parseInt(b));
-            return matchesSearch && bookmarks.includes(surah.id);
+            const verseBookmarks = getVerseBookmarks();
+            const surahIdsWithVerses = verseBookmarks.map(vb => vb.surah_id);
+
+            return matchesSearch && (bookmarks.includes(surah.id) || surahIdsWithVerses.includes(surah.id));
         }
         return matchesSearch;
     });
