@@ -46,12 +46,27 @@ jobs:
           yes | sdkmanager --licenses || true
 
       - name: Build APK
+        id: build_apk
+        continue-on-error: true
         run: |
           cd android
+          sed -i 's/\r$//' gradlew
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace -Pandroid.lintOptions.abortOnError=false
+          ./gradlew assembleDebug --stacktrace --info > ../build.log 2>&1
+
+      - name: Upload Build Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+
+      - name: Check Build Status
+        if: steps.build_apk.outcome == 'failure'
+        run: exit 1
 
       - name: Upload APK
+        if: steps.build_apk.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
