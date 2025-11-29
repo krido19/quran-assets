@@ -127,18 +127,26 @@ export default function SurahDetail() {
         }
     };
 
+    const [isSurahBookmarked, setIsSurahBookmarked] = useState(false);
+
+    useEffect(() => {
+        const bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        setIsSurahBookmarked(bookmarks.includes(parseInt(id)));
+    }, [id]);
+
     const toggleBookmark = () => {
         const bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
         const surahId = parseInt(id);
+        let newBookmarks;
 
         if (bookmarks.includes(surahId)) {
-            const newBookmarks = bookmarks.filter(b => b !== surahId);
-            localStorage.setItem('quran_bookmarks', JSON.stringify(newBookmarks));
+            newBookmarks = bookmarks.filter(b => b !== surahId);
+            setIsSurahBookmarked(false);
         } else {
-            bookmarks.push(surahId);
-            localStorage.setItem('quran_bookmarks', JSON.stringify(bookmarks));
+            newBookmarks = [...bookmarks, surahId];
+            setIsSurahBookmarked(true);
         }
-        // Force re-render or show toast (omitted for brevity)
+        localStorage.setItem('quran_bookmarks', JSON.stringify(newBookmarks));
     };
 
     // Verse Bookmark Logic
@@ -205,7 +213,7 @@ export default function SurahDetail() {
                 <h2>{surah.name_simple}</h2>
                 <div className="detail-actions">
                     <button className="icon-btn" onClick={toggleBookmark}>
-                        <i className="fa-regular fa-bookmark"></i>
+                        <i className={`fa-${isSurahBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
                     </button>
                 </div>
             </div>
