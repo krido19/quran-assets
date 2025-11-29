@@ -1,0 +1,12 @@
+{
+  "name": "islamic-app",
+  "version": "1.0.0",
+  "description": "Islamic App with Prayer Times and Quran",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
