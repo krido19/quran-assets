@@ -135,16 +135,22 @@ export default function SurahDetail() {
     }, [id]);
 
     const toggleBookmark = () => {
-        const bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        let bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
         const surahId = parseInt(id);
+
+        // Ensure all are numbers
+        bookmarks = bookmarks.map(b => parseInt(b));
+
         let newBookmarks;
 
         if (bookmarks.includes(surahId)) {
             newBookmarks = bookmarks.filter(b => b !== surahId);
             setIsSurahBookmarked(false);
+            // alert('Bookmark Surah dihapus');
         } else {
             newBookmarks = [...bookmarks, surahId];
             setIsSurahBookmarked(true);
+            // alert('Surah berhasil disimpan');
         }
         localStorage.setItem('quran_bookmarks', JSON.stringify(newBookmarks));
     };
@@ -158,11 +164,13 @@ export default function SurahDetail() {
     }, []);
 
     const toggleVerseBookmark = (verse) => {
+        const saved = JSON.parse(localStorage.getItem('verse_bookmarks') || '[]');
+        const isBookmarked = saved.some(b => b.verse_key === verse.verse_key);
         let newBookmarks;
-        const isBookmarked = bookmarkedVerses.some(b => b.verse_key === verse.verse_key);
 
         if (isBookmarked) {
-            newBookmarks = bookmarkedVerses.filter(b => b.verse_key !== verse.verse_key);
+            newBookmarks = saved.filter(b => b.verse_key !== verse.verse_key);
+            // alert('Bookmark Ayat dihapus');
         } else {
             const translation = verse.translations.find(t => t.resource_id === 131)?.text.replace(/<[^>]*>?/gm, '');
             const bookmarkData = {
@@ -172,7 +180,8 @@ export default function SurahDetail() {
                 surah_name: surah.name_simple,
                 surah_id: surah.id
             };
-            newBookmarks = [...bookmarkedVerses, bookmarkData];
+            newBookmarks = [...saved, bookmarkData];
+            // alert('Ayat berhasil disimpan');
         }
         setBookmarkedVerses(newBookmarks);
         localStorage.setItem('verse_bookmarks', JSON.stringify(newBookmarks));
