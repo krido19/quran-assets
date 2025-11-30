@@ -419,18 +419,18 @@ export default function PrayerTimes() {
                 <div style={{ marginTop: '15px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                     {!isPlaying ? (
                         <>
-                            <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={() => playAdzan('Dhuhr')}>
+                            <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={() => playAdzan('Dhuhr')}>
                                 <i className="fa-solid fa-volume-high"></i> Test Adzan
                             </button>
-                            <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={() => playAdzan('Fajr')}>
+                            <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={() => playAdzan('Fajr')}>
                                 <i className="fa-solid fa-moon"></i> Test Shubuh
                             </button>
-                            <button className="icon-btn" style={{ background: 'rgba(255,255,0,0.2)', color: 'yellow', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={startSimulation}>
+                            <button className="icon-btn" style={{ background: 'rgba(255,255,0,0.2)', color: 'yellow', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={startSimulation}>
                                 <i className="fa-solid fa-clock"></i> Simulasi (10s)
                             </button>
                         </>
                     ) : (
-                        <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px' }} onClick={stopAdzan}>
+                        <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={stopAdzan}>
                             <i className="fa-solid fa-stop"></i> Stop Adzan
                         </button>
                     )}
