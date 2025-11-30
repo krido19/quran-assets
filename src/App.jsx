@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { App as CapacitorApp } from '@capacitor/app';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -15,6 +16,27 @@ import AsmaulHusna from './pages/AsmaulHusna';
 import DailyPrayers from './pages/DailyPrayers';
 import Menu from './pages/Menu';
 
+const DeepLinkHandler = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    CapacitorApp.addListener('appUrlOpen', (data) => {
+      // console.log('App opened with URL:', data.url);
+      if (data.url.includes('login-callback')) {
+        // Extract the path/hash from the custom scheme
+        // Example: com.krido19.quran://login-callback#access_token=...
+        // We want to navigate to /profile#access_token=...
+        const slug = data.url.split('login-callback').pop();
+        if (slug) {
+          navigate('/profile' + slug);
+        }
+      }
+    });
+  }, [navigate]);
+
+  return null;
+};
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -24,6 +46,7 @@ function App() {
       <div style={{ display: showSplash ? 'none' : 'block' }}>
         <AuthProvider>
           <Router>
+            <DeepLinkHandler />
             <div className="app-container">
               <Header />
               <main id="main-content">

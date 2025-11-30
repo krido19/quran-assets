@@ -3,6 +3,21 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { toBlob } from 'html-to-image';
 
 export default function SurahDetail() {
+    // Helper to format text with footnotes
+    const formatTranslation = (text) => {
+        if (!text) return '';
+        // Split by the custom tag pattern
+        const parts = text.split(/(<sup foot_note=\d+>\d+<\/sup>)/g);
+
+        return parts.map((part, index) => {
+            const match = part.match(/<sup foot_note=(\d+)>(\d+)<\/sup>/);
+            if (match) {
+                return <sup key={index} style={{ fontSize: '0.6em', verticalAlign: 'super', color: 'var(--primary)' }}>{match[2]}</sup>;
+            }
+            return part;
+        });
+    };
+
     const [shareVerseData, setShareVerseData] = useState(null);
     const shareCardRef = useRef(null);
 
@@ -347,7 +362,7 @@ export default function SurahDetail() {
                                 <div className="verse-arabic">{verse.text_uthmani}</div>
                                 <div className="verse-transliteration">{transliteration}</div>
                                 <div className="verse-translation-group">
-                                    <div className="verse-translation-id">{translationId}</div>
+                                    <div className="verse-translation-id">{formatTranslation(translationId)}</div>
                                     <div className="verse-translation-en">{translationEn?.replace(/<[^>]*>?/gm, '')}</div>
                                 </div>
                             </div>
@@ -389,7 +404,7 @@ export default function SurahDetail() {
                             <div className="verse-arabic">{verse.text_uthmani}</div>
                             <div className="verse-transliteration">{transliteration}</div>
                             <div className="verse-translation-group">
-                                <div className="verse-translation-id">{translationId}</div>
+                                <div className="verse-translation-id">{formatTranslation(translationId)}</div>
                                 <div className="verse-translation-en">{translationEn?.replace(/<[^>]*>?/gm, '')}</div>
                             </div>
                         </div>

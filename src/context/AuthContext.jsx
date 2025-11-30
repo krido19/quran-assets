@@ -26,7 +26,13 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const signUp = async (email, password) => {
-        return supabase.auth.signUp({ email, password });
+        return supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                emailRedirectTo: 'https://krido19.github.io/quran-assets/login-callback.html'
+            }
+        });
     };
 
     const signIn = async (email, password) => {
