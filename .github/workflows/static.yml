@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Quran App...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8fafc;
+            color: #334155;
+            text-align: center;
+        }
+
+        .loader {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #0ea5e9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0ea5e9;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <h2>Redirecting to App...</h2>
+    <p>Please wait while we log you in.</p>
+    <a id="manual-link" href="#" class="btn">Open App Manually</a>
+
+    <script>
+        // Base Custom Scheme
+        const appScheme = "com.krido19.quran://login-callback";
+
+        // Get the hash from the URL (contains access_token, etc.)
+        const hash = window.location.hash;
+
+        // Construct the final Deep Link
+        const deepLink = appScheme + hash;
+
+        // Set the manual link href just in case
+        document.getElementById('manual-link').href = deepLink;
+
+        // Attempt to redirect automatically
+        setTimeout(() => {
+            window.location.href = deepLink;
+        }, 500);
+
+        // Fallback: If app doesn't open, user stays here.
+        // We could add a message: "If the app doesn't open, click the button above."
+    </script>
+</body>
+
+</html>
