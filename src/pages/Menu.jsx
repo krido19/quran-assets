@@ -4,7 +4,6 @@ export default function Menu() {
     const menuItems = [
         { path: '/asmaul-husna', icon: 'fa-solid fa-star-and-crescent', label: 'Asmaul Husna', color: '#FFD700' },
         { path: '/daily-prayers', icon: 'fa-solid fa-hands-praying', label: 'Doa Harian', color: '#4CAF50' },
-        { path: '/qibla', icon: 'fa-solid fa-kaaba', label: 'Arah Kiblat', color: '#2196F3' },
         { path: '/profile', icon: 'fa-solid fa-user', label: 'Profil Saya', color: '#9C27B0' },
     ];
 

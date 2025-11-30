@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import dailyPrayersData from '../data/daily-prayers.json';
 
 export default function DailyPrayers() {
@@ -6,8 +6,21 @@ export default function DailyPrayers() {
     const [search, setSearch] = useState('');
     const [expandedId, setExpandedId] = useState(null);
 
+    // Audio state
+    const audioRef = useRef(null);
+    const [playingId, setPlayingId] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
     useEffect(() => {
         setPrayers(dailyPrayersData);
+
+        // Cleanup on unmount
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current = null;
+            }
+        };
     }, []);
 
     const filteredPrayers = prayers.filter(item =>
@@ -19,16 +32,62 @@ export default function DailyPrayers() {
         setExpandedId(expandedId === id ? null : id);
     };
 
-    const playAudio = (audioUrl) => {
+    const handlePlay = (id, audioUrl) => {
         if (!audioUrl) {
             alert("Audio tidak tersedia untuk doa ini.");
             return;
         }
+
+        // If clicking the same audio
+        if (playingId === id) {
+            if (isPlaying) {
+                audioRef.current.pause();
+                setIsPlaying(false);
+            } else {
+                audioRef.current.play().catch(e => {
+                    console.error("Audio Play Error:", e);
+                    alert("Gagal memuat audio. Pastikan internet aktif.");
+                });
+                setIsPlaying(true);
+            }
+            return;
+        }
+
+        // If clicking a different audio, stop the current one first
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current = null;
+        }
+
+        // Start new audio
         const audio = new Audio(audioUrl);
-        audio.play().catch(e => {
+        audioRef.current = audio;
+
+        audio.play().then(() => {
+            setPlayingId(id);
+            setIsPlaying(true);
+        }).catch(e => {
             console.error("Audio Play Error:", e);
             alert("Gagal memuat audio. Pastikan internet aktif.");
+            setPlayingId(null);
+            setIsPlaying(false);
         });
+
+        // Reset state when audio ends
+        audio.onended = () => {
+            setPlayingId(null);
+            setIsPlaying(false);
+        };
+    };
+
+    const handleStop = (e) => {
+        e.stopPropagation(); // Prevent triggering other click events
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; // Reset to beginning
+        }
+        setPlayingId(null);
+        setIsPlaying(false);
     };
 
     return (
@@ -78,27 +137,70 @@ export default function DailyPrayers() {
 
                         {expandedId === item.id && (
                             <div className="prayer-content" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px' }}>
-                                <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            playAudio(item.audio);
-                                        }}
-                                        style={{
-                                            background: 'rgba(255, 215, 0, 0.2)',
-                                            color: '#FFD700',
-                                            border: 'none',
-                                            borderRadius: '20px',
-                                            padding: '5px 15px',
-                                            cursor: 'pointer',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '5px',
-                                            fontSize: '12px'
-                                        }}
-                                    >
-                                        <i className="fa-solid fa-volume-high"></i> Dengarkan
-                                    </button>
+                                <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px', gap: '10px' }}>
+                                    {playingId === item.id ? (
+                                        <>
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handlePlay(item.id, item.audio);
+                                                }}
+                                                style={{
+                                                    background: isPlaying ? 'rgba(255, 215, 0, 0.2)' : 'rgba(0, 255, 0, 0.2)',
+                                                    color: isPlaying ? '#FFD700' : '#00FF00',
+                                                    border: 'none',
+                                                    borderRadius: '20px',
+                                                    padding: '5px 15px',
+                                                    cursor: 'pointer',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '5px',
+                                                    fontSize: '12px'
+                                                }}
+                                            >
+                                                <i className={`fa-solid fa-${isPlaying ? 'pause' : 'play'}`}></i>
+                                                {isPlaying ? 'Pause' : 'Resume'}
+                                            </button>
+                                            <button
+                                                onClick={handleStop}
+                                                style={{
+                                                    background: 'rgba(255, 0, 0, 0.2)',
+                                                    color: '#FF4444',
+                                                    border: 'none',
+                                                    borderRadius: '20px',
+                                                    padding: '5px 15px',
+                                                    cursor: 'pointer',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '5px',
+                                                    fontSize: '12px'
+                                                }}
+                                            >
+                                                <i className="fa-solid fa-stop"></i> Stop
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handlePlay(item.id, item.audio);
+                                            }}
+                                            style={{
+                                                background: 'rgba(255, 215, 0, 0.2)',
+                                                color: '#FFD700',
+                                                border: 'none',
+                                                borderRadius: '20px',
+                                                padding: '5px 15px',
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '5px',
+                                                fontSize: '12px'
+                                            }}
+                                        >
+                                            <i className="fa-solid fa-volume-high"></i> Dengarkan
+                                        </button>
+                                    )}
                                 </div>
                                 <div className="arabic" style={{
                                     fontSize: '24px',

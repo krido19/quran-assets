@@ -24,6 +24,17 @@ export default function Header() {
                     id="theme-toggle"
                     className="icon-btn"
                     onClick={() => setDarkMode(!darkMode)}
+                    style={{
+                        background: 'var(--bg-card)',
+                        boxShadow: 'var(--shadow)',
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'var(--text-main)'
+                    }}
                 >
                     <i className={`fa-solid ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i>
                 </button>

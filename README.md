@@ -48,6 +48,33 @@ Dokumen ini berisi catatan lengkap proses pengembangan aplikasi Al-Quran & Jadwa
 -   **Fitur**: Getar setiap kali tap. Getar panjang saat mencapai target (33/99).
 -   **UI**: Menggunakan CSS Variables (`var(--bg-card)`, `var(--text-main)`) agar warna otomatis menyesuaikan dengan Dark/Light mode.
 
+### F. Asmaul Husna (Audio Streaming)
+-   **Fitur**: Menampilkan 99 nama Allah dengan arti dan audio.
+-   **Audio**: Menggunakan teknik **Streaming** dari Archive.org untuk menjaga ukuran aplikasi tetap kecil.
+-   **Komponen**: `src/pages/AsmaulHusna.jsx`.
+
+### G. Doa Harian (Custom Audio Hosting)
+-   **Fitur**: Kumpulan doa sehari-hari dengan audio.
+-   **Audio Strategy**:
+    -   File MP3 di-hosting di **GitHub Public Repository** (`quran-assets`).
+    -   Aplikasi memuat audio via URL `raw.githubusercontent.com`.
+    -   **Alasan**: Menghindari kuota bandwidth server berbayar dan menjaga aplikasi ringan (~5MB) dibanding memasukkan semua file MP3 ke dalam APK.
+-   **Komponen**: `src/pages/DailyPrayers.jsx`.
+
+### H. Kalender Hijriyah
+-   **Library**: `Intl.DateTimeFormat` dengan opsi `calendar: 'islamic-umalqura'`.
+-   **Fungsi**: Konversi otomatis tanggal Masehi ke Hijriyah di Header dan Jadwal Sholat.
+-   **Komponen**: `src/lib/hijri.js`.
+
+### I. Kompas Kiblat (Sensor Fusion)
+-   **Library**: `@capacitor/motion` (DeviceOrientation) & `@capacitor/geolocation`.
+-   **Logic**:
+    1.  Ambil lokasi user (Latitude/Longitude).
+    2.  Hitung arah Kiblat (Mekkah) dari lokasi user (Rumus Haversine/Bearing).
+    3.  Ambil data Kompas HP (`alpha` / `webkitCompassHeading`).
+    4.  Putar jarum kompas UI sesuai selisih arah Utara HP dan arah Kiblat.
+-   **Komponen**: `src/pages/QiblaCompass.jsx`.
+
 ---
 
 ## 3. Integrasi Android (Capacitor)
@@ -174,3 +201,35 @@ File APK akan muncul di:
 ---
 
 *Dibuat oleh Assistant - 2025*
+
+---
+
+## 9. Catatan Teknis (Update Terakhir)
+
+Berikut adalah solusi untuk masalah teknis yang ditemukan selama pengembangan, sangat berguna untuk proyek masa depan:
+
+### A. Audio Synchronization (Asmaul Husna)
+-   **Logic**: Setiap item di JSON memiliki properti `startTime` (detik).
+-   **Event**: Gunakan event `onTimeUpdate` pada `<audio>` tag untuk cek waktu saat ini (`currentTime`).
+-   **Highlight**: Bandingkan `currentTime` dengan `startTime`. Jika `currentTime >= startTime`, set item tersebut sebagai aktif.
+-   **Auto-Scroll**: Gunakan `ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })`.
+    -   *Tips*: Gunakan `block: 'nearest'` agar scrolling tidak melompat terlalu agresif (lebih nyaman di mata dibanding `center`).
+
+### B. Mobile Layout & Scrolling (CSS Fixes)
+Masalah umum: Halaman tidak bisa di-scroll atau terpotong di browser HP (Chrome/Safari Android).
+
+**Solusi "Bulletproof" untuk Layout Full-Screen:**
+1.  **Gunakan `dvh`**: Jangan pakai `vh` biasa. Gunakan `100dvh` (Dynamic Viewport Height) untuk `body` dan container utama. Ini mengatasi masalah address bar browser yang naik-turun.
+    ```css
+    body, .app-container {
+        height: 100dvh; /* Fallback: 100vh */
+        overflow: hidden; /* Prevent body scroll */
+    }
+    ```
+2.  **Flexbox untuk Main Content**:
+    -   Parent (`.app-container`): `display: flex; flex-direction: column;`
+    -   Header/Footer: Tinggi tetap (fixed height).
+    -   Content (`#main-content`): `flex: 1; overflow-y: auto;`
+3.  **Hindari Absolute Positioning untuk Scroll**:
+    -   Jangan gunakan `position: absolute` pada konten yang perlu di-scroll jika bisa dihindari. Gunakan flow normal dengan `overflow-y: auto` pada parent container.
+

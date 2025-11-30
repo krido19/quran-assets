@@ -205,7 +205,11 @@ export default function SurahDetail() {
     };
 
     const shareVerse = (verse) => {
-        const translation = verse.translations.find(t => t.resource_id === 131)?.text.replace(/<[^>]*>?/gm, '');
+        // Try to get Indonesian translation (33), fallback to English (131), then empty string
+        const translationObj = verse.translations.find(t => t.resource_id === 33) ||
+            verse.translations.find(t => t.resource_id === 131);
+
+        const translation = translationObj ? translationObj.text.replace(/<[^>]*>?/gm, '') : '';
         const text = `QS ${surah.name_simple} ${verse.verse_key.split(':')[1]}\n\n${verse.text_uthmani}\n\n${translation}\n\nSent from Islamic App`;
 
         if (navigator.share) {
