@@ -79,7 +79,18 @@ function App() {
                   <Route path="/qibla" element={<QiblaCompass />} />
                   <Route path="/tasbih" element={<Tasbih />} />
                   <Route path="/profile" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
+                  <Route
+                    path="/signup"
+                    element={
+                      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                        Redirecting...
+                        {(() => {
+                          window.location.href = 'https://krido19.github.io/quran-assets/redirect.html';
+                          return null;
+                        })()}
+                      </div>
+                    }
+                  />
                   <Route path="/asmaul-husna" element={<AsmaulHusna />} />
                   <Route path="/daily-prayers" element={<DailyPrayers />} />
                   <Route path="/menu" element={<Menu />} />
