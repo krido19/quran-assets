@@ -32,329 +32,329 @@
         "arabic": "السَّلاَمُ",
         "latin": "As Salaam",
         "meaning": "Yang Maha Memberi Kesejahteraan",
-        "startTime": 11
+        "startTime": 10
     },
     {
         "id": 6,
         "arabic": "الْمُؤْمِنُ",
         "latin": "Al Mu'min",
         "meaning": "Yang Maha Memberi Keamanan",
-        "startTime": 12.5
+        "startTime": 11
     },
     {
         "id": 7,
         "arabic": "الْمُهَيْمِنُ",
         "latin": "Al Muhaimin",
         "meaning": "Yang Maha Pemelihara",
-        "startTime": 14
+        "startTime": 12
     },
     {
         "id": 8,
         "arabic": "الْعَزِيزُ",
         "latin": "Al 'Aziz",
         "meaning": "Yang Maha Perkasa",
-        "startTime": 15.5
+        "startTime": 13
     },
     {
         "id": 9,
         "arabic": "الْجَبَّارُ",
         "latin": "Al Jabbar",
         "meaning": "Yang Memiliki Mutlak Kegagahan",
-        "startTime": 17
+        "startTime": 14
     },
     {
         "id": 10,
         "arabic": "الْمُتَكَبِّرُ",
         "latin": "Al Mutakabbir",
         "meaning": "Yang Maha Megah",
-        "startTime": 18.5
+        "startTime": 15.2
     },
     {
         "id": 11,
         "arabic": "الْخَالِقُ",
         "latin": "Al Khaliq",
         "meaning": "Yang Maha Pencipta",
-        "startTime": 20
+        "startTime": 18
     },
     {
         "id": 12,
         "arabic": "الْبَارِئُ",
         "latin": "Al Baari'",
         "meaning": "Yang Maha Melepaskan",
-        "startTime": 21.5
+        "startTime": 18.5
     },
     {
         "id": 13,
         "arabic": "الْمُصَوِّرُ",
         "latin": "Al Mushawwir",
         "meaning": "Yang Maha Membentuk Rupa",
-        "startTime": 23
+        "startTime": 19
     },
     {
         "id": 14,
         "arabic": "الْغَفَّارُ",
         "latin": "Al Ghaffar",
         "meaning": "Yang Maha Pengampun",
-        "startTime": 24.5
+        "startTime": 21
     },
     {
         "id": 15,
         "arabic": "الْقَهَّارُ",
         "latin": "Al Qahhar",
         "meaning": "Yang Maha Memaksa",
-        "startTime": 26
+        "startTime": 22
     },
     {
         "id": 16,
         "arabic": "الْوَهَّابُ",
         "latin": "Al Wahhab",
         "meaning": "Yang Maha Pemberi Karunia",
-        "startTime": 27.5
+        "startTime": 22.2
     },
     {
         "id": 17,
         "arabic": "الرَّزَّاقُ",
         "latin": "Ar Razzaq",
         "meaning": "Yang Maha Pemberi Rezeki",
-        "startTime": 29
+        "startTime": 25
     },
     {
         "id": 18,
         "arabic": "الْفَتَّاحُ",
         "latin": "Al Fattaah",
         "meaning": "Yang Maha Pembuka Rahmat",
-        "startTime": 30.5
+        "startTime": 26
     },
     {
         "id": 19,
         "arabic": "الْعَلِيمُ",
         "latin": "Al 'Aliim",
         "meaning": "Yang Maha Mengetahui",
-        "startTime": 32
+        "startTime": 28
     },
     {
         "id": 20,
         "arabic": "الْقَابِضُ",
         "latin": "Al Qaabidh",
         "meaning": "Yang Maha Menyempitkan",
-        "startTime": 33.5
+        "startTime": 29
     },
     {
         "id": 21,
         "arabic": "الْبَاسِطُ",
         "latin": "Al Baasith",
         "meaning": "Yang Maha Melapangkan",
-        "startTime": 35
+        "startTime": 30
     },
     {
         "id": 22,
         "arabic": "الْخَافِضُ",
         "latin": "Al Khaafidh",
         "meaning": "Yang Maha Merendahkan",
-        "startTime": 36.5
+        "startTime": 31
     },
     {
         "id": 23,
         "arabic": "الرَّافِعُ",
         "latin": "Ar Raafi'",
         "meaning": "Yang Maha Meninggikan",
-        "startTime": 38
+        "startTime": 32
     },
     {
         "id": 24,
         "arabic": "الْمُعِزُّ",
         "latin": "Al Mu'izz",
         "meaning": "Yang Maha Memuliakan",
-        "startTime": 39.5
+        "startTime": 33
     },
     {
         "id": 25,
         "arabic": "الْمُذِلُّ",
         "latin": "Al Mudzil",
         "meaning": "Yang Maha Menghinakan",
-        "startTime": 41
+        "startTime": 36
     },
     {
         "id": 26,
         "arabic": "السَّمِيعُ",
         "latin": "Al Samii'",
         "meaning": "Yang Maha Mendengar",
-        "startTime": 42.5
+        "startTime": 36.5
     },
     {
         "id": 27,
         "arabic": "الْبَصِيرُ",
         "latin": "Al Bashiir",
         "meaning": "Yang Maha Melihat",
-        "startTime": 44
+        "startTime": 37
     },
     {
         "id": 28,
         "arabic": "الْحَكَمُ",
         "latin": "Al Hakam",
         "meaning": "Yang Maha Menetapkan",
-        "startTime": 45.5
+        "startTime": 39
     },
     {
         "id": 29,
         "arabic": "الْعَدْلُ",
         "latin": "Al 'Adl",
         "meaning": "Yang Maha Adil",
-        "startTime": 47
+        "startTime": 40
     },
     {
         "id": 30,
         "arabic": "اللَّطِيفُ",
         "latin": "Al Lathiif",
         "meaning": "Yang Maha Lembut",
-        "startTime": 48.5
+        "startTime": 41
     },
     {
         "id": 31,
         "arabic": "الْخَبِيرُ",
         "latin": "Al Khabiir",
         "meaning": "Yang Maha Mengenal",
-        "startTime": 50
+        "startTime": 41.5
     },
     {
         "id": 32,
         "arabic": "الْحَلِيمُ",
         "latin": "Al Haliim",
         "meaning": "Yang Maha Penyantun",
-        "startTime": 51.5
+        "startTime": 44
     },
     {
         "id": 33,
         "arabic": "الْعَظِيمُ",
         "latin": "Al 'Azhiim",
         "meaning": "Yang Maha Agung",
-        "startTime": 53
+        "startTime": 44.5
     },
     {
         "id": 34,
         "arabic": "الْغَفُورُ",
         "latin": "Al Ghafuur",
         "meaning": "Yang Maha Memberi Pengampunan",
-        "startTime": 54.5
+        "startTime": 45
     },
     {
         "id": 35,
         "arabic": "الشَّكُورُ",
         "latin": "As Syakuur",
         "meaning": "Yang Maha Pembalas Budi",
-        "startTime": 56
+        "startTime": 47
     },
     {
         "id": 36,
         "arabic": "الْعَلِيُّ",
         "latin": "Al 'Aliy",
         "meaning": "Yang Maha Tinggi",
-        "startTime": 57.5
+        "startTime": 47.5
     },
     {
         "id": 37,
         "arabic": "الْكَبِيرُ",
         "latin": "Al Kabiir",
         "meaning": "Yang Maha Besar",
-        "startTime": 59
+        "startTime": 51
     },
     {
         "id": 38,
         "arabic": "الْحَفِيظُ",
         "latin": "Al Hafizh",
         "meaning": "Yang Maha Memelihara",
-        "startTime": 60.5
+        "startTime": 51.5
     },
     {
         "id": 39,
         "arabic": "الْمُقِيتُ",
         "latin": "Al Muqiit",
         "meaning": "Yang Maha Pemberi Kecukupan",
-        "startTime": 62
+        "startTime": 53
     },
     {
         "id": 40,
         "arabic": "الْحَسِيبُ",
         "latin": "Al Hasiib",
         "meaning": "Yang Maha Membuat Perhitungan",
-        "startTime": 63.5
+        "startTime": 54
     },
     {
         "id": 41,
         "arabic": "الْجَلِيلُ",
         "latin": "Al Jaliil",
         "meaning": "Yang Maha Luhur",
-        "startTime": 65
+        "startTime": 55
     },
     {
         "id": 42,
         "arabic": "الْكَرِيمُ",
         "latin": "Al Kariim",
         "meaning": "Yang Maha Pemurah",
-        "startTime": 66.5
+        "startTime": 56
     },
     {
         "id": 43,
         "arabic": "الرَّقِيبُ",
         "latin": "Ar Raqiib",
         "meaning": "Yang Maha Mengawasi",
-        "startTime": 68
+        "startTime": 57
     },
     {
         "id": 44,
         "arabic": "الْمُجِيبُ",
         "latin": "Al Mujiib",
         "meaning": "Yang Maha Mengabulkan",
-        "startTime": 69.5
+        "startTime": 60
     },
     {
         "id": 45,
         "arabic": "الْوَاسِعُ",
         "latin": "Al Waasi'",
         "meaning": "Yang Maha Luas",
-        "startTime": 71
+        "startTime": 61
     },
     {
         "id": 46,
         "arabic": "الْحَكِيمُ",
         "latin": "Al Hakiim",
         "meaning": "Yang Maha Bijaksana",
-        "startTime": 72.5
+        "startTime": 61.5
     },
     {
         "id": 47,
         "arabic": "الْوَدُودُ",
         "latin": "Al Waduud",
         "meaning": "Yang Maha Mengasihi",
-        "startTime": 74
+        "startTime": 64
     },
     {
         "id": 48,
         "arabic": "الْمَجِيدُ",
         "latin": "Al Majiid",
         "meaning": "Yang Maha Mulia",
-        "startTime": 75.5
+        "startTime": 65
     },
     {
         "id": 49,
         "arabic": "الْبَاعِثُ",
         "latin": "Al Baa'its",
         "meaning": "Yang Maha Membangkitkan",
-        "startTime": 77
+        "startTime": 66
     },
     {
         "id": 50,
         "arabic": "الشَّهِيدُ",
         "latin": "As Syahiid",
         "meaning": "Yang Maha Menyaksikan",
-        "startTime": 78.5
+        "startTime": 67
     },
     {
         "id": 51,
         "arabic": "الْحَقُّ",
         "latin": "Al Haqq",
         "meaning": "Yang Maha Benar",
-        "startTime": 80
+        "startTime": 81
     },
     {
         "id": 52,
@@ -438,258 +438,258 @@
         "arabic": "الْقَيُّومُ",
         "latin": "Al Qayyum",
         "meaning": "Yang Maha Mandiri",
-        "startTime": 98
+        "startTime": 97
     },
     {
         "id": 64,
         "arabic": "الْوَاجِدُ",
         "latin": "Al Waajid",
         "meaning": "Yang Maha Penemu",
-        "startTime": 99.5
+        "startTime": 97.5
     },
     {
         "id": 65,
         "arabic": "الْمَاجِدُ",
         "latin": "Al Maajid",
         "meaning": "Yang Maha Mulia",
-        "startTime": 101
+        "startTime": 100
     },
     {
         "id": 66,
         "arabic": "الْوَاحِدُ",
         "latin": "Al Wahid",
         "meaning": "Yang Maha Tunggal",
-        "startTime": 102.5
+        "startTime": 101
     },
     {
         "id": 67,
         "arabic": "الْأَحَدُ",
         "latin": "Al Ahad",
         "meaning": "Yang Maha Esa",
-        "startTime": 104
+        "startTime": 102
     },
     {
         "id": 68,
         "arabic": "الصَّمَدُ",
         "latin": "As Shamad",
         "meaning": "Yang Maha Dibutuhkan",
-        "startTime": 105.5
+        "startTime": 103
     },
     {
         "id": 69,
         "arabic": "الْقَادِرُ",
         "latin": "Al Qaadir",
         "meaning": "Yang Maha Menentukan",
-        "startTime": 107
+        "startTime": 105
     },
     {
         "id": 70,
         "arabic": "الْمُقْتَدِرُ",
         "latin": "Al Muqtadir",
         "meaning": "Yang Maha Berkuasa",
-        "startTime": 108.5
+        "startTime": 106
     },
     {
         "id": 71,
         "arabic": "الْمُقَدِّمُ",
         "latin": "Al Muqaddim",
         "meaning": "Yang Maha Mendahulukan",
-        "startTime": 110
+        "startTime": 107
     },
     {
         "id": 72,
         "arabic": "الْمُؤَخِّرُ",
         "latin": "Al Mu'akkhir",
         "meaning": "Yang Maha Mengakhirkan",
-        "startTime": 111.5
+        "startTime": 108
     },
     {
         "id": 73,
         "arabic": "الْأَوَّلُ",
         "latin": "Al Awwal",
         "meaning": "Yang Maha Awal",
-        "startTime": 113
+        "startTime": 109
     },
     {
         "id": 74,
         "arabic": "الْآخِرُ",
         "latin": "Al Aakhir",
         "meaning": "Yang Maha Akhir",
-        "startTime": 114.5
+        "startTime": 110
     },
     {
         "id": 75,
         "arabic": "الظَّاهِرُ",
         "latin": "Az Zhaahir",
         "meaning": "Yang Maha Nyata",
-        "startTime": 116
+        "startTime": 111
     },
     {
         "id": 76,
         "arabic": "الْبَاطِنُ",
         "latin": "Al Baathin",
         "meaning": "Yang Maha Ghaib",
-        "startTime": 117.5
+        "startTime": 113
     },
     {
         "id": 77,
         "arabic": "الْوَالِي",
         "latin": "Al Waali",
         "meaning": "Yang Maha Memerintah",
-        "startTime": 119
+        "startTime": 114
     },
     {
         "id": 78,
         "arabic": "الْمُتَعَالِي",
         "latin": "Al Muta'aalii",
         "meaning": "Yang Maha Tinggi",
-        "startTime": 120.5
+        "startTime": 115
     },
     {
         "id": 79,
         "arabic": "الْبَرُّ",
         "latin": "Al Barr",
         "meaning": "Yang Maha Penderma",
-        "startTime": 122
+        "startTime": 117
     },
     {
         "id": 80,
         "arabic": "التَّوَّابُ",
         "latin": "At Tawwaab",
         "meaning": "Yang Maha Penerima Taubat",
-        "startTime": 123.5
+        "startTime": 118
     },
     {
         "id": 81,
         "arabic": "الْمُنْتَقِمُ",
         "latin": "Al Muntaqim",
         "meaning": "Yang Maha Pemberi Balasan",
-        "startTime": 125
+        "startTime": 120
     },
     {
         "id": 82,
         "arabic": "الْعَفُوُّ",
         "latin": "Al Afuww",
         "meaning": "Yang Maha Pemaaf",
-        "startTime": 126.5
+        "startTime": 120.5
     },
     {
         "id": 83,
         "arabic": "الرَّءُوفُ",
         "latin": "Ar Ra'uuf",
         "meaning": "Yang Maha Pengasuh",
-        "startTime": 128
+        "startTime": 125
     },
     {
         "id": 84,
         "arabic": "مَالِكُ الْمُلْكِ",
         "latin": "Malikul Mulk",
         "meaning": "Yang Maha Penguasa Kerajaan",
-        "startTime": 129.5
+        "startTime": 126
     },
     {
         "id": 85,
         "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
         "latin": "Dzul Jalaali Wal Ikraam",
         "meaning": "Yang Maha Pemilik Kebesaran dan Kemuliaan",
-        "startTime": 131
+        "startTime": 128
     },
     {
         "id": 86,
         "arabic": "الْمُقْسِطُ",
         "latin": "Al Muqsith",
         "meaning": "Yang Maha Pemberi Keadilan",
-        "startTime": 132.5
+        "startTime": 131
     },
     {
         "id": 87,
         "arabic": "الْجَامِعُ",
         "latin": "Al Jaami'",
         "meaning": "Yang Maha Mengumpulkan",
-        "startTime": 134
+        "startTime": 132
     },
     {
         "id": 88,
         "arabic": "الْغَنِيُّ",
         "latin": "Al Ghaniyy",
         "meaning": "Yang Maha Kaya",
-        "startTime": 135.5
+        "startTime": 134
     },
     {
         "id": 89,
         "arabic": "الْمُغْنِي",
         "latin": "Al Mughni",
         "meaning": "Yang Maha Pemberi Kekayaan",
-        "startTime": 137
+        "startTime": 135
     },
     {
         "id": 90,
         "arabic": "الْمَانِعُ",
         "latin": "Al Maani",
         "meaning": "Yang Maha Mencegah",
-        "startTime": 138.5
+        "startTime": 137
     },
     {
         "id": 91,
         "arabic": "الضَّارُّ",
         "latin": "Ad Dhaar",
         "meaning": "Yang Maha Penimpa Kemudharatan",
-        "startTime": 140
+        "startTime": 138
     },
     {
         "id": 92,
         "arabic": "النَّافِعُ",
         "latin": "An Naafi'",
         "meaning": "Yang Maha Memberi Manfaat",
-        "startTime": 141.5
+        "startTime": 139
     },
     {
         "id": 93,
         "arabic": "النُّورُ",
         "latin": "An Nuur",
         "meaning": "Yang Maha Bercahaya",
-        "startTime": 143
+        "startTime": 140
     },
     {
         "id": 94,
         "arabic": "الْهَادِي",
         "latin": "Al Haadi",
         "meaning": "Yang Maha Pemberi Petunjuk",
-        "startTime": 144.5
+        "startTime": 141
     },
     {
         "id": 95,
         "arabic": "الْبَدِيعُ",
         "latin": "Al Badii'",
         "meaning": "Yang Maha Pencipta",
-        "startTime": 146
+        "startTime": 142
     },
     {
         "id": 96,
         "arabic": "الْبَاقِي",
         "latin": "Al Baaqii",
         "meaning": "Yang Maha Kekal",
-        "startTime": 147.5
+        "startTime": 144
     },
     {
         "id": 97,
         "arabic": "الْوَارِثُ",
         "latin": "Al Waarits",
         "meaning": "Yang Maha Pewaris",
-        "startTime": 149
+        "startTime": 145
     },
     {
         "id": 98,
         "arabic": "الرَّشِيدُ",
         "latin": "Ar Rasyiid",
         "meaning": "Yang Maha Pandai",
-        "startTime": 150.5
+        "startTime": 146
     },
     {
         "id": 99,
         "arabic": "الصَّبُورُ",
         "latin": "As Shabuur",
         "meaning": "Yang Maha Sabar",
-        "startTime": 152
+        "startTime": 147
     }
 ]
