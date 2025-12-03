@@ -2,6 +2,7 @@
     {
         "id": 1,
         "title": "Doa Sebelum Makan",
+        "title_en": "Prayer Before Eating",
         "arabic": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
         "latin": "Allahumma baarik lanaa fiimaa rozaqtanaa wa qinaa 'adzaaban naar",
         "translation": "Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka.",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "title": "Doa Sesudah Makan",
+        "title_en": "Prayer After Eating",
         "arabic": "اَلْحَمْدُ ِللهِ الَّذِيْ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ",
         "latin": "Alhamdulillahilladzi ath-amanaa wa saqoonaa wa ja'alanaa muslimiin",
         "translation": "Segala puji bagi Allah yang telah memberi makan kami dan minuman kami, serta menjadikan kami sebagai orang-orang islam.",
@@ -20,6 +22,7 @@
     {
         "id": 3,
         "title": "Doa Sebelum Tidur",
+        "title_en": "Prayer Before Sleeping",
         "arabic": "بِسْمِكَ اَللّٰهُمَّ اَحْيَا وَبِسْمِكَ اَمُوْتُ",
         "latin": "Bismika allahumma ahyaa wa bismika amuut",
         "translation": "Dengan menyebut nama-Mu Ya Allah, aku hidup dan dengan menyebut nama-Mu aku mati.",
@@ -29,6 +32,7 @@
     {
         "id": 4,
         "title": "Doa Bangun Tidur",
+        "title_en": "Prayer Waking Up",
         "arabic": "اَلْحَمْدُ ِللهِ الَّذِيْ أَحْيَانَا بَعْدَمَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرُ",
         "latin": "Alhamdulillahilladzi ahyaanaa ba'damaa amaatanaa wa ilaihin nusyuur",
         "translation": "Segala puji bagi Allah yang telah menghidupkan kami sesudah kami mati (membangunkan dari tidur) dan hanya kepada-Nya kami dikembalikan.",
@@ -38,6 +42,7 @@
     {
         "id": 5,
         "title": "Doa Masuk Masjid",
+        "title_en": "Prayer Entering Mosque",
         "arabic": "اَللّٰهُمَّ افْتَحْ لِيْ اَبْوَابَ رَحْمَتِكَ",
         "latin": "Allahummaf tahlii abwaaba rohmatik",
         "translation": "Ya Allah, bukalah untukku pintu-pintu rahmat-Mu.",
@@ -47,6 +52,7 @@
     {
         "id": 6,
         "title": "Doa Keluar Masjid",
+        "title_en": "Prayer Exiting Mosque",
         "arabic": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ فَضْلِكَ",
         "latin": "Allahumma innii as-aluka min fadhlik",
         "translation": "Ya Allah, sesungguhnya aku memohon keutamaan dari-Mu.",

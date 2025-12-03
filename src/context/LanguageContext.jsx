@@ -69,6 +69,13 @@ const translations = {
         "qibla.done": "Selesai",
         "asmaulHusna.subtitle": "99 Nama Allah yang Indah",
         "asmaulHusna.search": "Cari nama...",
+        "dailyPrayers.subtitle": "Kumpulan Doa Sehari-hari",
+        "dailyPrayers.search": "Cari doa...",
+        "dailyPrayers.listen": "Dengarkan",
+        "dailyPrayers.stop": "Stop",
+        "dailyPrayers.pause": "Pause",
+        "dailyPrayers.resume": "Lanjut",
+        "dailyPrayers.audioUnavailable": "Audio tidak tersedia untuk doa ini.",
         "common.loading": "Memuat...",
         "common.error": "Terjadi kesalahan"
     },
@@ -138,6 +145,13 @@ const translations = {
         "qibla.done": "Done",
         "asmaulHusna.subtitle": "99 Beautiful Names of Allah",
         "asmaulHusna.search": "Search name...",
+        "dailyPrayers.subtitle": "Collection of Daily Prayers",
+        "dailyPrayers.search": "Search prayer...",
+        "dailyPrayers.listen": "Listen",
+        "dailyPrayers.stop": "Stop",
+        "dailyPrayers.pause": "Pause",
+        "dailyPrayers.resume": "Resume",
+        "dailyPrayers.audioUnavailable": "Audio is not available for this prayer.",
         "common.loading": "Loading...",
         "common.error": "An error occurred"
     }
