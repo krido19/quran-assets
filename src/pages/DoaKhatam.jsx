@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function DoaKhatam() {
     const navigate = useNavigate();
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [items, setItems] = useState([]);
     const [search, setSearch] = useState('');
     const [expandedId, setExpandedId] = useState(null);
@@ -14,10 +14,12 @@ export default function DoaKhatam() {
         setItems(doaData);
     }, []);
 
-    const filteredItems = items.filter(item =>
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.translation.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredItems = items.filter(item => {
+        const title = language === 'id' ? item.title : (item.title_en || item.title);
+        const translation = language === 'id' ? item.translation : (item.translation_en || item.translation);
+        return title.toLowerCase().includes(search.toLowerCase()) ||
+            translation.toLowerCase().includes(search.toLowerCase());
+    });
 
     const toggleExpand = (id) => {
         setExpandedId(expandedId === id ? null : id);
@@ -50,12 +52,12 @@ export default function DoaKhatam() {
                 </button>
 
                 <h1 style={{ margin: 0, fontSize: '24px' }}>{t('menu.doaKhatam')}</h1>
-                <p style={{ opacity: 0.8 }}>Doa Khatam Al-Qur'an</p>
+                <p style={{ opacity: 0.8 }}>{t('doaKhatam.subtitle')}</p>
 
                 <div className="search-box" style={{ marginTop: '15px' }}>
                     <input
                         type="text"
-                        placeholder="Cari doa..."
+                        placeholder={t('doaKhatam.search')}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         style={{
@@ -72,57 +74,62 @@ export default function DoaKhatam() {
             </div>
 
             <div className="prayers-list" style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                {filteredItems.map((item) => (
-                    <div
-                        key={item.id}
-                        className="prayer-card"
-                        onClick={() => toggleExpand(item.id)}
-                        style={{
-                            background: 'var(--bg-card)',
-                            padding: '20px',
-                            borderRadius: '15px',
-                            cursor: 'pointer',
-                            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                            transition: 'all 0.3s ease'
-                        }}
-                    >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <h3 style={{ margin: 0, fontSize: '18px' }}>{item.title}</h3>
-                            <i className={`fa-solid fa-chevron-${expandedId === item.id ? 'up' : 'down'}`} style={{ opacity: 0.5 }}></i>
-                        </div>
+                {filteredItems.map((item) => {
+                    const title = language === 'id' ? item.title : (item.title_en || item.title);
+                    const translation = language === 'id' ? item.translation : (item.translation_en || item.translation);
 
-                        {expandedId === item.id && (
-                            <div className="prayer-content" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px' }}>
-                                <div className="arabic" style={{
-                                    fontSize: '24px',
-                                    fontWeight: 'bold',
-                                    marginBottom: '15px',
-                                    textAlign: 'right',
-                                    fontFamily: "'Amiri', serif",
-                                    lineHeight: '1.6'
-                                }}>
-                                    {item.arabic}
-                                </div>
-                                <div className="latin" style={{
-                                    fontSize: '14px',
-                                    fontWeight: '600',
-                                    marginBottom: '10px',
-                                    color: '#FFD700',
-                                    fontStyle: 'italic'
-                                }}>
-                                    {item.latin}
-                                </div>
-                                <div className="translation" style={{
-                                    fontSize: '14px',
-                                    opacity: 0.9,
-                                    lineHeight: '1.5'
-                                }}>
-                                    "{item.translation}"
-                                </div>
+                    return (
+                        <div
+                            key={item.id}
+                            className="prayer-card"
+                            onClick={() => toggleExpand(item.id)}
+                            style={{
+                                background: 'var(--bg-card)',
+                                padding: '20px',
+                                borderRadius: '15px',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <h3 style={{ margin: 0, fontSize: '18px' }}>{title}</h3>
+                                <i className={`fa-solid fa-chevron-${expandedId === item.id ? 'up' : 'down'}`} style={{ opacity: 0.5 }}></i>
                             </div>
-                        )}
-                    </div>
-                ))}
+
+                            {expandedId === item.id && (
+                                <div className="prayer-content" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px' }}>
+                                    <div className="arabic" style={{
+                                        fontSize: '24px',
+                                        fontWeight: 'bold',
+                                        marginBottom: '15px',
+                                        textAlign: 'right',
+                                        fontFamily: "'Amiri', serif",
+                                        lineHeight: '1.6'
+                                    }}>
+                                        {item.arabic}
+                                    </div>
+                                    <div className="latin" style={{
+                                        fontSize: '14px',
+                                        fontWeight: '600',
+                                        marginBottom: '10px',
+                                        color: '#FFD700',
+                                        fontStyle: 'italic'
+                                    }}>
+                                        {item.latin}
+                                    </div>
+                                    <div className="translation" style={{
+                                        fontSize: '14px',
+                                        opacity: 0.9,
+                                        lineHeight: '1.5'
+                                    }}>
+                                        "{translation}"
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

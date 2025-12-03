@@ -78,6 +78,8 @@ const translations = {
         "dailyPrayers.audioUnavailable": "Audio tidak tersedia untuk doa ini.",
         "dzikir.subtitle": "Dzikir Pagi & Petang",
         "dzikir.search": "Cari dzikir...",
+        "doaKhatam.subtitle": "Doa Khatam Al-Qur'an",
+        "doaKhatam.search": "Cari doa...",
         "common.loading": "Memuat...",
         "common.error": "Terjadi kesalahan"
     },
@@ -156,6 +158,8 @@ const translations = {
         "dailyPrayers.audioUnavailable": "Audio is not available for this prayer.",
         "dzikir.subtitle": "Morning & Evening Dhikr",
         "dzikir.search": "Search dhikr...",
+        "doaKhatam.subtitle": "Khatam Al-Quran Prayer",
+        "doaKhatam.search": "Search prayer...",
         "common.loading": "Loading...",
         "common.error": "An error occurred"
     }
