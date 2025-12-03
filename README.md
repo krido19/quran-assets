@@ -270,6 +270,18 @@ Masalah umum: Halaman tidak bisa di-scroll atau terpotong di browser HP (Chrome/
   - Berguna jika GPS lambat lock saat awal buka aplikasi.
   - Styling tombol disamakan dengan tombol "Aktifkan Lokasi" (Kuning/Rounded) untuk konsistensi UI.
 
+### J. Page View & Audio Enhancements
+- **Page View (Mushaf Mode)**:
+  - **Fitur**: Mode baca per halaman layaknya Mushaf fisik (1-604 halaman).
+  - **Continuous Reading**: Navigasi antar halaman (Prev/Next) otomatis memuat Surah berikutnya/sebelumnya tanpa harus kembali ke menu.
+  - **Surah Headers**: Header Surah (Nama & Bismillah) disisipkan otomatis di dalam halaman jika halaman tersebut memuat awal Surah baru.
+  - **Navigation Fix**: Mengatasi isu "flash" ke halaman pertama saat loading halaman baru dengan mempertahankan konten lama sampai data baru siap.
+
+- **Audio Player Integration**:
+  - **Header Controls**: Player audio dipindahkan ke Header (menyatu dengan tombol Tajwid & Bookmark) agar tidak menutupi konten bawah layar.
+  - **Unified Logic**: Player berfungsi mulus baik di List View maupun Page View. Saat pindah halaman, player otomatis reset ke ayat pertama halaman baru.
+  - **Mobile Responsive**: Layout header menyesuaikan diri dengan layar HP (iPhone X/11 Pro tested), memastikan tombol tetap mudah diakses.
+
 ---
 
 ---
