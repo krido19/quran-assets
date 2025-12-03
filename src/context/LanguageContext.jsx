@@ -67,6 +67,8 @@ const translations = {
         "qibla.calibrate": "Kalibrasi Kompas",
         "qibla.calibrateInfo": "Gerakkan HP Anda membentuk angka 8 di udara untuk meningkatkan akurasi kompas.",
         "qibla.done": "Selesai",
+        "asmaulHusna.subtitle": "99 Nama Allah yang Indah",
+        "asmaulHusna.search": "Cari nama...",
         "common.loading": "Memuat...",
         "common.error": "Terjadi kesalahan"
     },
@@ -134,6 +136,8 @@ const translations = {
         "qibla.calibrate": "Calibrate Compass",
         "qibla.calibrateInfo": "Move your phone in a figure 8 pattern to improve compass accuracy.",
         "qibla.done": "Done",
+        "asmaulHusna.subtitle": "99 Beautiful Names of Allah",
+        "asmaulHusna.search": "Search name...",
         "common.loading": "Loading...",
         "common.error": "An error occurred"
     }
