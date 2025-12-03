@@ -290,9 +290,9 @@ Masalah umum: Halaman tidak bisa di-scroll atau terpotong di browser HP (Chrome/
   - **Manual Refresh**: Tombol "Refresh Lokasi" tetap disediakan untuk memaksa pengambilan data GPS baru jika pengguna pindah kota.
 
 ### L. Language Support Improvements (Bilingual)
-- **Masalah**: Beberapa fitur seperti "Asmaul Husna", "Doa Harian", "Dzikir Pagi & Petang", dan "Doa Khatam" masih hardcoded dalam Bahasa Indonesia, tidak mengikuti pilihan bahasa aplikasi.
+- **Masalah**: Beberapa fitur seperti "Asmaul Husna", "Doa Harian", "Dzikir Pagi & Petang", "Doa Khatam", dan "Profil" masih hardcoded dalam Bahasa Indonesia, tidak mengikuti pilihan bahasa aplikasi.
 - **Solusi**:
-  - **Context API**: Mengintegrasikan `LanguageContext` ke halaman `AsmaulHusna.jsx`, `DailyPrayers.jsx`, `DzikirPagiPetang.jsx`, dan `DoaKhatam.jsx`.
+  - **Context API**: Mengintegrasikan `LanguageContext` ke halaman `AsmaulHusna.jsx`, `DailyPrayers.jsx`, `DzikirPagiPetang.jsx`, `DoaKhatam.jsx`, `Login.jsx`, dan `Signup.jsx`.
   - **Dynamic Data**: Menambahkan properti `title_en` dan `meaning_en` pada file JSON data source.
   - **Fallback Logic**: Jika terjemahan Inggris tidak tersedia, otomatis fallback ke Bahasa Indonesia.
   - **UI Localization**: Menerjemahkan elemen UI statis (Judul, Subtitle, Placeholder Search, Tombol) menggunakan fungsi `t()` dari context.
