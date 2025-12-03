@@ -76,6 +76,8 @@ const translations = {
         "dailyPrayers.pause": "Pause",
         "dailyPrayers.resume": "Lanjut",
         "dailyPrayers.audioUnavailable": "Audio tidak tersedia untuk doa ini.",
+        "dzikir.subtitle": "Dzikir Pagi & Petang",
+        "dzikir.search": "Cari dzikir...",
         "common.loading": "Memuat...",
         "common.error": "Terjadi kesalahan"
     },
@@ -152,6 +154,8 @@ const translations = {
         "dailyPrayers.pause": "Pause",
         "dailyPrayers.resume": "Resume",
         "dailyPrayers.audioUnavailable": "Audio is not available for this prayer.",
+        "dzikir.subtitle": "Morning & Evening Dhikr",
+        "dzikir.search": "Search dhikr...",
         "common.loading": "Loading...",
         "common.error": "An error occurred"
     }
