@@ -243,7 +243,17 @@ export default function PrayerTimes() {
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
             const data = await res.json();
-            setLocationName(data.address.city || data.address.town || t('prayer.unknown'));
+            const city = data.address.city || data.address.town || t('prayer.unknown');
+            setLocationName(city);
+            
+            // Save complete location data to localStorage
+            const locationData = {
+                latitude: lat,
+                longitude: lng,
+                name: city,
+                timestamp: Date.now()
+            };
+            localStorage.setItem('savedLocation', JSON.stringify(locationData));
         } catch (e) {
             setLocationName(t('prayer.unknown'));
         }
@@ -403,7 +413,21 @@ export default function PrayerTimes() {
     };
 
     useEffect(() => {
-        checkLocationPermission();
+        // Check for saved location first
+        const savedLocation = localStorage.getItem('savedLocation');
+        if (savedLocation) {
+            try {
+                const { latitude, longitude, name } = JSON.parse(savedLocation);
+                calculateTimes(latitude, longitude);
+                setLocationName(name);
+                setPermissionStatus('granted'); // Assume granted if we have data, or just skip prompt
+            } catch (e) {
+                console.error("Error parsing saved location", e);
+                checkLocationPermission();
+            }
+        } else {
+            checkLocationPermission();
+        }
 
         // Request Notification Permission on load (Web & Native)
         const requestPermissions = async () => {
