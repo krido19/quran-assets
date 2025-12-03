@@ -282,6 +282,13 @@ Masalah umum: Halaman tidak bisa di-scroll atau terpotong di browser HP (Chrome/
   - **Unified Logic**: Player berfungsi mulus baik di List View maupun Page View. Saat pindah halaman, player otomatis reset ke ayat pertama halaman baru.
   - **Mobile Responsive**: Layout header menyesuaikan diri dengan layar HP (iPhone X/11 Pro tested), memastikan tombol tetap mudah diakses.
 
+### K. Smart Location Caching (Optimasi GPS)
+- **Masalah**: Pengguna harus menunggu "Locating..." setiap kali membuka menu Jadwal Sholat, yang memakan waktu dan baterai.
+- **Solusi**:
+  - **Auto-Save**: Saat lokasi berhasil didapatkan (via GPS/Network), koordinat dan nama kota disimpan di `localStorage`.
+  - **Instant Load**: Saat aplikasi dibuka kembali, data lokasi dari cache langsung digunakan sehingga jadwal sholat muncul instan.
+  - **Manual Refresh**: Tombol "Refresh Lokasi" tetap disediakan untuk memaksa pengambilan data GPS baru jika pengguna pindah kota.
+
 ---
 
 ---
