@@ -4,12 +4,14 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { Geolocation } from '@capacitor/geolocation';
 import { Preferences } from '@capacitor/preferences';
 import { getHijriDate } from '../lib/hijri';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function PrayerTimes() {
+    const { t } = useLanguage();
     const [prayerTimes, setPrayerTimes] = useState(null);
     const [nextPrayer, setNextPrayer] = useState(null);
     const [countdown, setCountdown] = useState('--:--:--');
-    const [locationName, setLocationName] = useState('Locating...');
+    const [locationName, setLocationName] = useState(t('prayer.locating'));
     // ... (rest of state)
 
     // ... (existing useEffects)
@@ -24,7 +26,7 @@ export default function PrayerTimes() {
                 const widgetData = {
                     location: locationName,
                     date: formattedDate,
-                    nextPrayerName: nextPrayer.name.charAt(0).toUpperCase() + nextPrayer.name.slice(1),
+                    nextPrayerName: t(`prayer.${nextPrayer.name.toLowerCase()}`),
                     nextPrayerTime: formatTime(nextPrayer.time),
                     Subuh: formatTime(prayerTimes.fajr),
                     Dzuhur: formatTime(prayerTimes.dhuhr),
@@ -47,7 +49,7 @@ export default function PrayerTimes() {
             };
             saveData();
         }
-    }, [prayerTimes, nextPrayer, locationName]);
+    }, [prayerTimes, nextPrayer, locationName, t]);
 
     // ... (rest of component)
     const audioRef = useRef(new Audio());
@@ -241,9 +243,9 @@ export default function PrayerTimes() {
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
             const data = await res.json();
-            setLocationName(data.address.city || data.address.town || 'Unknown Location');
+            setLocationName(data.address.city || data.address.town || t('prayer.unknown'));
         } catch (e) {
-            setLocationName('Unknown Location');
+            setLocationName(t('prayer.unknown'));
         }
     };
 
@@ -417,7 +419,7 @@ export default function PrayerTimes() {
         requestPermissions();
     }, []);
 
-    if (!prayerTimes) return <div className="view active">Loading Prayer Times...</div>;
+    if (!prayerTimes) return <div className="view active">{t('common.loading')}</div>;
 
     const formatTime = (date) => {
         return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -450,7 +452,7 @@ export default function PrayerTimes() {
                                     fontWeight: 'bold'
                                 }}
                             >
-                                <i className="fa-solid fa-location-arrow"></i> Aktifkan Lokasi
+                                <i className="fa-solid fa-location-arrow"></i> {t('prayer.enableLoc')}
                             </button>
                         </div>
                     )}
@@ -473,30 +475,30 @@ export default function PrayerTimes() {
                             }}
                         >
                             <i className="fa-solid fa-rotate-right"></i>
-                            Refresh Lokasi
+                            {t('prayer.refreshLoc')}
                         </button>
                     </div>
 
-                    <div className="label" style={{ marginTop: '10px' }}>Next Prayer</div>
-                    <h2>{nextPrayer ? nextPrayer.name.charAt(0).toUpperCase() + nextPrayer.name.slice(1) : '--'}</h2>
+                    <div className="label" style={{ marginTop: '10px' }}>{t('prayer.next')}</div>
+                    <h2>{nextPrayer ? (nextPrayer.name === 'Simulasi (Test)' ? nextPrayer.name : t(`prayer.${nextPrayer.name.toLowerCase()}`)) : '--'}</h2>
                     <div className="countdown">{countdown}</div>
                 </div>
                 <div style={{ marginTop: '15px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                     {!isPlaying ? (
                         <>
                             <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={() => playAdzan('Dhuhr')}>
-                                <i className="fa-solid fa-volume-high"></i> Test Adzan
+                                <i className="fa-solid fa-volume-high"></i> {t('prayer.testAdzan')}
                             </button>
                             <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={() => playAdzan('Fajr')}>
-                                <i className="fa-solid fa-moon"></i> Test Shubuh
+                                <i className="fa-solid fa-moon"></i> {t('prayer.testFajr')}
                             </button>
                             <button className="icon-btn" style={{ background: 'rgba(255,255,0,0.2)', color: 'yellow', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={startSimulation}>
-                                <i className="fa-solid fa-clock"></i> Simulasi (10s)
+                                <i className="fa-solid fa-clock"></i> {t('prayer.simulation')} (10s)
                             </button>
                         </>
                     ) : (
                         <button className="icon-btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '20px', padding: '5px 15px', fontSize: '14px', width: 'auto', height: 'auto' }} onClick={stopAdzan}>
-                            <i className="fa-solid fa-stop"></i> Stop Adzan
+                            <i className="fa-solid fa-stop"></i> {t('prayer.stop')}
                         </button>
                     )}
                 </div>
@@ -504,7 +506,7 @@ export default function PrayerTimes() {
             <div className="prayer-times-list">
                 {['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'].map(name => (
                     <div key={name} className={`prayer-row ${nextPrayer?.name === name ? 'active' : ''}`}>
-                        <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+                        <span>{t(`prayer.${name}`)}</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <span>{formatTime(prayerTimes[name])}</span>
                             <button

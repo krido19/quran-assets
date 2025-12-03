@@ -902,3 +902,63 @@ body.dark-mode .form-group input:focus {
     opacity: 0;
   }
 }
+
+/* Tajweed Colors */
+tajweed {
+  font-family: inherit;
+}
+
+.madda_obligatory,
+.madda_normal,
+.madda_permissible {
+  color: #DC2626;
+  /* Red 600 - Strong Red-Orange */
+}
+
+.idgham_ghunnah,
+.ikhafa,
+.ghunnah {
+  color: #059669;
+  /* Emerald 600 - Richer Green */
+}
+
+.qalqalah {
+  color: #2563EB;
+  /* Blue 600 - Stronger Blue */
+}
+
+.idgham_wo_ghunnah {
+  color: #6B7280;
+  /* Gray 500 - Visible Gray */
+}
+
+.ham_wasl,
+.laam_shamsiyah {
+  color: #9CA3AF;
+  /* Gray 400 */
+}
+
+body.dark-mode .madda_obligatory,
+body.dark-mode .madda_normal,
+body.dark-mode .madda_permissible {
+  color: #F87171;
+  /* Red 400 - Bright Red-Orange */
+}
+
+body.dark-mode .idgham_ghunnah,
+body.dark-mode .ikhafa,
+body.dark-mode .ghunnah {
+  color: #34D399;
+  /* Emerald 400 - Bright Mint Green */
+}
+
+body.dark-mode .qalqalah {
+  color: #60A5FA;
+  /* Blue 400 - Bright Sky Blue */
+}
+
+body.dark-mode .ham_wasl,
+body.dark-mode .laam_shamsiyah {
+  color: #6B7280;
+  /* Gray 500 */
+}

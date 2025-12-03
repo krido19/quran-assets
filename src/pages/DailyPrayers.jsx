@@ -1,7 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import dailyPrayersData from '../data/daily-prayers.json';
 
 export default function DailyPrayers() {
+    const navigate = useNavigate();
     const [prayers, setPrayers] = useState([]);
     const [search, setSearch] = useState('');
     const [expandedId, setExpandedId] = useState(null);
@@ -92,7 +94,30 @@ export default function DailyPrayers() {
 
     return (
         <div className="view active" style={{ paddingBottom: '80px' }}>
-            <div className="header-section" style={{ padding: '20px', textAlign: 'center' }}>
+            <div className="header-section" style={{ padding: '20px', textAlign: 'center', position: 'relative' }}>
+                <button
+                    onClick={() => navigate(-1)}
+                    style={{
+                        position: 'absolute',
+                        left: '20px',
+                        top: '20px',
+                        background: 'var(--bg-card)',
+                        border: 'none',
+                        borderRadius: '12px',
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+                        color: 'var(--primary)',
+                        cursor: 'pointer',
+                        zIndex: 10
+                    }}
+                >
+                    <i className="fa-solid fa-arrow-left"></i>
+                </button>
+
                 <h1>Doa Harian</h1>
                 <p style={{ opacity: 0.8 }}>Kumpulan Doa Sehari-hari</p>
 
@@ -109,7 +134,8 @@ export default function DailyPrayers() {
                             border: 'none',
                             background: 'var(--bg-card)',
                             color: 'var(--text-main)',
-                            fontSize: '16px'
+                            fontSize: '16px',
+                            paddingLeft: '45px' // Space for icon if we added one, but standard is fine
                         }}
                     />
                 </div>

@@ -5,78 +5,52 @@
         "arabic": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
         "latin": "Allahumma baarik lanaa fiimaa rozaqtanaa wa qinaa 'adzaaban naar",
         "translation": "Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-sebelum-makan.mp3"
+        "translation_en": "O Allah, bless us in what You have provided for us and protect us from the punishment of the Fire.",
+        "audio": "/audio/doa-1.mp3"
     },
     {
         "id": 2,
         "title": "Doa Sesudah Makan",
-        "arabic": "اَلْحَمْدُ ِللهِ الَّذِىْ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ",
-        "latin": "Alhamdulillahilladzi ath-amanaa wa saqoonaa wa ja'alanaa minal muslimiin",
-        "translation": "Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami termasuk dari golongan orang-orang muslim.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-sesudah-makan.mp3"
+        "arabic": "اَلْحَمْدُ ِللهِ الَّذِيْ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ",
+        "latin": "Alhamdulillahilladzi ath-amanaa wa saqoonaa wa ja'alanaa muslimiin",
+        "translation": "Segala puji bagi Allah yang telah memberi makan kami dan minuman kami, serta menjadikan kami sebagai orang-orang islam.",
+        "translation_en": "All praise is due to Allah who has fed us and given us drink, and made us Muslims.",
+        "audio": "/audio/doa-2.mp3"
     },
     {
         "id": 3,
         "title": "Doa Sebelum Tidur",
-        "arabic": "بِسْمِكَ اللّهُمَّ اَحْيَا وَ بِسْمِكَ اَمُوْتُ",
-        "latin": "Bismika Allahumma ahyaa wa bismika amuut",
-        "translation": "Dengan nama-Mu Ya Allah aku hidup, dan dengan nama-Mu aku mati.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-sebelum-tidur.mp3"
+        "arabic": "بِسْمِكَ اَللّٰهُمَّ اَحْيَا وَبِسْمِكَ اَمُوْتُ",
+        "latin": "Bismika allahumma ahyaa wa bismika amuut",
+        "translation": "Dengan menyebut nama-Mu Ya Allah, aku hidup dan dengan menyebut nama-Mu aku mati.",
+        "translation_en": "In Your name, O Allah, I live and in Your name I die.",
+        "audio": "/audio/doa-3.mp3"
     },
     {
         "id": 4,
         "title": "Doa Bangun Tidur",
-        "arabic": "اَلْحَمْدُ ِللهِ الَّذِى أَحْيَانَا بَعْدَمَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
-        "latin": "Alhamdulillahil ladzi ahyana ba'da ma amatana wailaihin nusyur",
+        "arabic": "اَلْحَمْدُ ِللهِ الَّذِيْ أَحْيَانَا بَعْدَمَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرُ",
+        "latin": "Alhamdulillahilladzi ahyaanaa ba'damaa amaatanaa wa ilaihin nusyuur",
         "translation": "Segala puji bagi Allah yang telah menghidupkan kami sesudah kami mati (membangunkan dari tidur) dan hanya kepada-Nya kami dikembalikan.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-bangun-tidur.mp3"
+        "translation_en": "All praise is due to Allah who gave us life after having given us death, and unto Him is the resurrection.",
+        "audio": "/audio/doa-4.mp3"
     },
     {
         "id": 5,
-        "title": "Doa Masuk Kamar Mandi",
-        "arabic": "اَللّٰهُمَّ اِنِّىْ اَعُوْذُبِكَ مِنَ الْخُبُثِ وَالْخَبَآئِثِ",
-        "latin": "Allahumma innii a'uudzubika minal khubutsi wal khobaaits",
-        "translation": "Ya Allah, sesungguhnya aku berlindung kepada-Mu dari godaan syaitan laki-laki dan perempuan.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-masuk-kamar-mandi.mp3"
-    },
-    {
-        "id": 6,
-        "title": "Doa Keluar Kamar Mandi",
-        "arabic": "غُفْرَانَكَ الْحَمْدُ ِللهِ الَّذِىْ اَذْهَبَ عَنِّى الْأَذَى وَعَافَانِى",
-        "latin": "Ghufranaka. Alhamdulillahilladzi adzhaba 'annil adzaa wa'aafaanii",
-        "translation": "Aku memohon ampunan-Mu. Segala puji bagi Allah yang telah menghilangkan kotoran dari badanku dan yang telah menyehatkan-Ku.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-keluar-kamar-mandi.mp3"
-    },
-    {
-        "id": 7,
-        "title": "Doa Keluar Rumah",
-        "arabic": "بِسْمِ اللهِ تَوَكَّلْتُ عَلَى اللهِ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ",
-        "latin": "Bismillahi tawakkaltu 'alallahi laa hawla wa laa quwwata illaa billah",
-        "translation": "Dengan nama Allah, aku bertawakkal kepada Allah. Tiada daya dan kekuatan kecuali dengan Allah.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-keluar-rumah.mp3"
-    },
-    {
-        "id": 8,
         "title": "Doa Masuk Masjid",
         "arabic": "اَللّٰهُمَّ افْتَحْ لِيْ اَبْوَابَ رَحْمَتِكَ",
         "latin": "Allahummaf tahlii abwaaba rohmatik",
         "translation": "Ya Allah, bukalah untukku pintu-pintu rahmat-Mu.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-masuk-masjid.mp3"
+        "translation_en": "O Allah, open for me the doors of Your mercy.",
+        "audio": "/audio/doa-5.mp3"
     },
     {
-        "id": 9,
+        "id": 6,
         "title": "Doa Keluar Masjid",
-        "arabic": "اَللّٰهُمَّ اِنِّى اَسْأَلُكَ مِنْ فَضْلِكَ",
+        "arabic": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ فَضْلِكَ",
         "latin": "Allahumma innii as-aluka min fadhlik",
         "translation": "Ya Allah, sesungguhnya aku memohon keutamaan dari-Mu.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-keluar-masjid.mp3"
-    },
-    {
-        "id": 10,
-        "title": "Doa Kedua Orang Tua",
-        "arabic": "رَبِّ اغْفِرْ لِيْ وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِيْ صَغِيْرًا",
-        "latin": "Rabbighfir lii waliwaalidayya warhamhumaa kamaa rabbayaanii shaghiiraa",
-        "translation": "Ya Tuhanku, ampunilah dosaku dan dosa kedua orang tuaku, dan belas kasihilah mereka berdua sebagaimana mereka berdua mendidikku waktu kecil.",
-        "audio": "https://raw.githubusercontent.com/krido19/quran-assets/main/doa-kedua-orang-tua.mp3"
+        "translation_en": "O Allah, I ask You for Your bounty.",
+        "audio": "/audio/doa-6.mp3"
     }
 ]
