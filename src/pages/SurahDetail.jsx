@@ -86,7 +86,20 @@ export default function SurahDetail() {
     const [touchEnd, setTouchEnd] = useState(null);
     const [scriptType, setScriptType] = useState('plain'); // 'plain' or 'tajweed'
     const [showScriptMenu, setShowScriptMenu] = useState(false);
+    const [allChapters, setAllChapters] = useState({});
 
+    // Fetch All Chapters for reference
+    useEffect(() => {
+        fetch('https://api.quran.com/api/v4/chapters?language=' + language)
+            .then(res => res.json())
+            .then(data => {
+                const chaptersMap = {};
+                data.chapters.forEach(c => chaptersMap[c.id] = c);
+                setAllChapters(chaptersMap);
+            });
+    }, [language]);
+
+    // Fetch Surah Info
     // Fetch Surah Info
     useEffect(() => {
         fetch(`https://api.quran.com/api/v4/chapters/${id}?language=${language}`)
@@ -95,11 +108,24 @@ export default function SurahDetail() {
                 setSurah(data.chapter);
                 // Reset verses when surah changes
                 setVerses([]);
-                setPage(1);
                 setHasMore(true);
-                fetchVerses(1);
+
+                // If switching surah, set page to surah's first page
+                if (viewMode === 'page') {
+                    setCurrentDisplayPage(data.chapter.pages[0]);
+                } else {
+                    setPage(1);
+                    fetchVerses(1);
+                }
             });
     }, [id, language]);
+
+    // Update currentDisplayPage when viewMode changes to page
+    useEffect(() => {
+        if (viewMode === 'page' && surah && !currentDisplayPage) {
+            setCurrentDisplayPage(surah.pages[0]);
+        }
+    }, [viewMode, surah]);
 
     // Auto-scroll to target verse if provided
     useEffect(() => {
@@ -122,7 +148,7 @@ export default function SurahDetail() {
         if (isLoading) return;
         setIsLoading(true);
 
-        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number&per_page=20&page=${pageNumber}`)
+        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number&per_page=50&page=${pageNumber}`)
             .then(res => res.json())
             .then(data => {
                 if (data.verses.length === 0) {
@@ -142,10 +168,36 @@ export default function SurahDetail() {
             .catch(() => setIsLoading(false));
     };
 
-    // Infinite Scroll with IntersectionObserver
+    // Fetch Page (Page View)
+    const [pageVerses, setPageVerses] = useState([]);
+
+    const fetchPageContent = (pageNum) => {
+        if (isLoading) return;
+        setIsLoading(true);
+        // setPageVerses([]); // Keep previous page content while loading to prevent header flicker
+
+        fetch(`https://api.quran.com/api/v4/verses/by_page/${pageNum}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number,chapter_id`)
+            .then(res => res.json())
+            .then(data => {
+                setPageVerses(data.verses);
+                setIsLoading(false);
+                // Reset verse index for new page
+                setCurrentVerseIndex(0);
+            })
+            .catch(() => setIsLoading(false));
+    };
+
+    // Trigger fetch when currentDisplayPage changes in Page View
+    useEffect(() => {
+        if (viewMode === 'page' && currentDisplayPage) {
+            fetchPageContent(currentDisplayPage);
+        }
+    }, [currentDisplayPage, viewMode]);
+
+    // Infinite Scroll with IntersectionObserver (List View Only)
     const observer = useRef();
     const lastVerseElementRef = (node) => {
-        if (isLoading) return;
+        if (isLoading || viewMode === 'page') return;
         if (observer.current) observer.current.disconnect();
 
         observer.current = new IntersectionObserver(entries => {
@@ -157,29 +209,27 @@ export default function SurahDetail() {
         if (node) observer.current.observe(node);
     };
 
-    // Trigger fetch when page changes
+    // Trigger fetch when page changes (List View)
     useEffect(() => {
-        if (page > 1) {
+        if (viewMode === 'list' && page > 1) {
             fetchVerses(page);
         }
-    }, [page]);
+    }, [page, viewMode]);
 
-    // Auto-fetch for Page View if current page is empty
+    // Auto-fetch for Page View if current page is empty (REMOVED - handled by fetchPageContent)
     useEffect(() => {
-        if (viewMode === 'page' && currentDisplayPage && !isLoading && hasMore) {
-            const versesOnPage = verses.filter(v => v.page_number === currentDisplayPage);
-            if (versesOnPage.length === 0) {
-                setPage(prev => prev + 1);
-            }
-        }
-    }, [viewMode, currentDisplayPage, verses, isLoading, hasMore]);
+        // Legacy cleanup
+    }, []);
+
+    // Determine active verses for playback
+    const activeVerses = viewMode === 'page' ? pageVerses : verses;
 
     // Audio Logic
     useEffect(() => {
         const audio = audioRef.current;
 
         const handleEnded = () => {
-            if (currentVerseIndex < verses.length - 1) {
+            if (currentVerseIndex < activeVerses.length - 1) {
                 playVerse(currentVerseIndex + 1);
             } else {
                 setIsPlaying(false);
@@ -188,17 +238,20 @@ export default function SurahDetail() {
 
         audio.addEventListener('ended', handleEnded);
         return () => audio.removeEventListener('ended', handleEnded);
-    }, [verses, currentVerseIndex]);
+    }, [activeVerses, currentVerseIndex]);
 
     const playVerse = (index) => {
-        if (index >= 0 && index < verses.length) {
+        if (index >= 0 && index < activeVerses.length) {
             setCurrentVerseIndex(index);
-            const url = verses[index].audio.url;
+            const url = activeVerses[index].audio.url;
             if (url) {
                 audioRef.current.src = `https://verses.quran.com/${url}`;
                 audioRef.current.play();
                 setIsPlaying(true);
-                scrollToVerse(index);
+                // Only scroll in List View
+                if (viewMode === 'list') {
+                    scrollToVerse(index);
+                }
             }
         }
     };
@@ -323,10 +376,29 @@ export default function SurahDetail() {
                     <i className="fa-solid fa-arrow-left"></i>
                 </button>
                 <div style={{ textAlign: 'center' }}>
-                    <h2 style={{ margin: 0, fontSize: '18px' }}>{surah.name_simple}</h2>
-                    <div style={{ fontSize: '12px', opacity: 0.7 }}>{viewMode === 'list' ? t('surah.verseView') : t('surah.pageView')}</div>
+                    <h2 style={{ margin: 0, fontSize: '18px' }}>
+                        {viewMode === 'page' && pageVerses.length > 0
+                            ? (allChapters[pageVerses[0].chapter_id]?.name_simple || surah.name_simple)
+                            : surah.name_simple}
+                    </h2>
+                    <div style={{ fontSize: '12px', opacity: 0.7 }}>
+                        {viewMode === 'page' && pageVerses.length > 0
+                            ? `Juz ${pageVerses[0].juz_number} • ${t('surah.page')} ${currentDisplayPage}`
+                            : (viewMode === 'list' ? t('surah.verseView') : t('surah.pageView'))}
+                    </div>
                 </div>
-                <div className="detail-actions" style={{ display: 'flex', gap: '10px', position: 'relative' }}>
+                <div className="detail-actions" style={{ display: 'flex', gap: '10px', alignItems: 'center', position: 'relative' }}>
+                    <div style={{ display: 'flex', gap: '5px', marginRight: '10px', borderRight: '1px solid var(--text-muted)', paddingRight: '10px' }}>
+                        <button className="icon-btn" onClick={() => playVerse(currentVerseIndex - 1)} style={{ width: '30px', height: '30px', fontSize: '14px' }}>
+                            <i className="fa-solid fa-backward-step"></i>
+                        </button>
+                        <button className="icon-btn" onClick={togglePlay} style={{ width: '30px', height: '30px', fontSize: '14px', color: isPlaying ? 'var(--primary)' : 'inherit' }}>
+                            <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                        </button>
+                        <button className="icon-btn" onClick={() => playVerse(currentVerseIndex + 1)} style={{ width: '30px', height: '30px', fontSize: '14px' }}>
+                            <i className="fa-solid fa-forward-step"></i>
+                        </button>
+                    </div>
                     <button
                         className="icon-btn"
                         onClick={(e) => { e.stopPropagation(); setShowScriptMenu(!showScriptMenu); }}
@@ -390,22 +462,7 @@ export default function SurahDetail() {
                 </div>
             </div>
 
-            <div className="audio-player-container">
-                <div className="audio-controls">
-                    <button className="icon-btn" onClick={() => playVerse(currentVerseIndex - 1)}>
-                        <i className="fa-solid fa-backward-step"></i>
-                    </button>
-                    <button className="icon-btn play-btn" onClick={togglePlay}>
-                        <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                    </button>
-                    <button className="icon-btn" onClick={() => playVerse(currentVerseIndex + 1)}>
-                        <i className="fa-solid fa-forward-step"></i>
-                    </button>
-                </div>
-                <div className="audio-info">
-                    <span>{t('surah.verse')} {currentVerseIndex + 1}</span>
-                </div>
-            </div>
+
 
             <div className="verses-list">
                 {viewMode === 'list' ? (
@@ -472,103 +529,62 @@ export default function SurahDetail() {
                 ) : (
                     // PAGE VIEW (Mushaf Mode)
                     <div className="mushaf-container">
-                        {(() => {
-                            const pageNumbers = Object.keys(versesByPage).map(Number).sort((a, b) => a - b);
-                            const activePage = currentDisplayPage || pageNumbers[0];
-                            const pageVerses = versesByPage[activePage] || [];
-                            const juzNum = pageVerses[0]?.juz_number;
+                        {isLoading ? (
+                            <div style={{ textAlign: 'center', padding: '20px' }}>{t('surah.loading')}</div>
+                        ) : (
+                            <div className="mushaf-page-wrapper">
+                                <div
+                                    className="mushaf-page"
+                                    style={{
+                                        background: 'var(--bg-card)',
+                                        padding: '20px',
+                                        marginBottom: '20px',
+                                        borderRadius: '16px',
+                                        boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                                        minHeight: '60vh'
+                                    }}
+                                >
+                                    <div style={{
+                                        direction: 'rtl',
+                                        textAlign: 'justify',
+                                        fontFamily: "'Amiri', serif",
+                                        fontSize: '24px',
+                                        lineHeight: '2.2',
+                                        color: 'var(--text-main)'
+                                    }}>
+                                        {pageVerses.map((verse, idx) => {
+                                            const isNewSurah = verse.verse_key.split(':')[1] === '1';
+                                            const chapterInfo = allChapters[verse.chapter_id];
 
-                            // Ensure currentDisplayPage is set initially
-                            if (!currentDisplayPage && pageNumbers.length > 0) {
-                                setCurrentDisplayPage(pageNumbers[0]);
-                                return null; // Will re-render
-                            }
+                                            return (
+                                                <span key={verse.id}>
+                                                    {isNewSurah && chapterInfo && (
+                                                        <div style={{
+                                                            width: '100%',
+                                                            textAlign: 'center',
+                                                            margin: '20px 0',
+                                                            padding: '10px',
+                                                            background: 'rgba(var(--primary-rgb), 0.1)',
+                                                            borderRadius: '10px',
+                                                            border: '1px solid var(--primary)'
+                                                        }}>
+                                                            <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--primary)' }}>
+                                                                {chapterInfo.name_simple}
+                                                            </div>
+                                                            <div style={{ fontSize: '14px', opacity: 0.7 }}>
+                                                                {chapterInfo.translated_name.name}
+                                                            </div>
+                                                            {verse.chapter_id !== 1 && verse.chapter_id !== 9 && (
+                                                                <div style={{ marginTop: '10px', fontFamily: 'Amiri, serif', fontSize: '20px' }}>
+                                                                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
 
-                            if (!pageVerses.length) return <div style={{ textAlign: 'center', padding: '20px' }}>{t('surah.loading')}</div>;
-
-                            const handleTouchStart = (e) => {
-                                setTouchStart(e.targetTouches[0].clientX);
-                            };
-
-                            const handleTouchMove = (e) => {
-                                setTouchEnd(e.targetTouches[0].clientX);
-                            };
-
-                            const handleTouchEnd = () => {
-                                if (!touchStart || !touchEnd) return;
-                                const distance = touchStart - touchEnd;
-                                const isLeftSwipe = distance > 50;
-                                const isRightSwipe = distance < -50;
-
-                                if (isLeftSwipe) {
-                                    // Next Page
-                                    const nextPage = activePage + 1;
-                                    if (versesByPage[nextPage]) {
-                                        setCurrentDisplayPage(nextPage);
-                                    } else if (hasMore) {
-                                        setPage(prev => prev + 1);
-                                        setCurrentDisplayPage(nextPage);
-                                    }
-                                }
-
-                                if (isRightSwipe) {
-                                    // Previous Page
-                                    setCurrentDisplayPage(prev => Math.max(prev - 1, pageNumbers[0]));
-                                }
-
-                                setTouchStart(null);
-                                setTouchEnd(null);
-                            };
-
-                            return (
-                                <div className="mushaf-page-wrapper">
-                                    {/* Page Content */}
-                                    <div
-                                        key={activePage}
-                                        className="mushaf-page"
-                                        onTouchStart={handleTouchStart}
-                                        onTouchMove={handleTouchMove}
-                                        onTouchEnd={handleTouchEnd}
-                                        style={{
-                                            background: 'var(--bg-card)',
-                                            padding: '20px',
-                                            marginBottom: '20px',
-                                            borderRadius: '16px',
-                                            boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                                            minHeight: '60vh'
-                                        }}
-                                    >
-                                        <div style={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            fontSize: '12px',
-                                            opacity: 0.6,
-                                            marginBottom: '15px',
-                                            borderBottom: '1px solid var(--text-muted)',
-                                            paddingBottom: '10px'
-                                        }}>
-                                            <span>{surah.name_simple}</span>
-                                            <span>{t('surah.juz')} {juzNum}</span>
-                                            <span>{t('surah.page')} {activePage}</span>
-                                        </div>
-                                        <div style={{
-                                            direction: 'rtl',
-                                            textAlign: 'justify',
-                                            fontFamily: "'Amiri', serif",
-                                            fontSize: '24px',
-                                            lineHeight: '2.2',
-                                            color: 'var(--text-main)'
-                                        }}>
-                                            {pageVerses.map((verse, idx) => {
-                                                const globalIndex = verses.indexOf(verse);
-                                                const isActive = globalIndex === currentVerseIndex;
-                                                return (
                                                     <span
-                                                        key={verse.id}
-                                                        onClick={() => handleVersePlay(globalIndex)}
                                                         style={{
                                                             cursor: 'pointer',
-                                                            backgroundColor: isActive ? 'rgba(16, 185, 129, 0.2)' : 'transparent',
                                                             borderRadius: '4px',
                                                             transition: 'background 0.2s'
                                                         }}
@@ -594,73 +610,58 @@ export default function SurahDetail() {
                                                             {verse.verse_key.split(':')[1]}
                                                         </span>
                                                     </span>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-
-                                    {/* Navigation Controls */}
-                                    <div className="page-navigation" style={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                        marginTop: '20px',
-                                        padding: '10px',
-                                        background: 'var(--bg-card)',
-                                        borderRadius: '12px'
-                                    }}>
-                                        <button
-                                            onClick={() => setCurrentDisplayPage(prev => Math.max(prev - 1, pageNumbers[0]))}
-                                            disabled={activePage <= pageNumbers[0]}
-                                            style={{
-                                                background: 'var(--primary)',
-                                                color: 'white',
-                                                border: 'none',
-                                                padding: '10px 20px',
-                                                borderRadius: '8px',
-                                                opacity: activePage <= pageNumbers[0] ? 0.5 : 1,
-                                                cursor: activePage <= pageNumbers[0] ? 'default' : 'pointer'
-                                            }}
-                                        >
-                                            <i className="fa-solid fa-chevron-left"></i> {t('surah.prev')}
-                                        </button>
-
-                                        <span style={{ fontWeight: 'bold' }}>{t('surah.page')} {activePage}</span>
-
-                                        <button
-                                            onClick={() => {
-                                                const nextPage = activePage + 1;
-                                                // Check if we have verses for the next page
-                                                if (versesByPage[nextPage]) {
-                                                    setCurrentDisplayPage(nextPage);
-                                                } else {
-                                                    // Load more data
-                                                    if (hasMore) {
-                                                        setPage(prev => prev + 1);
-                                                        // We optimistically set the page, the view will show "Loading..." or partial data once it arrives
-                                                        // Ideally we wait, but for now let's just trigger load
-                                                        // A better UX might be to show a loading state on the button
-                                                        setCurrentDisplayPage(nextPage);
-                                                    } else {
-                                                        alert(t('surah.end'));
-                                                    }
-                                                }
-                                            }}
-                                            style={{
-                                                background: 'var(--primary)',
-                                                color: 'white',
-                                                border: 'none',
-                                                padding: '10px 20px',
-                                                borderRadius: '8px',
-                                                cursor: 'pointer'
-                                            }}
-                                        >
-                                            {t('surah.next')} <i className="fa-solid fa-chevron-right"></i>
-                                        </button>
+                                                </span>
+                                            );
+                                        })}
                                     </div>
                                 </div>
-                            );
-                        })()}
+
+                                {/* Navigation Controls */}
+                                <div className="page-navigation" style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginTop: '20px',
+                                    padding: '10px',
+                                    background: 'var(--bg-card)',
+                                    borderRadius: '12px'
+                                }}>
+                                    <button
+                                        onClick={() => setCurrentDisplayPage(prev => Math.max(prev - 1, 1))}
+                                        disabled={currentDisplayPage <= 1}
+                                        style={{
+                                            background: 'var(--primary)',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '10px 20px',
+                                            borderRadius: '8px',
+                                            opacity: currentDisplayPage <= 1 ? 0.5 : 1,
+                                            cursor: currentDisplayPage <= 1 ? 'default' : 'pointer'
+                                        }}
+                                    >
+                                        <i className="fa-solid fa-chevron-left"></i> {t('surah.prev')}
+                                    </button>
+
+                                    <span style={{ fontWeight: 'bold' }}>{t('surah.page')} {currentDisplayPage}</span>
+
+                                    <button
+                                        onClick={() => setCurrentDisplayPage(prev => Math.min(prev + 1, 604))}
+                                        disabled={currentDisplayPage >= 604}
+                                        style={{
+                                            background: 'var(--primary)',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '10px 20px',
+                                            borderRadius: '8px',
+                                            opacity: currentDisplayPage >= 604 ? 0.5 : 1,
+                                            cursor: currentDisplayPage >= 604 ? 'default' : 'pointer'
+                                        }}
+                                    >
+                                        {t('surah.next')} <i className="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
 
