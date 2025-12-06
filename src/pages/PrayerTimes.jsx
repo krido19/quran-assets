@@ -245,7 +245,7 @@ export default function PrayerTimes() {
             const data = await res.json();
             const city = data.address.city || data.address.town || t('prayer.unknown');
             setLocationName(city);
-            
+
             // Save complete location data to localStorage
             const locationData = {
                 latitude: lat,
@@ -538,7 +538,7 @@ export default function PrayerTimes() {
                                 onClick={() => toggleSetting(name)}
                                 style={{
                                     background: 'transparent',
-                                    border: '1px solid rgba(255,255,255,0.3)',
+                                    border: `1px solid ${adzanSettings[name] === 'off' ? 'var(--text-muted)' : 'var(--primary)'}`,
                                     padding: '5px',
                                     borderRadius: '50%',
                                     width: '30px',
@@ -546,7 +546,7 @@ export default function PrayerTimes() {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    color: adzanSettings[name] === 'off' ? 'rgba(255,255,255,0.3)' : 'white'
+                                    color: adzanSettings[name] === 'off' ? 'var(--text-muted)' : 'var(--primary)'
                                 }}
                             >
                                 {adzanSettings[name] === 'sound' && <i className="fa-solid fa-volume-high"></i>}

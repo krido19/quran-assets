@@ -161,7 +161,8 @@ export default function DailyPrayers() {
                                 borderRadius: '15px',
                                 cursor: 'pointer',
                                 boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease',
+                                color: 'var(--text-main)'
                             }}
                         >
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -19,12 +19,16 @@
     "@capacitor/local-notifications": "^7.0.3",
     "@capacitor/motion": "^7.0.1",
     "@capacitor/preferences": "^7.0.2",
+    "@capacitor/splash-screen": "^7.0.3",
     "@supabase/supabase-js": "^2.86.0",
     "adhan": "^4.4.3",
     "html-to-image": "^1.11.13",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.6"
+    "react-router-dom": "^7.9.6",
+    "swiper": "^12.0.3",
+    "vite-plugin-pwa": "^1.2.0",
+    "workbox-window": "^7.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

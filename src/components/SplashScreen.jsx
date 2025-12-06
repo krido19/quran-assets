@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 import packageJson from '../../package.json';
-
-// Placeholder URL - REPLACE THIS with your actual hosted version.json URL
-// Example: 'https://raw.githubusercontent.com/username/repo/main/public/version.json'
-// Using the Release repo as per user's push target
-const UPDATE_CHECK_URL = 'https://raw.githubusercontent.com/krido19/Quran_Release/main/public/version.json';
+import { supabaseUpdate } from '../lib/supabaseUpdate';
 
 export default function SplashScreen({ onFinish }) {
     const [status, setStatus] = useState('loading'); // loading, update-available, error, done
     const [remoteVersion, setRemoteVersion] = useState(null);
     const [downloadUrl, setDownloadUrl] = useState('');
     const [forceUpdate, setForceUpdate] = useState(false);
+    const [releaseNotes, setReleaseNotes] = useState('');
 
     useEffect(() => {
         const checkUpdate = async () => {
@@ -18,11 +15,16 @@ export default function SplashScreen({ onFinish }) {
                 // Minimum splash duration of 2 seconds for branding
                 const minSplashTime = new Promise(resolve => setTimeout(resolve, 2000));
 
-                // Fetch remote version
-                const versionCheck = fetch(UPDATE_CHECK_URL)
-                    .then(res => {
-                        if (!res.ok) throw new Error('Network response was not ok');
-                        return res.json();
+                // Fetch remote version from Supabase (Web Admin Database)
+                const versionCheck = supabaseUpdate
+                    .from('app_versions')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(1)
+                    .maybeSingle()
+                    .then(({ data, error }) => {
+                        if (error) throw error;
+                        return data;
                     })
                     .catch(err => {
                         console.warn('Update check failed:', err);
@@ -33,8 +35,9 @@ export default function SplashScreen({ onFinish }) {
 
                 if (remoteData && isUpdateAvailable(packageJson.version, remoteData.version)) {
                     setRemoteVersion(remoteData.version);
-                    setDownloadUrl(remoteData.downloadUrl);
-                    setForceUpdate(remoteData.forceUpdate || false);
+                    setDownloadUrl(remoteData.download_url);
+                    setForceUpdate(remoteData.force_update || false);
+                    setReleaseNotes(remoteData.release_notes || '');
                     setStatus('update-available');
                 } else {
                     handleFinish();
@@ -68,9 +71,7 @@ export default function SplashScreen({ onFinish }) {
     };
 
     const handleUpdate = () => {
-        if (downloadUrl) {
-            window.open(downloadUrl, '_system');
-        }
+        window.open(downloadUrl || 'https://krido-bahtiar.vercel.app/apps', '_system');
     };
 
     const handleSkip = () => {
@@ -143,8 +144,8 @@ export default function SplashScreen({ onFinish }) {
                     }}>
                         <i className="fa-solid fa-rocket" style={{ fontSize: '32px', color: '#FFD700', marginBottom: '15px' }}></i>
                         <h2 style={{ color: '#fff', fontSize: '18px', marginBottom: '10px' }}>Update Tersedia!</h2>
-                        <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', marginBottom: '20px' }}>
-                            Versi baru {remoteVersion} tersedia. Update sekarang untuk fitur terbaru.
+                        <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', marginBottom: '20px', lineHeight: '1.5' }}>
+                            {releaseNotes || "Versi baru tersedia. Silakan update untuk mendapatkan fitur terbaru."}
                         </p>
 
                         <button

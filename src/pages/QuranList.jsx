@@ -56,7 +56,7 @@ export default function QuranList() {
                     className="last-read-card"
                     onClick={() => navigate(`/surah/${lastRead.surahId}`, { state: { targetVerse: lastRead.verseKey } })}
                     style={{
-                        background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+                        background: 'linear-gradient(135deg, var(--primary), var(--primary-dark))',
                         margin: '20px 20px 10px',
                         padding: '15px',
                         borderRadius: '15px',

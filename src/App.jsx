@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { App as CapacitorApp } from '@capacitor/app';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { AuthProvider } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import SplashScreen from './components/SplashScreen';
+import SplashScreenComponent from './components/SplashScreen';
 import QuranList from './pages/QuranList';
 import SurahDetail from './pages/SurahDetail';
 import PrayerTimes from './pages/PrayerTimes';
@@ -40,10 +41,15 @@ const DeepLinkHandler = () => {
   return null;
 };
 
+
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
+    // Hide Native Splash Screen immediately so our React Splash Screen can be seen
+    SplashScreen.hide();
+
     const requestPermissions = async () => {
       try {
         // Request Location Permission
@@ -75,7 +81,7 @@ function App() {
 
   return (
     <>
-      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
+      {showSplash && <SplashScreenComponent onFinish={() => setShowSplash(false)} />}
       <div style={{ display: showSplash ? 'none' : 'block' }}>
         <AuthProvider>
           <LanguageProvider>

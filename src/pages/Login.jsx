@@ -108,11 +108,11 @@ function BookmarksList({ t }) {
                                 key={id}
                                 onClick={() => navigate(`/surah/${id}`)}
                                 style={{
-                                    background: 'rgba(255,255,255,0.1)',
-                                    border: '1px solid rgba(255,255,255,0.2)',
+                                    background: 'var(--bg-body)',
+                                    border: '1px solid var(--text-muted)',
                                     padding: '8px 15px',
                                     borderRadius: '20px',
-                                    color: 'white',
+                                    color: 'var(--text-main)',
                                     cursor: 'pointer'
                                 }}
                             >
@@ -132,11 +132,11 @@ function BookmarksList({ t }) {
                                 key={i}
                                 onClick={() => navigate(`/surah/${b.surah_id}`, { state: { targetVerse: b.verse_key } })}
                                 style={{
-                                    background: 'rgba(255,255,255,0.05)',
+                                    background: 'var(--bg-body)',
                                     padding: '10px',
                                     borderRadius: '10px',
                                     cursor: 'pointer',
-                                    borderLeft: '3px solid var(--primary-color)'
+                                    borderLeft: '3px solid var(--primary)'
                                 }}
                             >
                                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>QS {b.surah_name} {b.verse_key.split(':')[1]}</div>

@@ -2,6 +2,147 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { toBlob } from 'html-to-image';
 import { useLanguage } from '../context/LanguageContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Virtual } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/virtual';
+
+const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoaded, isPlaying, currentVerseIndex, playVerse, toggleVerseBookmark, handleVersePlay, formatTranslation }) => {
+    const [verses, setVerses] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadPage = async () => {
+            const cacheKey = `quran_page_${pageNumber}_${language}`;
+            const cached = localStorage.getItem(cacheKey);
+
+            if (cached) {
+                try {
+                    const data = JSON.parse(cached);
+                    setVerses(data);
+                    setLoading(false);
+                    onDataLoaded(pageNumber, data);
+                    return;
+                } catch (e) {
+                    console.error('Cache parse error', e);
+                }
+            }
+
+            setLoading(true);
+            try {
+                const res = await fetch(`https://api.quran.com/api/v4/verses/by_page/${pageNumber}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number,chapter_id`);
+                const data = await res.json();
+                setVerses(data.verses);
+                onDataLoaded(pageNumber, data.verses);
+                try {
+                    localStorage.setItem(cacheKey, JSON.stringify(data.verses));
+                } catch (e) {
+                    // Quota exceeded or other error, ignore
+                    console.warn('Cache save failed', e);
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadPage();
+    }, [pageNumber, language]);
+
+    if (loading) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading Page {pageNumber}...</div>;
+
+    return (
+        <div className="mushaf-page-wrapper" style={{ padding: '0 10px', height: '80vh', overflowY: 'auto' }}>
+            <div
+                className="mushaf-page"
+                style={{
+                    background: 'var(--bg-card)',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    borderRadius: '16px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                    minHeight: '60vh'
+                }}
+            >
+                <div style={{
+                    direction: 'rtl',
+                    textAlign: 'justify',
+                    fontFamily: "'Amiri', serif",
+                    fontSize: '24px',
+                    lineHeight: '2.2',
+                    color: 'var(--text-main)'
+                }}>
+                    {verses.map((verse, idx) => {
+                        const isNewSurah = verse.verse_key.split(':')[1] === '1';
+                        // Use a fallback for Chapter Info if allChapters isn't fully loaded yet
+                        const chapterInfo = allChapters[verse.chapter_id];
+
+                        return (
+                            <span key={verse.id}>
+                                {isNewSurah && chapterInfo && (
+                                    <div style={{
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        margin: '20px 0',
+                                        padding: '10px',
+                                        background: 'rgba(16, 185, 129, 0.1)',
+                                        borderRadius: '10px',
+                                        border: '1px solid var(--primary)'
+                                    }}>
+                                        <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--primary)' }}>
+                                            {chapterInfo.name_simple}
+                                        </div>
+                                        <div style={{ fontSize: '14px', opacity: 0.7 }}>
+                                            {chapterInfo.translated_name.name}
+                                        </div>
+                                        {verse.chapter_id !== 1 && verse.chapter_id !== 9 && (
+                                            <div style={{ marginTop: '10px', fontFamily: 'Amiri, serif', fontSize: '20px' }}>
+                                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                <span
+                                    style={{
+                                        cursor: 'pointer',
+                                        borderRadius: '4px',
+                                        transition: 'background 0.2s'
+                                    }}
+                                >
+                                    {scriptType === 'tajweed' ? (
+                                        <span dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }} />
+                                    ) : (
+                                        verse.text_uthmani
+                                    )}
+                                    <span style={{
+                                        fontSize: '0.8em',
+                                        color: 'var(--primary)',
+                                        margin: '0 5px',
+                                        border: '1px solid var(--primary)',
+                                        borderRadius: '50%',
+                                        width: '25px',
+                                        height: '25px',
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        verticalAlign: 'middle'
+                                    }}>
+                                        {verse.verse_key.split(':')[1]}
+                                    </span>
+                                </span>
+                            </span>
+                        );
+                    })}
+                </div>
+            </div>
+            <div style={{ textAlign: 'center', padding: '10px', opacity: 0.5 }}>
+                Page {pageNumber}
+            </div>
+        </div>
+    );
+};
 
 export default function SurahDetail() {
     const { language, t } = useLanguage();
@@ -189,9 +330,9 @@ export default function SurahDetail() {
 
     // Trigger fetch when currentDisplayPage changes in Page View
     useEffect(() => {
-        if (viewMode === 'page' && currentDisplayPage) {
-            fetchPageContent(currentDisplayPage);
-        }
+        // if (viewMode === 'page' && currentDisplayPage) {
+        //     fetchPageContent(currentDisplayPage);
+        // }
     }, [currentDisplayPage, viewMode]);
 
     // Infinite Scroll with IntersectionObserver (List View Only)
@@ -528,141 +669,40 @@ export default function SurahDetail() {
                     </>
                 ) : (
                     // PAGE VIEW (Mushaf Mode)
-                    <div className="mushaf-container">
-                        {isLoading ? (
-                            <div style={{ textAlign: 'center', padding: '20px' }}>{t('surah.loading')}</div>
-                        ) : (
-                            <div className="mushaf-page-wrapper">
-                                <div
-                                    className="mushaf-page"
-                                    style={{
-                                        background: 'var(--bg-card)',
-                                        padding: '20px',
-                                        marginBottom: '20px',
-                                        borderRadius: '16px',
-                                        boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                                        minHeight: '60vh'
+                    <Swiper
+                        modules={[Virtual]}
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        virtual
+                        initialSlide={currentDisplayPage - 1}
+                        onSlideChange={(swiper) => {
+                            const newPage = swiper.activeIndex + 1;
+                            setCurrentDisplayPage(newPage);
+                        }}
+                        style={{ height: '100%' }}
+                    >
+                        {Array.from({ length: 604 }).map((_, index) => (
+                            <SwiperSlide key={index} virtualIndex={index}>
+                                <MushafSlide
+                                    pageNumber={index + 1}
+                                    language={language}
+                                    scriptType={scriptType}
+                                    allChapters={allChapters}
+                                    onDataLoaded={(pNum, verses) => {
+                                        if (pNum === currentDisplayPage) {
+                                            setPageVerses(verses);
+                                        }
                                     }}
-                                >
-                                    <div style={{
-                                        direction: 'rtl',
-                                        textAlign: 'justify',
-                                        fontFamily: "'Amiri', serif",
-                                        fontSize: '24px',
-                                        lineHeight: '2.2',
-                                        color: 'var(--text-main)'
-                                    }}>
-                                        {pageVerses.map((verse, idx) => {
-                                            const isNewSurah = verse.verse_key.split(':')[1] === '1';
-                                            const chapterInfo = allChapters[verse.chapter_id];
-
-                                            return (
-                                                <span key={verse.id}>
-                                                    {isNewSurah && chapterInfo && (
-                                                        <div style={{
-                                                            width: '100%',
-                                                            textAlign: 'center',
-                                                            margin: '20px 0',
-                                                            padding: '10px',
-                                                            background: 'rgba(var(--primary-rgb), 0.1)',
-                                                            borderRadius: '10px',
-                                                            border: '1px solid var(--primary)'
-                                                        }}>
-                                                            <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--primary)' }}>
-                                                                {chapterInfo.name_simple}
-                                                            </div>
-                                                            <div style={{ fontSize: '14px', opacity: 0.7 }}>
-                                                                {chapterInfo.translated_name.name}
-                                                            </div>
-                                                            {verse.chapter_id !== 1 && verse.chapter_id !== 9 && (
-                                                                <div style={{ marginTop: '10px', fontFamily: 'Amiri, serif', fontSize: '20px' }}>
-                                                                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    )}
-
-                                                    <span
-                                                        style={{
-                                                            cursor: 'pointer',
-                                                            borderRadius: '4px',
-                                                            transition: 'background 0.2s'
-                                                        }}
-                                                    >
-                                                        {scriptType === 'tajweed' ? (
-                                                            <span dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }} />
-                                                        ) : (
-                                                            verse.text_uthmani
-                                                        )}
-                                                        <span style={{
-                                                            fontSize: '0.8em',
-                                                            color: 'var(--primary)',
-                                                            margin: '0 5px',
-                                                            border: '1px solid var(--primary)',
-                                                            borderRadius: '50%',
-                                                            width: '25px',
-                                                            height: '25px',
-                                                            display: 'inline-flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            verticalAlign: 'middle'
-                                                        }}>
-                                                            {verse.verse_key.split(':')[1]}
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-
-                                {/* Navigation Controls */}
-                                <div className="page-navigation" style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    marginTop: '20px',
-                                    padding: '10px',
-                                    background: 'var(--bg-card)',
-                                    borderRadius: '12px'
-                                }}>
-                                    <button
-                                        onClick={() => setCurrentDisplayPage(prev => Math.max(prev - 1, 1))}
-                                        disabled={currentDisplayPage <= 1}
-                                        style={{
-                                            background: 'var(--primary)',
-                                            color: 'white',
-                                            border: 'none',
-                                            padding: '10px 20px',
-                                            borderRadius: '8px',
-                                            opacity: currentDisplayPage <= 1 ? 0.5 : 1,
-                                            cursor: currentDisplayPage <= 1 ? 'default' : 'pointer'
-                                        }}
-                                    >
-                                        <i className="fa-solid fa-chevron-left"></i> {t('surah.prev')}
-                                    </button>
-
-                                    <span style={{ fontWeight: 'bold' }}>{t('surah.page')} {currentDisplayPage}</span>
-
-                                    <button
-                                        onClick={() => setCurrentDisplayPage(prev => Math.min(prev + 1, 604))}
-                                        disabled={currentDisplayPage >= 604}
-                                        style={{
-                                            background: 'var(--primary)',
-                                            color: 'white',
-                                            border: 'none',
-                                            padding: '10px 20px',
-                                            borderRadius: '8px',
-                                            opacity: currentDisplayPage >= 604 ? 0.5 : 1,
-                                            cursor: currentDisplayPage >= 604 ? 'default' : 'pointer'
-                                        }}
-                                    >
-                                        {t('surah.next')} <i className="fa-solid fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
+                                    isPlaying={isPlaying}
+                                    currentVerseIndex={currentVerseIndex}
+                                    playVerse={playVerse}
+                                    toggleVerseBookmark={toggleVerseBookmark}
+                                    handleVersePlay={handleVersePlay}
+                                    formatTranslation={formatTranslation}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 )}
 
                 {isLoading && <div className="loading-more" style={{ textAlign: 'center', padding: '20px' }}>{t('surah.loading')}</div>}
