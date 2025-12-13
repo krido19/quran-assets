@@ -4,692 +4,791 @@
         "arabic": "الرَّحْمَنُ",
         "latin": "Ar Rahman",
         "meaning": "Yang Maha Pengasih",
-        "startTime": 5
+        "startTime": 5,
+        "meaning_en": "The Most Gracious"
     },
     {
         "id": 2,
         "arabic": "الرَّحِيمُ",
         "latin": "Ar Rahiim",
         "meaning": "Yang Maha Penyayang",
-        "startTime": 6.5
+        "startTime": 6.5,
+        "meaning_en": "The Most Merciful"
     },
     {
         "id": 3,
         "arabic": "الْمَلِكُ",
         "latin": "Al Malik",
         "meaning": "Yang Maha Merajai",
-        "startTime": 8
+        "startTime": 8,
+        "meaning_en": "The King"
     },
     {
         "id": 4,
         "arabic": "الْقُدُّوسُ",
         "latin": "Al Quddus",
         "meaning": "Yang Maha Suci",
-        "startTime": 9.5
+        "startTime": 9.5,
+        "meaning_en": "The Most Holy"
     },
     {
         "id": 5,
         "arabic": "السَّلاَمُ",
         "latin": "As Salaam",
         "meaning": "Yang Maha Memberi Kesejahteraan",
-        "startTime": 10
+        "startTime": 10,
+        "meaning_en": "The Source of Peace"
     },
     {
         "id": 6,
         "arabic": "الْمُؤْمِنُ",
         "latin": "Al Mu'min",
         "meaning": "Yang Maha Memberi Keamanan",
-        "startTime": 11
+        "startTime": 11,
+        "meaning_en": "The Guardian of Faith"
     },
     {
         "id": 7,
         "arabic": "الْمُهَيْمِنُ",
         "latin": "Al Muhaimin",
         "meaning": "Yang Maha Pemelihara",
-        "startTime": 12
+        "startTime": 12,
+        "meaning_en": "The Protector"
     },
     {
         "id": 8,
         "arabic": "الْعَزِيزُ",
         "latin": "Al 'Aziz",
         "meaning": "Yang Maha Perkasa",
-        "startTime": 13
+        "startTime": 13,
+        "meaning_en": "The Almighty"
     },
     {
         "id": 9,
         "arabic": "الْجَبَّارُ",
         "latin": "Al Jabbar",
         "meaning": "Yang Memiliki Mutlak Kegagahan",
-        "startTime": 14
+        "startTime": 14,
+        "meaning_en": "The Compeller"
     },
     {
         "id": 10,
         "arabic": "الْمُتَكَبِّرُ",
         "latin": "Al Mutakabbir",
         "meaning": "Yang Maha Megah",
-        "startTime": 15.2
+        "startTime": 15.2,
+        "meaning_en": "The Majestic"
     },
     {
         "id": 11,
         "arabic": "الْخَالِقُ",
         "latin": "Al Khaliq",
         "meaning": "Yang Maha Pencipta",
-        "startTime": 18
+        "startTime": 18,
+        "meaning_en": "The Creator"
     },
     {
         "id": 12,
         "arabic": "الْبَارِئُ",
         "latin": "Al Baari'",
         "meaning": "Yang Maha Melepaskan",
-        "startTime": 18.5
+        "startTime": 18.5,
+        "meaning_en": "The Evolver"
     },
     {
         "id": 13,
         "arabic": "الْمُصَوِّرُ",
         "latin": "Al Mushawwir",
         "meaning": "Yang Maha Membentuk Rupa",
-        "startTime": 19
+        "startTime": 19,
+        "meaning_en": "The Fashioner"
     },
     {
         "id": 14,
         "arabic": "الْغَفَّارُ",
         "latin": "Al Ghaffar",
         "meaning": "Yang Maha Pengampun",
-        "startTime": 21
+        "startTime": 21,
+        "meaning_en": "The Great Forgiver"
     },
     {
         "id": 15,
         "arabic": "الْقَهَّارُ",
         "latin": "Al Qahhar",
         "meaning": "Yang Maha Memaksa",
-        "startTime": 22
+        "startTime": 22,
+        "meaning_en": "The Subduer"
     },
     {
         "id": 16,
         "arabic": "الْوَهَّابُ",
         "latin": "Al Wahhab",
         "meaning": "Yang Maha Pemberi Karunia",
-        "startTime": 22.2
+        "startTime": 22.2,
+        "meaning_en": "The Bestower"
     },
     {
         "id": 17,
         "arabic": "الرَّزَّاقُ",
         "latin": "Ar Razzaq",
         "meaning": "Yang Maha Pemberi Rezeki",
-        "startTime": 25
+        "startTime": 25,
+        "meaning_en": "The Provider"
     },
     {
         "id": 18,
         "arabic": "الْفَتَّاحُ",
         "latin": "Al Fattaah",
         "meaning": "Yang Maha Pembuka Rahmat",
-        "startTime": 26
+        "startTime": 26,
+        "meaning_en": "The Opener"
     },
     {
         "id": 19,
         "arabic": "الْعَلِيمُ",
         "latin": "Al 'Aliim",
         "meaning": "Yang Maha Mengetahui",
-        "startTime": 28
+        "startTime": 28,
+        "meaning_en": "The All-Knowing"
     },
     {
         "id": 20,
         "arabic": "الْقَابِضُ",
         "latin": "Al Qaabidh",
         "meaning": "Yang Maha Menyempitkan",
-        "startTime": 29
+        "startTime": 29,
+        "meaning_en": "The Withholder"
     },
     {
         "id": 21,
         "arabic": "الْبَاسِطُ",
         "latin": "Al Baasith",
         "meaning": "Yang Maha Melapangkan",
-        "startTime": 30
+        "startTime": 30,
+        "meaning_en": "The Expander"
     },
     {
         "id": 22,
         "arabic": "الْخَافِضُ",
         "latin": "Al Khaafidh",
         "meaning": "Yang Maha Merendahkan",
-        "startTime": 31
+        "startTime": 31,
+        "meaning_en": "The Abaser"
     },
     {
         "id": 23,
         "arabic": "الرَّافِعُ",
         "latin": "Ar Raafi'",
         "meaning": "Yang Maha Meninggikan",
-        "startTime": 32
+        "startTime": 32,
+        "meaning_en": "The Exalter"
     },
     {
         "id": 24,
         "arabic": "الْمُعِزُّ",
         "latin": "Al Mu'izz",
         "meaning": "Yang Maha Memuliakan",
-        "startTime": 33
+        "startTime": 33,
+        "meaning_en": "The Giver of Honour"
     },
     {
         "id": 25,
         "arabic": "الْمُذِلُّ",
         "latin": "Al Mudzil",
         "meaning": "Yang Maha Menghinakan",
-        "startTime": 36
+        "startTime": 36,
+        "meaning_en": "The Giver of Dishonour"
     },
     {
         "id": 26,
         "arabic": "السَّمِيعُ",
         "latin": "Al Samii'",
         "meaning": "Yang Maha Mendengar",
-        "startTime": 36.5
+        "startTime": 36.5,
+        "meaning_en": "The All-Hearing"
     },
     {
         "id": 27,
         "arabic": "الْبَصِيرُ",
         "latin": "Al Bashiir",
         "meaning": "Yang Maha Melihat",
-        "startTime": 37
+        "startTime": 37,
+        "meaning_en": "The All-Seeing"
     },
     {
         "id": 28,
         "arabic": "الْحَكَمُ",
         "latin": "Al Hakam",
         "meaning": "Yang Maha Menetapkan",
-        "startTime": 39
+        "startTime": 39,
+        "meaning_en": "The Judge"
     },
     {
         "id": 29,
         "arabic": "الْعَدْلُ",
         "latin": "Al 'Adl",
         "meaning": "Yang Maha Adil",
-        "startTime": 40
+        "startTime": 40,
+        "meaning_en": "The Just"
     },
     {
         "id": 30,
         "arabic": "اللَّطِيفُ",
         "latin": "Al Lathiif",
         "meaning": "Yang Maha Lembut",
-        "startTime": 41
+        "startTime": 41,
+        "meaning_en": "The Subtle One"
     },
     {
         "id": 31,
         "arabic": "الْخَبِيرُ",
         "latin": "Al Khabiir",
         "meaning": "Yang Maha Mengenal",
-        "startTime": 41.5
+        "startTime": 41.5,
+        "meaning_en": "The All-Aware"
     },
     {
         "id": 32,
         "arabic": "الْحَلِيمُ",
         "latin": "Al Haliim",
         "meaning": "Yang Maha Penyantun",
-        "startTime": 44
+        "startTime": 44,
+        "meaning_en": "The Forbearing"
     },
     {
         "id": 33,
         "arabic": "الْعَظِيمُ",
         "latin": "Al 'Azhiim",
         "meaning": "Yang Maha Agung",
-        "startTime": 44.5
+        "startTime": 44.5,
+        "meaning_en": "The Magnificent"
     },
     {
         "id": 34,
         "arabic": "الْغَفُورُ",
         "latin": "Al Ghafuur",
         "meaning": "Yang Maha Memberi Pengampunan",
-        "startTime": 45
+        "startTime": 45,
+        "meaning_en": "The Forgiver"
     },
     {
         "id": 35,
         "arabic": "الشَّكُورُ",
         "latin": "As Syakuur",
         "meaning": "Yang Maha Pembalas Budi",
-        "startTime": 47
+        "startTime": 47,
+        "meaning_en": "The Appreciative"
     },
     {
         "id": 36,
         "arabic": "الْعَلِيُّ",
         "latin": "Al 'Aliy",
         "meaning": "Yang Maha Tinggi",
-        "startTime": 47.5
+        "startTime": 47.5,
+        "meaning_en": "The Most High"
     },
     {
         "id": 37,
         "arabic": "الْكَبِيرُ",
         "latin": "Al Kabiir",
         "meaning": "Yang Maha Besar",
-        "startTime": 51
+        "startTime": 51,
+        "meaning_en": "The Most Great"
     },
     {
         "id": 38,
         "arabic": "الْحَفِيظُ",
         "latin": "Al Hafizh",
         "meaning": "Yang Maha Memelihara",
-        "startTime": 51.5
+        "startTime": 51.5,
+        "meaning_en": "The Preserver"
     },
     {
         "id": 39,
         "arabic": "الْمُقِيتُ",
         "latin": "Al Muqiit",
         "meaning": "Yang Maha Pemberi Kecukupan",
-        "startTime": 53
+        "startTime": 53,
+        "meaning_en": "The Sustainer"
     },
     {
         "id": 40,
         "arabic": "الْحَسِيبُ",
         "latin": "Al Hasiib",
         "meaning": "Yang Maha Membuat Perhitungan",
-        "startTime": 54
+        "startTime": 54,
+        "meaning_en": "The Reckoner"
     },
     {
         "id": 41,
         "arabic": "الْجَلِيلُ",
         "latin": "Al Jaliil",
         "meaning": "Yang Maha Luhur",
-        "startTime": 55
+        "startTime": 55,
+        "meaning_en": "The Sublime One"
     },
     {
         "id": 42,
         "arabic": "الْكَرِيمُ",
         "latin": "Al Kariim",
         "meaning": "Yang Maha Pemurah",
-        "startTime": 56
+        "startTime": 56,
+        "meaning_en": "The Generous One"
     },
     {
         "id": 43,
         "arabic": "الرَّقِيبُ",
         "latin": "Ar Raqiib",
         "meaning": "Yang Maha Mengawasi",
-        "startTime": 57
+        "startTime": 57,
+        "meaning_en": "The Watchful"
     },
     {
         "id": 44,
         "arabic": "الْمُجِيبُ",
         "latin": "Al Mujiib",
         "meaning": "Yang Maha Mengabulkan",
-        "startTime": 60
+        "startTime": 60,
+        "meaning_en": "The Responder"
     },
     {
         "id": 45,
         "arabic": "الْوَاسِعُ",
         "latin": "Al Waasi'",
         "meaning": "Yang Maha Luas",
-        "startTime": 61
+        "startTime": 61,
+        "meaning_en": "The All-Encompassing"
     },
     {
         "id": 46,
         "arabic": "الْحَكِيمُ",
         "latin": "Al Hakiim",
         "meaning": "Yang Maha Bijaksana",
-        "startTime": 61.5
+        "startTime": 61.5,
+        "meaning_en": "The Wise"
     },
     {
         "id": 47,
         "arabic": "الْوَدُودُ",
         "latin": "Al Waduud",
         "meaning": "Yang Maha Mengasihi",
-        "startTime": 64
+        "startTime": 64,
+        "meaning_en": "The Loving"
     },
     {
         "id": 48,
         "arabic": "الْمَجِيدُ",
         "latin": "Al Majiid",
         "meaning": "Yang Maha Mulia",
-        "startTime": 65
+        "startTime": 65,
+        "meaning_en": "The Most Glorious One"
     },
     {
         "id": 49,
         "arabic": "الْبَاعِثُ",
         "latin": "Al Baa'its",
         "meaning": "Yang Maha Membangkitkan",
-        "startTime": 66
+        "startTime": 66,
+        "meaning_en": "The Resurrecting One"
     },
     {
         "id": 50,
         "arabic": "الشَّهِيدُ",
         "latin": "As Syahiid",
         "meaning": "Yang Maha Menyaksikan",
-        "startTime": 67
+        "startTime": 67,
+        "meaning_en": "The Witness"
     },
     {
         "id": 51,
         "arabic": "الْحَقُّ",
         "latin": "Al Haqq",
         "meaning": "Yang Maha Benar",
-        "startTime": 81
+        "startTime": 81,
+        "meaning_en": "The Truth"
     },
     {
         "id": 52,
         "arabic": "الْوَكِيلُ",
         "latin": "Al Wakiil",
         "meaning": "Yang Maha Memelihara",
-        "startTime": 81.5
+        "startTime": 81.5,
+        "meaning_en": "The Trustee"
     },
     {
         "id": 53,
         "arabic": "الْقَوِيُّ",
         "latin": "Al Qawiyyu",
         "meaning": "Yang Maha Kuat",
-        "startTime": 83
+        "startTime": 83,
+        "meaning_en": "The Strong"
     },
     {
         "id": 54,
         "arabic": "الْمَتِينُ",
         "latin": "Al Matiin",
         "meaning": "Yang Maha Kokoh",
-        "startTime": 84.5
+        "startTime": 84.5,
+        "meaning_en": "The Firm One"
     },
     {
         "id": 55,
         "arabic": "الْوَلِيُّ",
         "latin": "Al Waliyy",
         "meaning": "Yang Maha Melindungi",
-        "startTime": 86
+        "startTime": 86,
+        "meaning_en": "The Protecting Friend"
     },
     {
         "id": 56,
         "arabic": "الْحَمِيدُ",
         "latin": "Al Hamiid",
         "meaning": "Yang Maha Terpuji",
-        "startTime": 87.5
+        "startTime": 87.5,
+        "meaning_en": "The Praiseworthy"
     },
     {
         "id": 57,
         "arabic": "الْمُحْصِي",
         "latin": "Al Muhshii",
         "meaning": "Yang Maha Menghitung",
-        "startTime": 89
+        "startTime": 89,
+        "meaning_en": "The Accounter"
     },
     {
         "id": 58,
         "arabic": "الْمُبْدِئُ",
         "latin": "Al Mubdi'",
         "meaning": "Yang Maha Memulai",
-        "startTime": 90.5
+        "startTime": 90.5,
+        "meaning_en": "The Originator"
     },
     {
         "id": 59,
         "arabic": "الْمُعِيدُ",
         "latin": "Al Mu'iid",
         "meaning": "Yang Maha Mengembalikan Kehidupan",
-        "startTime": 92
+        "startTime": 92,
+        "meaning_en": "The Restorer"
     },
     {
         "id": 60,
         "arabic": "الْمُحْيِي",
         "latin": "Al Muhyii",
         "meaning": "Yang Maha Menghidupkan",
-        "startTime": 93.5
+        "startTime": 93.5,
+        "meaning_en": "The Giver of Life"
     },
     {
         "id": 61,
         "arabic": "الْمُمِيتُ",
         "latin": "Al Mumiit",
         "meaning": "Yang Maha Mematikan",
-        "startTime": 95
+        "startTime": 95,
+        "meaning_en": "The Creator of Death"
     },
     {
         "id": 62,
         "arabic": "الْحَيُّ",
         "latin": "Al Hayyu",
         "meaning": "Yang Maha Hidup",
-        "startTime": 96.5
+        "startTime": 96.5,
+        "meaning_en": "The Ever-Living"
     },
     {
         "id": 63,
         "arabic": "الْقَيُّومُ",
         "latin": "Al Qayyum",
         "meaning": "Yang Maha Mandiri",
-        "startTime": 97
+        "startTime": 97,
+        "meaning_en": "The Self-Subsisting"
     },
     {
         "id": 64,
         "arabic": "الْوَاجِدُ",
         "latin": "Al Waajid",
         "meaning": "Yang Maha Penemu",
-        "startTime": 97.5
+        "startTime": 97.5,
+        "meaning_en": "The Finder"
     },
     {
         "id": 65,
         "arabic": "الْمَاجِدُ",
         "latin": "Al Maajid",
         "meaning": "Yang Maha Mulia",
-        "startTime": 100
+        "startTime": 100,
+        "meaning_en": "The Noble"
     },
     {
         "id": 66,
         "arabic": "الْوَاحِدُ",
         "latin": "Al Wahid",
         "meaning": "Yang Maha Tunggal",
-        "startTime": 101
+        "startTime": 101,
+        "meaning_en": "The Unique"
     },
     {
         "id": 67,
         "arabic": "الْأَحَدُ",
         "latin": "Al Ahad",
         "meaning": "Yang Maha Esa",
-        "startTime": 102
+        "startTime": 102,
+        "meaning_en": "The One"
     },
     {
         "id": 68,
         "arabic": "الصَّمَدُ",
         "latin": "As Shamad",
         "meaning": "Yang Maha Dibutuhkan",
-        "startTime": 103
+        "startTime": 103,
+        "meaning_en": "The Eternal"
     },
     {
         "id": 69,
         "arabic": "الْقَادِرُ",
         "latin": "Al Qaadir",
         "meaning": "Yang Maha Menentukan",
-        "startTime": 105
+        "startTime": 105,
+        "meaning_en": "The Able"
     },
     {
         "id": 70,
         "arabic": "الْمُقْتَدِرُ",
         "latin": "Al Muqtadir",
         "meaning": "Yang Maha Berkuasa",
-        "startTime": 106
+        "startTime": 106,
+        "meaning_en": "The Powerful"
     },
     {
         "id": 71,
         "arabic": "الْمُقَدِّمُ",
         "latin": "Al Muqaddim",
         "meaning": "Yang Maha Mendahulukan",
-        "startTime": 107
+        "startTime": 107,
+        "meaning_en": "The Expediter"
     },
     {
         "id": 72,
         "arabic": "الْمُؤَخِّرُ",
         "latin": "Al Mu'akkhir",
         "meaning": "Yang Maha Mengakhirkan",
-        "startTime": 108
+        "startTime": 108,
+        "meaning_en": "The Delayer"
     },
     {
         "id": 73,
         "arabic": "الْأَوَّلُ",
         "latin": "Al Awwal",
         "meaning": "Yang Maha Awal",
-        "startTime": 109
+        "startTime": 109,
+        "meaning_en": "The First"
     },
     {
         "id": 74,
         "arabic": "الْآخِرُ",
         "latin": "Al Aakhir",
         "meaning": "Yang Maha Akhir",
-        "startTime": 110
+        "startTime": 110,
+        "meaning_en": "The Last"
     },
     {
         "id": 75,
         "arabic": "الظَّاهِرُ",
         "latin": "Az Zhaahir",
         "meaning": "Yang Maha Nyata",
-        "startTime": 111
+        "startTime": 111,
+        "meaning_en": "The Manifest"
     },
     {
         "id": 76,
         "arabic": "الْبَاطِنُ",
         "latin": "Al Baathin",
         "meaning": "Yang Maha Ghaib",
-        "startTime": 113
+        "startTime": 113,
+        "meaning_en": "The Hidden"
     },
     {
         "id": 77,
         "arabic": "الْوَالِي",
         "latin": "Al Waali",
         "meaning": "Yang Maha Memerintah",
-        "startTime": 114
+        "startTime": 114,
+        "meaning_en": "The Governor"
     },
     {
         "id": 78,
         "arabic": "الْمُتَعَالِي",
         "latin": "Al Muta'aalii",
         "meaning": "Yang Maha Tinggi",
-        "startTime": 115
+        "startTime": 115,
+        "meaning_en": "The Most Exalted"
     },
     {
         "id": 79,
         "arabic": "الْبَرُّ",
         "latin": "Al Barr",
         "meaning": "Yang Maha Penderma",
-        "startTime": 117
+        "startTime": 117,
+        "meaning_en": "The Source of Goodness"
     },
     {
         "id": 80,
         "arabic": "التَّوَّابُ",
         "latin": "At Tawwaab",
         "meaning": "Yang Maha Penerima Taubat",
-        "startTime": 118
+        "startTime": 118,
+        "meaning_en": "The Acceptor of Repentance"
     },
     {
         "id": 81,
         "arabic": "الْمُنْتَقِمُ",
         "latin": "Al Muntaqim",
         "meaning": "Yang Maha Pemberi Balasan",
-        "startTime": 120
+        "startTime": 120,
+        "meaning_en": "The Avenger"
     },
     {
         "id": 82,
         "arabic": "الْعَفُوُّ",
         "latin": "Al Afuww",
         "meaning": "Yang Maha Pemaaf",
-        "startTime": 120.5
+        "startTime": 120.5,
+        "meaning_en": "The Pardoner"
     },
     {
         "id": 83,
         "arabic": "الرَّءُوفُ",
         "latin": "Ar Ra'uuf",
         "meaning": "Yang Maha Pengasuh",
-        "startTime": 125
+        "startTime": 125,
+        "meaning_en": "The Compassionate"
     },
     {
         "id": 84,
         "arabic": "مَالِكُ الْمُلْكِ",
         "latin": "Malikul Mulk",
         "meaning": "Yang Maha Penguasa Kerajaan",
-        "startTime": 126
+        "startTime": 126,
+        "meaning_en": "The Eternal Owner of Sovereignty"
     },
     {
         "id": 85,
         "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
         "latin": "Dzul Jalaali Wal Ikraam",
         "meaning": "Yang Maha Pemilik Kebesaran dan Kemuliaan",
-        "startTime": 128
+        "startTime": 128,
+        "meaning_en": "The Lord of Majesty and Bounty"
     },
     {
         "id": 86,
         "arabic": "الْمُقْسِطُ",
         "latin": "Al Muqsith",
         "meaning": "Yang Maha Pemberi Keadilan",
-        "startTime": 131
+        "startTime": 131,
+        "meaning_en": "The Equitable"
     },
     {
         "id": 87,
         "arabic": "الْجَامِعُ",
         "latin": "Al Jaami'",
         "meaning": "Yang Maha Mengumpulkan",
-        "startTime": 132
+        "startTime": 132,
+        "meaning_en": "The Gatherer"
     },
     {
         "id": 88,
         "arabic": "الْغَنِيُّ",
         "latin": "Al Ghaniyy",
         "meaning": "Yang Maha Kaya",
-        "startTime": 134
+        "startTime": 134,
+        "meaning_en": "The Self-Sufficient"
     },
     {
         "id": 89,
         "arabic": "الْمُغْنِي",
         "latin": "Al Mughni",
         "meaning": "Yang Maha Pemberi Kekayaan",
-        "startTime": 135
+        "startTime": 135,
+        "meaning_en": "The Enricher"
     },
     {
         "id": 90,
         "arabic": "الْمَانِعُ",
         "latin": "Al Maani",
         "meaning": "Yang Maha Mencegah",
-        "startTime": 137
+        "startTime": 137,
+        "meaning_en": "The Preventer"
     },
     {
         "id": 91,
         "arabic": "الضَّارُّ",
         "latin": "Ad Dhaar",
         "meaning": "Yang Maha Penimpa Kemudharatan",
-        "startTime": 138
+        "startTime": 138,
+        "meaning_en": "The Distresser"
     },
     {
         "id": 92,
         "arabic": "النَّافِعُ",
         "latin": "An Naafi'",
         "meaning": "Yang Maha Memberi Manfaat",
-        "startTime": 139
+        "startTime": 139,
+        "meaning_en": "The Propitious"
     },
     {
         "id": 93,
         "arabic": "النُّورُ",
         "latin": "An Nuur",
         "meaning": "Yang Maha Bercahaya",
-        "startTime": 140
+        "startTime": 140,
+        "meaning_en": "The Light"
     },
     {
         "id": 94,
         "arabic": "الْهَادِي",
         "latin": "Al Haadi",
         "meaning": "Yang Maha Pemberi Petunjuk",
-        "startTime": 141
+        "startTime": 141,
+        "meaning_en": "The Guide"
     },
     {
         "id": 95,
         "arabic": "الْبَدِيعُ",
         "latin": "Al Badii'",
         "meaning": "Yang Maha Pencipta",
-        "startTime": 142
+        "startTime": 142,
+        "meaning_en": "The Incomparable"
     },
     {
         "id": 96,
         "arabic": "الْبَاقِي",
         "latin": "Al Baaqii",
         "meaning": "Yang Maha Kekal",
-        "startTime": 144
+        "startTime": 144,
+        "meaning_en": "The Everlasting"
     },
     {
         "id": 97,
         "arabic": "الْوَارِثُ",
         "latin": "Al Waarits",
         "meaning": "Yang Maha Pewaris",
-        "startTime": 145
+        "startTime": 145,
+        "meaning_en": "The Supreme Inheritor"
     },
     {
         "id": 98,
         "arabic": "الرَّشِيدُ",
         "latin": "Ar Rasyiid",
         "meaning": "Yang Maha Pandai",
-        "startTime": 146
+        "startTime": 146,
+        "meaning_en": "The Guide to the Right Path"
     },
     {
         "id": 99,
         "arabic": "الصَّبُورُ",
         "latin": "As Shabuur",
         "meaning": "Yang Maha Sabar",
-        "startTime": 147
+        "startTime": 147,
+        "meaning_en": "The Patient"
     }
 ]

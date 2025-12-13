@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Geolocation } from '@capacitor/geolocation';
 import { Motion } from '@capacitor/motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function QiblaCompass() {
+    const { t } = useLanguage();
     const [heading, setHeading] = useState(0);
     const [qiblaDirection, setQiblaDirection] = useState(0);
     const [location, setLocation] = useState(null);
@@ -80,7 +82,7 @@ export default function QiblaCompass() {
             const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
             const data = await response.json();
             if (data && data.address) {
-                const city = data.address.city || data.address.town || data.address.county || data.address.state || "Lokasi Tidak Diketahui";
+                const city = data.address.city || data.address.town || data.address.county || data.address.state || t('prayer.unknown');
                 setCityName(city);
             }
         } catch (error) {
@@ -193,11 +195,11 @@ export default function QiblaCompass() {
                 width: '85%',
                 maxWidth: '350px'
             }}>
-                <h2 style={{ marginBottom: '10px', fontSize: '16px', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.7 }}>Arah Kiblat</h2>
+                <h2 style={{ marginBottom: '10px', fontSize: '16px', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.7 }}>{t('qibla.title')}</h2>
 
                 <div className="degree-display">{Math.round(qiblaDirection)}°</div>
                 <div style={{ fontSize: '14px', color: 'var(--primary)', marginBottom: '30px', fontWeight: '600' }}>
-                    {cityName ? cityName : (location ? "Mencari nama kota..." : "Mencari GPS...")}
+                    {cityName ? cityName : (location ? t('qibla.findingCity') : t('qibla.findingLoc'))}
                 </div>
 
                 <div className="compass-container" style={{ position: 'relative', width: '260px', height: '260px' }}>
@@ -256,7 +258,7 @@ export default function QiblaCompass() {
 
                 <button className="btn-calibration" onClick={handleCalibration}>
                     <i className="fa-solid fa-sync"></i>
-                    Kalibrasi Kompas
+                    {t('qibla.calibrate')}
                 </button>
             </div>
 
@@ -266,12 +268,12 @@ export default function QiblaCompass() {
                         <div style={{ fontSize: '40px', marginBottom: '20px', color: 'var(--primary)' }}>
                             <i className="fa-solid fa-infinity"></i>
                         </div>
-                        <h3 style={{ marginBottom: '10px' }}>Kalibrasi Kompas</h3>
+                        <h3 style={{ marginBottom: '10px' }}>{t('qibla.calibrate')}</h3>
                         <p style={{ marginBottom: '20px', opacity: 0.8 }}>
-                            Gerakkan HP Anda membentuk angka 8 di udara untuk meningkatkan akurasi kompas.
+                            {t('qibla.calibrateInfo')}
                         </p>
                         <button className="btn-primary" onClick={() => setShowCalibration(false)}>
-                            Selesai
+                            {t('qibla.done')}
                         </button>
                     </div>
                 </div>

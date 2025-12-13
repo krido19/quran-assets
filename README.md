@@ -270,6 +270,34 @@ Masalah umum: Halaman tidak bisa di-scroll atau terpotong di browser HP (Chrome/
   - Berguna jika GPS lambat lock saat awal buka aplikasi.
   - Styling tombol disamakan dengan tombol "Aktifkan Lokasi" (Kuning/Rounded) untuk konsistensi UI.
 
+### J. Page View & Audio Enhancements
+- **Page View (Mushaf Mode)**:
+  - **Fitur**: Mode baca per halaman layaknya Mushaf fisik (1-604 halaman).
+  - **Continuous Reading**: Navigasi antar halaman (Prev/Next) otomatis memuat Surah berikutnya/sebelumnya tanpa harus kembali ke menu.
+  - **Surah Headers**: Header Surah (Nama & Bismillah) disisipkan otomatis di dalam halaman jika halaman tersebut memuat awal Surah baru.
+  - **Navigation Fix**: Mengatasi isu "flash" ke halaman pertama saat loading halaman baru dengan mempertahankan konten lama sampai data baru siap.
+
+- **Audio Player Integration**:
+  - **Header Controls**: Player audio dipindahkan ke Header (menyatu dengan tombol Tajwid & Bookmark) agar tidak menutupi konten bawah layar.
+  - **Unified Logic**: Player berfungsi mulus baik di List View maupun Page View. Saat pindah halaman, player otomatis reset ke ayat pertama halaman baru.
+  - **Mobile Responsive**: Layout header menyesuaikan diri dengan layar HP (iPhone X/11 Pro tested), memastikan tombol tetap mudah diakses.
+
+### K. Smart Location Caching (Optimasi GPS)
+- **Masalah**: Pengguna harus menunggu "Locating..." setiap kali membuka menu Jadwal Sholat, yang memakan waktu dan baterai.
+- **Solusi**:
+  - **Auto-Save**: Saat lokasi berhasil didapatkan (via GPS/Network), koordinat dan nama kota disimpan di `localStorage`.
+  - **Instant Load**: Saat aplikasi dibuka kembali, data lokasi dari cache langsung digunakan sehingga jadwal sholat muncul instan.
+  - **Manual Refresh**: Tombol "Refresh Lokasi" tetap disediakan untuk memaksa pengambilan data GPS baru jika pengguna pindah kota.
+
+### L. Language Support Improvements (Bilingual)
+- **Masalah**: Beberapa fitur seperti "Asmaul Husna", "Doa Harian", "Dzikir Pagi & Petang", "Doa Khatam", dan "Profil" masih hardcoded dalam Bahasa Indonesia, tidak mengikuti pilihan bahasa aplikasi.
+- **Solusi**:
+  - **Context API**: Mengintegrasikan `LanguageContext` ke halaman `AsmaulHusna.jsx`, `DailyPrayers.jsx`, `DzikirPagiPetang.jsx`, `DoaKhatam.jsx`, `Login.jsx`, dan `Signup.jsx`.
+  - **Dynamic Data**: Menambahkan properti `title_en` dan `meaning_en` pada file JSON data source.
+  - **Fallback Logic**: Jika terjemahan Inggris tidak tersedia, otomatis fallback ke Bahasa Indonesia.
+  - **UI Localization**: Menerjemahkan elemen UI statis (Judul, Subtitle, Placeholder Search, Tombol) menggunakan fungsi `t()` dari context.
+
+
 ---
 
 ---

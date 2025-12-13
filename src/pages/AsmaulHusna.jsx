@@ -1,7 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import asmaulHusnaData from '../data/asmaul-husna.json';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AsmaulHusna() {
+    const navigate = useNavigate();
+    const { t, language } = useLanguage();
     const [names, setNames] = useState([]);
     const [search, setSearch] = useState('');
 
@@ -98,21 +102,45 @@ export default function AsmaulHusna() {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
-    const filteredNames = names.filter(item =>
-        item.latin.toLowerCase().includes(search.toLowerCase()) ||
-        item.meaning.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredNames = names.filter(item => {
+        const meaning = language === 'id' ? item.meaning : (item.meaning_en || item.meaning);
+        return item.latin.toLowerCase().includes(search.toLowerCase()) ||
+            meaning.toLowerCase().includes(search.toLowerCase());
+    });
 
     return (
         <div className="view active" style={{ padding: 0, paddingBottom: '80px' }}>
-            <div className="header-section" style={{ padding: '20px', textAlign: 'center' }}>
-                <h1>Asmaul Husna</h1>
-                <p style={{ opacity: 0.8 }}>99 Nama Allah yang Indah</p>
+            <div className="header-section" style={{ padding: '20px', textAlign: 'center', position: 'relative' }}>
+                <button
+                    onClick={() => navigate(-1)}
+                    style={{
+                        position: 'absolute',
+                        left: '20px',
+                        top: '20px',
+                        background: 'var(--bg-card)',
+                        border: 'none',
+                        borderRadius: '12px',
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+                        color: 'var(--primary)',
+                        cursor: 'pointer',
+                        zIndex: 10
+                    }}
+                >
+                    <i className="fa-solid fa-arrow-left"></i>
+                </button>
+
+                <h1>{t('menu.asmaulHusna')}</h1>
+                <p style={{ opacity: 0.8 }}>{t('asmaulHusna.subtitle')}</p>
 
                 <div className="search-box" style={{ marginTop: '15px' }}>
                     <input
                         type="text"
-                        placeholder="Cari nama..."
+                        placeholder={t('asmaulHusna.search')}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         style={{
@@ -179,7 +207,7 @@ export default function AsmaulHusna() {
                     </button>
                     <div style={{ flex: 1 }}>
                         <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '4px', color: 'var(--text-main)' }}>
-                            Asmaul Husna
+                            {t('menu.asmaulHusna')}
                         </div>
                         <div style={{ fontSize: '12px', opacity: 0.7, color: 'var(--text-muted)' }}>
                             Mishary Rashid Alafasy
@@ -236,6 +264,8 @@ export default function AsmaulHusna() {
             }}>
                 {filteredNames.map((item) => {
                     const isActive = activeId === item.id;
+                    const meaning = language === 'id' ? item.meaning : (item.meaning_en || item.meaning);
+
                     return (
                         <div
                             key={item.id}
@@ -290,7 +320,7 @@ export default function AsmaulHusna() {
                                 fontSize: '12px',
                                 opacity: 0.8
                             }}>
-                                {item.meaning}
+                                {meaning}
                             </div>
                         </div>
                     );

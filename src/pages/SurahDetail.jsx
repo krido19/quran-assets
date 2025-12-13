@@ -1,8 +1,152 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { toBlob } from 'html-to-image';
+import { useLanguage } from '../context/LanguageContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Virtual } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/virtual';
+
+const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoaded, isPlaying, currentVerseIndex, playVerse, toggleVerseBookmark, handleVersePlay, formatTranslation }) => {
+    const [verses, setVerses] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadPage = async () => {
+            const cacheKey = `quran_page_${pageNumber}_${language}`;
+            const cached = localStorage.getItem(cacheKey);
+
+            if (cached) {
+                try {
+                    const data = JSON.parse(cached);
+                    setVerses(data);
+                    setLoading(false);
+                    onDataLoaded(pageNumber, data);
+                    return;
+                } catch (e) {
+                    console.error('Cache parse error', e);
+                }
+            }
+
+            setLoading(true);
+            try {
+                const res = await fetch(`https://api.quran.com/api/v4/verses/by_page/${pageNumber}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number,chapter_id`);
+                const data = await res.json();
+                setVerses(data.verses);
+                onDataLoaded(pageNumber, data.verses);
+                try {
+                    localStorage.setItem(cacheKey, JSON.stringify(data.verses));
+                } catch (e) {
+                    // Quota exceeded or other error, ignore
+                    console.warn('Cache save failed', e);
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadPage();
+    }, [pageNumber, language]);
+
+    if (loading) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading Page {pageNumber}...</div>;
+
+    return (
+        <div className="mushaf-page-wrapper" style={{ padding: '0 10px', height: '80vh', overflowY: 'auto' }}>
+            <div
+                className="mushaf-page"
+                style={{
+                    background: 'var(--bg-card)',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    borderRadius: '16px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                    minHeight: '60vh'
+                }}
+            >
+                <div style={{
+                    direction: 'rtl',
+                    textAlign: 'justify',
+                    fontFamily: "'Amiri', serif",
+                    fontSize: '24px',
+                    lineHeight: '2.2',
+                    color: 'var(--text-main)'
+                }}>
+                    {verses.map((verse, idx) => {
+                        const isNewSurah = verse.verse_key.split(':')[1] === '1';
+                        // Use a fallback for Chapter Info if allChapters isn't fully loaded yet
+                        const chapterInfo = allChapters[verse.chapter_id];
+
+                        return (
+                            <span key={verse.id}>
+                                {isNewSurah && chapterInfo && (
+                                    <div style={{
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        margin: '20px 0',
+                                        padding: '10px',
+                                        background: 'rgba(16, 185, 129, 0.1)',
+                                        borderRadius: '10px',
+                                        border: '1px solid var(--primary)'
+                                    }}>
+                                        <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--primary)' }}>
+                                            {chapterInfo.name_simple}
+                                        </div>
+                                        <div style={{ fontSize: '14px', opacity: 0.7 }}>
+                                            {chapterInfo.translated_name.name}
+                                        </div>
+                                        {verse.chapter_id !== 1 && verse.chapter_id !== 9 && (
+                                            <div style={{ marginTop: '10px', fontFamily: 'Amiri, serif', fontSize: '20px' }}>
+                                                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                <span
+                                    style={{
+                                        cursor: 'pointer',
+                                        borderRadius: '4px',
+                                        transition: 'background 0.2s'
+                                    }}
+                                >
+                                    {scriptType === 'tajweed' ? (
+                                        <span dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }} />
+                                    ) : (
+                                        verse.text_uthmani
+                                    )}
+                                    <span style={{
+                                        fontSize: '0.8em',
+                                        color: 'var(--primary)',
+                                        margin: '0 5px',
+                                        border: '1px solid var(--primary)',
+                                        borderRadius: '50%',
+                                        width: '25px',
+                                        height: '25px',
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        verticalAlign: 'middle'
+                                    }}>
+                                        {verse.verse_key.split(':')[1]}
+                                    </span>
+                                </span>
+                            </span>
+                        );
+                    })}
+                </div>
+            </div>
+            <div style={{ textAlign: 'center', padding: '10px', opacity: 0.5 }}>
+                Page {pageNumber}
+            </div>
+        </div>
+    );
+};
 
 export default function SurahDetail() {
+    const { language, t } = useLanguage();
+
     // Helper to format text with footnotes
     const formatTranslation = (text) => {
         if (!text) return '';
@@ -22,9 +166,11 @@ export default function SurahDetail() {
     const shareCardRef = useRef(null);
 
     const shareVerse = (verse) => {
-        // Try to get Indonesian translation (33), fallback to English (131)
-        const translationObj = verse.translations.find(t => t.resource_id === 33) ||
-            verse.translations.find(t => t.resource_id === 131);
+        // Get translation based on language
+        const resourceId = language === 'id' ? 33 : 131;
+        const translationObj = verse.translations.find(t => t.resource_id === resourceId) ||
+            verse.translations.find(t => t.resource_id === (language === 'id' ? 131 : 33));
+
         const translation = translationObj ? translationObj.text.replace(/<[^>]*>?/gm, '') : '';
 
         setShareVerseData({
@@ -44,7 +190,7 @@ export default function SurahDetail() {
                 if (navigator.share) {
                     await navigator.share({
                         files: [file],
-                        title: 'Share Verse',
+                        title: t('surah.shareTitle'),
                         text: 'Shared from Islamic App'
                     });
                 } else {
@@ -75,20 +221,52 @@ export default function SurahDetail() {
     const [hasMore, setHasMore] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const viewRef = useRef(null);
+    const [viewMode, setViewMode] = useState('list'); // 'list' or 'page'
+    const [currentDisplayPage, setCurrentDisplayPage] = useState(null);
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+    const [scriptType, setScriptType] = useState('plain'); // 'plain' or 'tajweed'
+    const [showScriptMenu, setShowScriptMenu] = useState(false);
+    const [allChapters, setAllChapters] = useState({});
+
+    // Fetch All Chapters for reference
+    useEffect(() => {
+        fetch('https://api.quran.com/api/v4/chapters?language=' + language)
+            .then(res => res.json())
+            .then(data => {
+                const chaptersMap = {};
+                data.chapters.forEach(c => chaptersMap[c.id] = c);
+                setAllChapters(chaptersMap);
+            });
+    }, [language]);
 
     // Fetch Surah Info
+    // Fetch Surah Info
     useEffect(() => {
-        fetch(`https://api.quran.com/api/v4/chapters/${id}?language=en`)
+        fetch(`https://api.quran.com/api/v4/chapters/${id}?language=${language}`)
             .then(res => res.json())
             .then(data => {
                 setSurah(data.chapter);
                 // Reset verses when surah changes
                 setVerses([]);
-                setPage(1);
                 setHasMore(true);
-                fetchVerses(1);
+
+                // If switching surah, set page to surah's first page
+                if (viewMode === 'page') {
+                    setCurrentDisplayPage(data.chapter.pages[0]);
+                } else {
+                    setPage(1);
+                    fetchVerses(1);
+                }
             });
-    }, [id]);
+    }, [id, language]);
+
+    // Update currentDisplayPage when viewMode changes to page
+    useEffect(() => {
+        if (viewMode === 'page' && surah && !currentDisplayPage) {
+            setCurrentDisplayPage(surah.pages[0]);
+        }
+    }, [viewMode, surah]);
 
     // Auto-scroll to target verse if provided
     useEffect(() => {
@@ -111,7 +289,7 @@ export default function SurahDetail() {
         if (isLoading) return;
         setIsLoading(true);
 
-        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=en&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_indopak&per_page=10&page=${pageNumber}`)
+        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number&per_page=50&page=${pageNumber}`)
             .then(res => res.json())
             .then(data => {
                 if (data.verses.length === 0) {
@@ -131,10 +309,36 @@ export default function SurahDetail() {
             .catch(() => setIsLoading(false));
     };
 
-    // Infinite Scroll with IntersectionObserver
+    // Fetch Page (Page View)
+    const [pageVerses, setPageVerses] = useState([]);
+
+    const fetchPageContent = (pageNum) => {
+        if (isLoading) return;
+        setIsLoading(true);
+        // setPageVerses([]); // Keep previous page content while loading to prevent header flicker
+
+        fetch(`https://api.quran.com/api/v4/verses/by_page/${pageNum}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number,chapter_id`)
+            .then(res => res.json())
+            .then(data => {
+                setPageVerses(data.verses);
+                setIsLoading(false);
+                // Reset verse index for new page
+                setCurrentVerseIndex(0);
+            })
+            .catch(() => setIsLoading(false));
+    };
+
+    // Trigger fetch when currentDisplayPage changes in Page View
+    useEffect(() => {
+        // if (viewMode === 'page' && currentDisplayPage) {
+        //     fetchPageContent(currentDisplayPage);
+        // }
+    }, [currentDisplayPage, viewMode]);
+
+    // Infinite Scroll with IntersectionObserver (List View Only)
     const observer = useRef();
     const lastVerseElementRef = (node) => {
-        if (isLoading) return;
+        if (isLoading || viewMode === 'page') return;
         if (observer.current) observer.current.disconnect();
 
         observer.current = new IntersectionObserver(entries => {
@@ -146,19 +350,27 @@ export default function SurahDetail() {
         if (node) observer.current.observe(node);
     };
 
-    // Trigger fetch when page changes
+    // Trigger fetch when page changes (List View)
     useEffect(() => {
-        if (page > 1) {
+        if (viewMode === 'list' && page > 1) {
             fetchVerses(page);
         }
-    }, [page]);
+    }, [page, viewMode]);
+
+    // Auto-fetch for Page View if current page is empty (REMOVED - handled by fetchPageContent)
+    useEffect(() => {
+        // Legacy cleanup
+    }, []);
+
+    // Determine active verses for playback
+    const activeVerses = viewMode === 'page' ? pageVerses : verses;
 
     // Audio Logic
     useEffect(() => {
         const audio = audioRef.current;
 
         const handleEnded = () => {
-            if (currentVerseIndex < verses.length - 1) {
+            if (currentVerseIndex < activeVerses.length - 1) {
                 playVerse(currentVerseIndex + 1);
             } else {
                 setIsPlaying(false);
@@ -167,17 +379,20 @@ export default function SurahDetail() {
 
         audio.addEventListener('ended', handleEnded);
         return () => audio.removeEventListener('ended', handleEnded);
-    }, [verses, currentVerseIndex]);
+    }, [activeVerses, currentVerseIndex]);
 
     const playVerse = (index) => {
-        if (index >= 0 && index < verses.length) {
+        if (index >= 0 && index < activeVerses.length) {
             setCurrentVerseIndex(index);
-            const url = verses[index].audio.url;
+            const url = activeVerses[index].audio.url;
             if (url) {
                 audioRef.current.src = `https://verses.quran.com/${url}`;
                 audioRef.current.play();
                 setIsPlaying(true);
-                scrollToVerse(index);
+                // Only scroll in List View
+                if (viewMode === 'list') {
+                    scrollToVerse(index);
+                }
             }
         }
     };
@@ -285,137 +500,217 @@ export default function SurahDetail() {
         }
     };
 
-    if (!surah) return <div className="view active">Loading...</div>;
+    // Group verses by page for Page View
+    const versesByPage = verses.reduce((acc, verse) => {
+        const pageNum = verse.page_number;
+        if (!acc[pageNum]) acc[pageNum] = [];
+        acc[pageNum].push(verse);
+        return acc;
+    }, {});
+
+    if (!surah) return <div className="view active">{t('surah.loading')}</div>;
 
     return (
-        <div id="view-surah-detail" className="view active" ref={viewRef}>
+        <div id="view-surah-detail" className="view active" ref={viewRef} onClick={() => setShowScriptMenu(false)}>
             <div className="detail-header">
                 <button className="icon-btn" onClick={() => navigate(-1)}>
                     <i className="fa-solid fa-arrow-left"></i>
                 </button>
-                <h2>{surah.name_simple}</h2>
-                <div className="detail-actions">
+                <div style={{ textAlign: 'center' }}>
+                    <h2 style={{ margin: 0, fontSize: '18px' }}>
+                        {viewMode === 'page' && pageVerses.length > 0
+                            ? (allChapters[pageVerses[0].chapter_id]?.name_simple || surah.name_simple)
+                            : surah.name_simple}
+                    </h2>
+                    <div style={{ fontSize: '12px', opacity: 0.7 }}>
+                        {viewMode === 'page' && pageVerses.length > 0
+                            ? `Juz ${pageVerses[0].juz_number} • ${t('surah.page')} ${currentDisplayPage}`
+                            : (viewMode === 'list' ? t('surah.verseView') : t('surah.pageView'))}
+                    </div>
+                </div>
+                <div className="detail-actions" style={{ display: 'flex', gap: '10px', alignItems: 'center', position: 'relative' }}>
+                    <div style={{ display: 'flex', gap: '5px', marginRight: '10px', borderRight: '1px solid var(--text-muted)', paddingRight: '10px' }}>
+                        <button className="icon-btn" onClick={() => playVerse(currentVerseIndex - 1)} style={{ width: '30px', height: '30px', fontSize: '14px' }}>
+                            <i className="fa-solid fa-backward-step"></i>
+                        </button>
+                        <button className="icon-btn" onClick={togglePlay} style={{ width: '30px', height: '30px', fontSize: '14px', color: isPlaying ? 'var(--primary)' : 'inherit' }}>
+                            <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                        </button>
+                        <button className="icon-btn" onClick={() => playVerse(currentVerseIndex + 1)} style={{ width: '30px', height: '30px', fontSize: '14px' }}>
+                            <i className="fa-solid fa-forward-step"></i>
+                        </button>
+                    </div>
+                    <button
+                        className="icon-btn"
+                        onClick={(e) => { e.stopPropagation(); setShowScriptMenu(!showScriptMenu); }}
+                        title={t('surah.selectScript')}
+                        style={{ color: scriptType === 'tajweed' ? 'var(--primary)' : 'inherit' }}
+                    >
+                        <i className="fa-solid fa-quran"></i>
+                    </button>
+
+                    {showScriptMenu && (
+                        <div style={{
+                            position: 'absolute',
+                            top: '100%',
+                            right: '0',
+                            background: 'var(--bg-card)',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                            borderRadius: '12px',
+                            padding: '8px',
+                            zIndex: 100,
+                            minWidth: '150px',
+                            border: '1px solid rgba(0,0,0,0.05)'
+                        }}>
+                            <div
+                                onClick={() => { setScriptType('plain'); setShowScriptMenu(false); }}
+                                style={{
+                                    padding: '10px',
+                                    borderRadius: '8px',
+                                    cursor: 'pointer',
+                                    background: scriptType === 'plain' ? 'var(--bg-body)' : 'transparent',
+                                    color: scriptType === 'plain' ? 'var(--primary)' : 'var(--text-main)',
+                                    fontWeight: scriptType === 'plain' ? '600' : 'normal',
+                                    fontSize: '14px',
+                                    marginBottom: '4px'
+                                }}
+                            >
+                                {t('surah.plain')}
+                            </div>
+                            <div
+                                onClick={() => { setScriptType('tajweed'); setShowScriptMenu(false); }}
+                                style={{
+                                    padding: '10px',
+                                    borderRadius: '8px',
+                                    cursor: 'pointer',
+                                    background: scriptType === 'tajweed' ? 'var(--bg-body)' : 'transparent',
+                                    color: scriptType === 'tajweed' ? 'var(--primary)' : 'var(--text-main)',
+                                    fontWeight: scriptType === 'tajweed' ? '600' : 'normal',
+                                    fontSize: '14px'
+                                }}
+                            >
+                                {t('surah.tajweed')}
+                            </div>
+                        </div>
+                    )}
+
+                    <button className="icon-btn" onClick={() => setViewMode(viewMode === 'list' ? 'page' : 'list')} title="Toggle View">
+                        <i className={`fa-solid ${viewMode === 'list' ? 'fa-book-open' : 'fa-list'}`}></i>
+                    </button>
                     <button className="icon-btn" onClick={toggleBookmark}>
                         <i className={`fa-${isSurahBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
                     </button>
                 </div>
             </div>
 
-            <div className="audio-player-container">
-                <div className="audio-controls">
-                    <button className="icon-btn" onClick={() => playVerse(currentVerseIndex - 1)}>
-                        <i className="fa-solid fa-backward-step"></i>
-                    </button>
-                    <button className="icon-btn play-btn" onClick={togglePlay}>
-                        <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                    </button>
-                    <button className="icon-btn" onClick={() => playVerse(currentVerseIndex + 1)}>
-                        <i className="fa-solid fa-forward-step"></i>
-                    </button>
-                </div>
-                <div className="audio-info">
-                    <span>Verse {currentVerseIndex + 1}</span>
-                </div>
-            </div>
+
 
             <div className="verses-list">
-                {verses.map((verse, index) => {
-                    const translationEn = verse.translations.find(t => t.resource_id === 131)?.text;
-                    const translationId = verse.translations.find(t => t.resource_id === 33)?.text;
-                    const transliteration = verse.translations.find(t => t.resource_id === 57)?.text;
-                    const isBookmarked = bookmarkedVerses.some(b => b.verse_key === verse.verse_key);
+                {viewMode === 'list' ? (
+                    // LIST VIEW (Existing)
+                    <>
+                        {verses.map((verse, index) => {
+                            const translationEn = verse.translations.find(t => t.resource_id === 131)?.text;
+                            const translationId = verse.translations.find(t => t.resource_id === 33)?.text;
+                            const transliteration = verse.translations.find(t => t.resource_id === 57)?.text;
+                            const isBookmarked = bookmarkedVerses.some(b => b.verse_key === verse.verse_key);
 
-                    // Attach ref to the last element
-                    if (verses.length === index + 1) {
-                        return (
-                            <div
-                                key={verse.id}
-                                ref={lastVerseElementRef}
-                                className={`verse-item ${index === currentVerseIndex ? 'active' : ''}`}
-                            >
-                                <div className="verse-header">
-                                    <span className="verse-number">{surah.id}:{verse.verse_key.split(':')[1]}</span>
-                                    <div className="verse-actions">
-                                        <button
-                                            className="icon-btn"
-                                            onClick={(e) => { e.stopPropagation(); handleVersePlay(index); }}
-                                            title={currentVerseIndex === index && isPlaying ? "Pause" : "Play"}
-                                        >
-                                            <i className={`fa-solid ${currentVerseIndex === index && isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                                        </button>
-                                        <button
-                                            className="icon-btn"
-                                            onClick={(e) => { e.stopPropagation(); toggleVerseBookmark(verse); }}
-                                            title="Bookmark Verse"
-                                        >
-                                            <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
-                                        </button>
-                                        <button
-                                            className="icon-btn"
-                                            onClick={(e) => { e.stopPropagation(); shareVerse(verse); }}
-                                            title="Share Verse"
-                                        >
-                                            <i className="fa-regular fa-share-from-square"></i>
-                                        </button>
+                            // Determine which translation to show based on language
+                            const displayTranslation = language === 'id' ? translationId : translationEn;
+
+                            const verseContent = (
+                                <div className={`verse-item ${index === currentVerseIndex ? 'active' : ''}`}>
+                                    <div className="verse-header">
+                                        <span className="verse-number">{surah.id}:{verse.verse_key.split(':')[1]}</span>
+                                        <div className="verse-actions">
+                                            <button
+                                                className="icon-btn"
+                                                onClick={(e) => { e.stopPropagation(); handleVersePlay(index); }}
+                                                title={currentVerseIndex === index && isPlaying ? "Pause" : "Play"}
+                                            >
+                                                <i className={`fa-solid ${currentVerseIndex === index && isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                                            </button>
+                                            <button
+                                                className="icon-btn"
+                                                onClick={(e) => { e.stopPropagation(); toggleVerseBookmark(verse); }}
+                                                title="Bookmark Verse"
+                                            >
+                                                <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
+                                            </button>
+                                            <button
+                                                className="icon-btn"
+                                                onClick={(e) => { e.stopPropagation(); shareVerse(verse); }}
+                                                title="Share Verse"
+                                            >
+                                                <i className="fa-regular fa-share-from-square"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    {scriptType === 'tajweed' ? (
+                                        <div
+                                            className="verse-arabic"
+                                            dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }}
+                                        />
+                                    ) : (
+                                        <div className="verse-arabic">{verse.text_uthmani}</div>
+                                    )}
+                                    <div className="verse-transliteration">{transliteration}</div>
+                                    <div className="verse-translation-group">
+                                        <div className="verse-translation-id">{formatTranslation(displayTranslation)}</div>
                                     </div>
                                 </div>
-                                <div className="verse-arabic">{verse.text_uthmani}</div>
-                                <div className="verse-transliteration">{transliteration}</div>
-                                <div className="verse-translation-group">
-                                    <div className="verse-translation-id">{formatTranslation(translationId)}</div>
-                                    <div className="verse-translation-en">{translationEn?.replace(/<[^>]*>?/gm, '')}</div>
-                                </div>
-                            </div>
-                        );
-                    }
+                            );
 
-                    return (
-                        <div
-                            key={verse.id}
-                            ref={el => verseRefs.current[index] = el}
-                            className={`verse-item ${index === currentVerseIndex ? 'active' : ''}`}
-                        >
-                            <div className="verse-header">
-                                <span className="verse-number">{surah.id}:{verse.verse_key.split(':')[1]}</span>
-                                <div className="verse-actions">
-                                    <button
-                                        className="icon-btn"
-                                        onClick={(e) => { e.stopPropagation(); handleVersePlay(index); }}
-                                        title={currentVerseIndex === index && isPlaying ? "Pause" : "Play"}
-                                    >
-                                        <i className={`fa-solid ${currentVerseIndex === index && isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                                    </button>
-                                    <button
-                                        className="icon-btn"
-                                        onClick={(e) => { e.stopPropagation(); toggleVerseBookmark(verse); }}
-                                        title="Bookmark Verse"
-                                    >
-                                        <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
-                                    </button>
-                                    <button
-                                        className="icon-btn"
-                                        onClick={(e) => { e.stopPropagation(); shareVerse(verse); }}
-                                        title="Share Verse"
-                                    >
-                                        <i className="fa-regular fa-share-from-square"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="verse-arabic">{verse.text_uthmani}</div>
-                            <div className="verse-transliteration">{transliteration}</div>
-                            <div className="verse-translation-group">
-                                <div className="verse-translation-id">{formatTranslation(translationId)}</div>
-                                <div className="verse-translation-en">{translationEn?.replace(/<[^>]*>?/gm, '')}</div>
-                            </div>
-                        </div>
-                    );
-                })}
-                {isLoading && <div className="loading-more" style={{ textAlign: 'center', padding: '20px' }}>Loading more verses...</div>}
+                            if (verses.length === index + 1) {
+                                return <div key={verse.id} ref={lastVerseElementRef}>{verseContent}</div>;
+                            }
+                            return <div key={verse.id} ref={el => verseRefs.current[index] = el}>{verseContent}</div>;
+                        })}
+                    </>
+                ) : (
+                    // PAGE VIEW (Mushaf Mode)
+                    <Swiper
+                        modules={[Virtual]}
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        virtual
+                        initialSlide={currentDisplayPage - 1}
+                        onSlideChange={(swiper) => {
+                            const newPage = swiper.activeIndex + 1;
+                            setCurrentDisplayPage(newPage);
+                        }}
+                        style={{ height: '100%' }}
+                    >
+                        {Array.from({ length: 604 }).map((_, index) => (
+                            <SwiperSlide key={index} virtualIndex={index}>
+                                <MushafSlide
+                                    pageNumber={index + 1}
+                                    language={language}
+                                    scriptType={scriptType}
+                                    allChapters={allChapters}
+                                    onDataLoaded={(pNum, verses) => {
+                                        if (pNum === currentDisplayPage) {
+                                            setPageVerses(verses);
+                                        }
+                                    }}
+                                    isPlaying={isPlaying}
+                                    currentVerseIndex={currentVerseIndex}
+                                    playVerse={playVerse}
+                                    toggleVerseBookmark={toggleVerseBookmark}
+                                    handleVersePlay={handleVersePlay}
+                                    formatTranslation={formatTranslation}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                )}
+
+                {isLoading && <div className="loading-more" style={{ textAlign: 'center', padding: '20px' }}>{t('surah.loading')}</div>}
             </div>
             {shareVerseData && (
                 <div className="tasbih-modal" onClick={() => setShareVerseData(null)}>
                     <div className="tasbih-modal-content" onClick={e => e.stopPropagation()} style={{ width: '90%', maxWidth: '400px', padding: '20px' }}>
-                        <h3 style={{ marginBottom: '15px' }}>Bagikan Ayat</h3>
+                        <h3 style={{ marginBottom: '15px' }}>{t('surah.shareTitle')}</h3>
 
                         {/* Card Preview */}
                         <div
@@ -452,11 +747,11 @@ export default function SurahDetail() {
 
                         <div style={{ display: 'flex', gap: '10px' }}>
                             <button className="tasbih-modal-btn secondary" onClick={() => setShareVerseData(null)}>
-                                Batal
+                                {t('surah.cancel')}
                             </button>
                             <button className="tasbih-modal-btn primary" onClick={handleShareImage}>
                                 <i className="fa-solid fa-share-nodes" style={{ marginRight: '8px' }}></i>
-                                Bagikan Gambar
+                                {t('surah.shareImage')}
                             </button>
                         </div>
                     </div>
