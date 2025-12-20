@@ -2,10 +2,12 @@
 import { useNavigate } from 'react-router-dom';
 import asmaulHusnaData from '../data/asmaul-husna.json';
 import { useLanguage } from '../context/LanguageContext';
+import { useSettings } from '../context/SettingsContext';
 
 export default function AsmaulHusna() {
     const navigate = useNavigate();
     const { t, language } = useLanguage();
+    const { arabicFontSize, arabicFontFamily } = useSettings();
     const [names, setNames] = useState([]);
     const [search, setSearch] = useState('');
 
@@ -300,10 +302,10 @@ export default function AsmaulHusna() {
                                 {item.id}
                             </div>
                             <div className="arabic" style={{
-                                fontSize: '24px',
+                                fontSize: `${arabicFontSize}px`,
                                 fontWeight: 'bold',
                                 marginBottom: '5px',
-                                fontFamily: "'Amiri', serif",
+                                fontFamily: `${arabicFontFamily}, serif`,
                                 color: isActive ? '#FFD700' : 'inherit'
                             }}>
                                 {item.arabic}

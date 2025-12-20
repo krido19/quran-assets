@@ -1,16 +1,18 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import dailyPrayersData from '../data/daily-prayers.json';
+import doaSholatData from '../data/doa-sholat.json';
 import { useLanguage } from '../context/LanguageContext';
 import { useSettings } from '../context/SettingsContext';
 
-export default function DailyPrayers() {
+export default function DoaSholat() {
     const navigate = useNavigate();
     const { t, language } = useLanguage();
     const { arabicFontSize, arabicFontFamily } = useSettings();
-    const [prayers, setPrayers] = useState([]);
+    // const [prayers, setPrayers] = useState([]); // Removed state for static data
+    const prayers = doaSholatData; // Use imported data directly
     const [search, setSearch] = useState('');
     const [expandedId, setExpandedId] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('bacaan');
 
     // Audio state
     const audioRef = useRef(null);
@@ -18,8 +20,6 @@ export default function DailyPrayers() {
     const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
-        setPrayers(dailyPrayersData);
-
         // Cleanup on unmount
         return () => {
             if (audioRef.current) {
@@ -30,10 +30,12 @@ export default function DailyPrayers() {
     }, []);
 
     const filteredPrayers = prayers.filter(item => {
+        const matchesCategory = item.category ? item.category === selectedCategory : (selectedCategory === 'bacaan');
         const title = language === 'id' ? item.title : (item.title_en || item.title);
         const translation = language === 'id' ? item.translation : (item.translation_en || item.translation);
-        return title.toLowerCase().includes(search.toLowerCase()) ||
-            translation.toLowerCase().includes(search.toLowerCase());
+
+        return matchesCategory && (title.toLowerCase().includes(search.toLowerCase()) ||
+            translation.toLowerCase().includes(search.toLowerCase()));
     });
 
     const toggleExpand = (id) => {
@@ -124,13 +126,13 @@ export default function DailyPrayers() {
                     <i className="fa-solid fa-arrow-left"></i>
                 </button>
 
-                <h1>{t('menu.dailyPrayers')}</h1>
-                <p style={{ opacity: 0.8 }}>{t('dailyPrayers.subtitle')}</p>
+                <h1>{t('menu.doaSholat')}</h1>
+                <p style={{ opacity: 0.8 }}>{t('doaSholat.subtitle')}</p>
 
                 <div className="search-box" style={{ marginTop: '15px' }}>
                     <input
                         type="text"
-                        placeholder={t('dailyPrayers.search')}
+                        placeholder={t('doaSholat.search')}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         style={{
@@ -141,16 +143,58 @@ export default function DailyPrayers() {
                             background: 'var(--bg-card)',
                             color: 'var(--text-main)',
                             fontSize: '16px',
-                            paddingLeft: '45px' // Space for icon if we added one, but standard is fine
+                            paddingLeft: '45px'
                         }}
                     />
                 </div>
+            </div>
+
+            <div className="category-tabs" style={{
+                padding: '0 20px 20px',
+                display: 'flex',
+                gap: '10px',
+                overflowX: 'auto',
+                scrollbarWidth: 'none'
+            }}>
+                {['bacaan', 'niatWajib', 'niatSunnah', 'sholatJenazah'].map(cat => (
+                    <button
+                        key={cat}
+                        onClick={() => {
+                            const mapping = {
+                                'niatWajib': 'niat_wajib',
+                                'niatSunnah': 'niat_sunnah',
+                                'sholatJenazah': 'sholat_jenazah',
+                                'bacaan': 'bacaan'
+                            };
+                            setSelectedCategory(mapping[cat]);
+                        }}
+                        style={{
+                            background: selectedCategory === (cat === 'niatWajib' ? 'niat_wajib' : cat === 'niatSunnah' ? 'niat_sunnah' : cat === 'sholatJenazah' ? 'sholat_jenazah' : 'bacaan')
+                                ? 'var(--primary)'
+                                : 'var(--bg-card)',
+                            color: selectedCategory === (cat === 'niatWajib' ? 'niat_wajib' : cat === 'niatSunnah' ? 'niat_sunnah' : cat === 'sholatJenazah' ? 'sholat_jenazah' : 'bacaan')
+                                ? '#000'
+                                : 'var(--text-main)',
+                            border: 'none',
+                            padding: '10px 20px',
+                            borderRadius: '20px',
+                            whiteSpace: 'nowrap',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            flexShrink: 0
+                        }}
+                    >
+                        {t(`doaSholat.category.${cat}`)}
+                    </button>
+                ))}
             </div>
 
             <div className="prayers-list" style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
                 {filteredPrayers.map((item) => {
                     const title = language === 'id' ? item.title : (item.title_en || item.title);
                     const translation = language === 'id' ? item.translation : (item.translation_en || item.translation);
+                    const hasAudio = !!item.audio;
 
                     return (
                         <div
@@ -168,23 +212,64 @@ export default function DailyPrayers() {
                             }}
                         >
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <h3 style={{ margin: 0, fontSize: '18px' }}>{title}</h3>
+                                <h3 style={{ margin: 0, fontSize: '18px', maxWidth: '90%' }}>{title}</h3>
                                 <i className={`fa-solid fa-chevron-${expandedId === item.id ? 'up' : 'down'}`} style={{ opacity: 0.5 }}></i>
                             </div>
 
                             {expandedId === item.id && (
                                 <div className="prayer-content" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px', gap: '10px' }}>
-                                        {playingId === item.id ? (
-                                            <>
+                                    {hasAudio && (
+                                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px', gap: '10px' }}>
+                                            {playingId === item.id ? (
+                                                <>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handlePlay(item.id, item.audio);
+                                                        }}
+                                                        style={{
+                                                            background: isPlaying ? 'rgba(255, 215, 0, 0.2)' : 'rgba(0, 255, 0, 0.2)',
+                                                            color: isPlaying ? '#FFD700' : '#00FF00',
+                                                            border: 'none',
+                                                            borderRadius: '20px',
+                                                            padding: '5px 15px',
+                                                            cursor: 'pointer',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '5px',
+                                                            fontSize: '12px'
+                                                        }}
+                                                    >
+                                                        <i className={`fa-solid fa-${isPlaying ? 'pause' : 'play'}`}></i>
+                                                        {isPlaying ? t('dailyPrayers.pause') : t('dailyPrayers.resume')}
+                                                    </button>
+                                                    <button
+                                                        onClick={handleStop}
+                                                        style={{
+                                                            background: 'rgba(255, 0, 0, 0.2)',
+                                                            color: '#FF4444',
+                                                            border: 'none',
+                                                            borderRadius: '20px',
+                                                            padding: '5px 15px',
+                                                            cursor: 'pointer',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '5px',
+                                                            fontSize: '12px'
+                                                        }}
+                                                    >
+                                                        <i className="fa-solid fa-stop"></i> {t('dailyPrayers.stop')}
+                                                    </button>
+                                                </>
+                                            ) : (
                                                 <button
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         handlePlay(item.id, item.audio);
                                                     }}
                                                     style={{
-                                                        background: isPlaying ? 'rgba(255, 215, 0, 0.2)' : 'rgba(0, 255, 0, 0.2)',
-                                                        color: isPlaying ? '#FFD700' : '#00FF00',
+                                                        background: 'rgba(255, 215, 0, 0.2)',
+                                                        color: '#FFD700',
                                                         border: 'none',
                                                         borderRadius: '20px',
                                                         padding: '5px 15px',
@@ -195,50 +280,11 @@ export default function DailyPrayers() {
                                                         fontSize: '12px'
                                                     }}
                                                 >
-                                                    <i className={`fa-solid fa-${isPlaying ? 'pause' : 'play'}`}></i>
-                                                    {isPlaying ? t('dailyPrayers.pause') : t('dailyPrayers.resume')}
+                                                    <i className="fa-solid fa-volume-high"></i> {t('dailyPrayers.listen')}
                                                 </button>
-                                                <button
-                                                    onClick={handleStop}
-                                                    style={{
-                                                        background: 'rgba(255, 0, 0, 0.2)',
-                                                        color: '#FF4444',
-                                                        border: 'none',
-                                                        borderRadius: '20px',
-                                                        padding: '5px 15px',
-                                                        cursor: 'pointer',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: '5px',
-                                                        fontSize: '12px'
-                                                    }}
-                                                >
-                                                    <i className="fa-solid fa-stop"></i> {t('dailyPrayers.stop')}
-                                                </button>
-                                            </>
-                                        ) : (
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handlePlay(item.id, item.audio);
-                                                }}
-                                                style={{
-                                                    background: 'rgba(255, 215, 0, 0.2)',
-                                                    color: '#FFD700',
-                                                    border: 'none',
-                                                    borderRadius: '20px',
-                                                    padding: '5px 15px',
-                                                    cursor: 'pointer',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: '5px',
-                                                    fontSize: '12px'
-                                                }}
-                                            >
-                                                <i className="fa-solid fa-volume-high"></i> {t('dailyPrayers.listen')}
-                                            </button>
-                                        )}
-                                    </div>
+                                            )}
+                                        </div>
+                                    )}
                                     <div className="arabic" style={{
                                         fontSize: `${arabicFontSize}px`,
                                         fontWeight: 'bold',

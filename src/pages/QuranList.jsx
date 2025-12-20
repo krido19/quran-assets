@@ -9,14 +9,39 @@ export default function QuranList() {
     const navigate = useNavigate();
     const { language, t, getDailyVerse } = useLanguage();
 
+    const [isOffline, setIsOffline] = useState(!navigator.onLine);
+
     useEffect(() => {
+        // Load from cache first
+        const cachedSurahs = localStorage.getItem(`surah_list_${language}`);
+        if (cachedSurahs) {
+            setSurahs(JSON.parse(cachedSurahs));
+        }
+
         fetch(`https://api.quran.com/api/v4/chapters?language=${language}`)
             .then(res => res.json())
-            .then(data => setSurahs(data.chapters));
+            .then(data => {
+                setSurahs(data.chapters);
+                localStorage.setItem(`surah_list_${language}`, JSON.stringify(data.chapters));
+                setIsOffline(false);
+            })
+            .catch(() => {
+                setIsOffline(true);
+            });
+
+        const handleOnline = () => setIsOffline(false);
+        const handleOffline = () => setIsOffline(true);
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('offline', handleOffline);
+        return () => {
+            window.removeEventListener('online', handleOnline);
+            window.removeEventListener('offline', handleOffline);
+        };
     }, [language]);
 
     const getBookmarks = () => {
-        return JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        const saved = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        return saved.map(b => typeof b === 'number' ? b : b.id);
     };
 
     const getVerseBookmarks = () => {
@@ -28,7 +53,7 @@ export default function QuranList() {
             surah.name_arabic.includes(search);
 
         if (filter === 'bookmarks') {
-            const bookmarks = getBookmarks().map(b => parseInt(b));
+            const bookmarks = getBookmarks();
             const verseBookmarks = getVerseBookmarks();
             const surahIdsWithVerses = verseBookmarks.map(vb => vb.surah_id);
 
@@ -131,6 +156,23 @@ export default function QuranList() {
             </div>
 
 
+
+            {isOffline && (
+                <div style={{
+                    margin: '10px 20px',
+                    padding: '8px 15px',
+                    background: 'rgba(239, 68, 68, 0.1)',
+                    color: '#ef4444',
+                    borderRadius: '10px',
+                    fontSize: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                }}>
+                    <i className="fa-solid fa-circle-exclamation"></i>
+                    {t('search.offline') || 'Offline Mode - Data loaded from cache'}
+                </div>
+            )}
 
             <div className="surah-list">
                 {filteredSurahs.map(surah => (

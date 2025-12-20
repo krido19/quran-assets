@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import dzikirData from '../data/dzikir-pagi-petang.json';
 import { useLanguage } from '../context/LanguageContext';
+import { useSettings } from '../context/SettingsContext';
 
 export default function DzikirPagiPetang() {
     const navigate = useNavigate();
     const { t, language } = useLanguage();
+    const { arabicFontSize, arabicFontFamily } = useSettings();
     const [items, setItems] = useState([]);
     const [search, setSearch] = useState('');
     const [expandedId, setExpandedId] = useState(null);
@@ -101,11 +103,11 @@ export default function DzikirPagiPetang() {
                             {expandedId === item.id && (
                                 <div className="prayer-content" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px' }}>
                                     <div className="arabic" style={{
-                                        fontSize: '24px',
+                                        fontSize: `${arabicFontSize}px`,
                                         fontWeight: 'bold',
                                         marginBottom: '15px',
                                         textAlign: 'right',
-                                        fontFamily: "'Amiri', serif",
+                                        fontFamily: `${arabicFontFamily}, serif`,
                                         lineHeight: '1.6'
                                     }}>
                                         {item.arabic}

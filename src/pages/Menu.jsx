@@ -9,6 +9,8 @@ export default function Menu() {
         { path: '/daily-prayers', icon: 'fa-solid fa-hands-praying', label: t('menu.dailyPrayers'), color: '#4CAF50' },
         { path: '/dzikir-pagi-petang', icon: 'fa-solid fa-sun', label: t('menu.dzikir'), color: '#FF9800' },
         { path: '/doa-khatam', icon: 'fa-solid fa-book-quran', label: t('menu.doaKhatam'), color: '#9C27B0' },
+        { path: '/doa-sholat', icon: 'fa-solid fa-person-praying', label: t('menu.doaSholat'), color: '#03A9F4' },
+        { path: '/mutabah', icon: 'fa-solid fa-chart-line', label: t('mutabah.title'), color: '#4CAF50' },
         { path: '/profile', icon: 'fa-solid fa-user', label: t('menu.profile'), color: '#9C27B0' },
     ];
 

@@ -2,12 +2,13 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { toBlob } from 'html-to-image';
 import { useLanguage } from '../context/LanguageContext';
+import { useSettings } from '../context/SettingsContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/virtual';
 
-const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoaded, isPlaying, currentVerseIndex, playVerse, toggleVerseBookmark, handleVersePlay, formatTranslation }) => {
+const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoaded, isPlaying, currentVerseIndex, playVerse, toggleVerseBookmark, handleVersePlay, formatTranslation, fontSize, fontFamily }) => {
     const [verses, setVerses] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -68,8 +69,8 @@ const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoad
                 <div style={{
                     direction: 'rtl',
                     textAlign: 'justify',
-                    fontFamily: "'Amiri', serif",
-                    fontSize: '24px',
+                    fontFamily: fontFamily + ', serif',
+                    fontSize: fontSize + 'px',
                     lineHeight: '2.2',
                     color: 'var(--text-main)'
                 }}>
@@ -97,7 +98,7 @@ const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoad
                                             {chapterInfo.translated_name.name}
                                         </div>
                                         {verse.chapter_id !== 1 && verse.chapter_id !== 9 && (
-                                            <div style={{ marginTop: '10px', fontFamily: 'Amiri, serif', fontSize: '20px' }}>
+                                            <div style={{ marginTop: '10px', fontFamily: fontFamily + ', serif', fontSize: fontSize + 'px' }}>
                                                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                                             </div>
                                         )}
@@ -114,7 +115,7 @@ const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoad
                                     {scriptType === 'tajweed' ? (
                                         <span dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }} />
                                     ) : (
-                                        verse.text_uthmani
+                                        fontFamily === 'Indopak' ? verse.text_indopak : verse.text_uthmani
                                     )}
                                     <span style={{
                                         fontSize: '0.8em',
@@ -146,6 +147,7 @@ const MushafSlide = ({ pageNumber, language, scriptType, allChapters, onDataLoad
 
 export default function SurahDetail() {
     const { language, t } = useLanguage();
+    const { arabicFontSize, arabicFontFamily } = useSettings();
 
     // Helper to format text with footnotes
     const formatTranslation = (text) => {
@@ -228,37 +230,90 @@ export default function SurahDetail() {
     const [scriptType, setScriptType] = useState('plain'); // 'plain' or 'tajweed'
     const [showScriptMenu, setShowScriptMenu] = useState(false);
     const [allChapters, setAllChapters] = useState({});
+    const [showTagModal, setShowTagModal] = useState(false);
+    const [taggingItem, setTaggingItem] = useState(null); // { type: 'surah'|'verse', data: any }
+    const [availableTags, setAvailableTags] = useState([]);
+    const [selectedTags, setSelectedTags] = useState([]);
+
+    // Load available tags
+    useEffect(() => {
+        const surahNodes = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        const verseNodes = JSON.parse(localStorage.getItem('verse_bookmarks') || '[]');
+
+        const tags = new Set([
+            t('bookmarks.tagHafalan'),
+            t('bookmarks.tagFavorit'),
+            t('bookmarks.tagPenting')
+        ]);
+
+        surahNodes.forEach(b => { if (b.tags) b.tags.forEach(t => tags.add(t)) });
+        verseNodes.forEach(b => { if (b.tags) b.tags.forEach(t => tags.add(t)) });
+
+        setAvailableTags(Array.from(tags));
+    }, [t]);
 
     // Fetch All Chapters for reference
     useEffect(() => {
+        const cached = localStorage.getItem('quran_all_chapters_' + language);
+        if (cached) setAllChapters(JSON.parse(cached));
+
         fetch('https://api.quran.com/api/v4/chapters?language=' + language)
             .then(res => res.json())
             .then(data => {
                 const chaptersMap = {};
                 data.chapters.forEach(c => chaptersMap[c.id] = c);
                 setAllChapters(chaptersMap);
+                localStorage.setItem('quran_all_chapters_' + language, JSON.stringify(chaptersMap));
             });
     }, [language]);
 
-    // Fetch Surah Info
+    const [isOffline, setIsOffline] = useState(!navigator.onLine);
+
     // Fetch Surah Info
     useEffect(() => {
+        const cachedSurah = localStorage.getItem(`surah_info_${id}_${language}`);
+        if (cachedSurah) setSurah(JSON.parse(cachedSurah));
+
         fetch(`https://api.quran.com/api/v4/chapters/${id}?language=${language}`)
             .then(res => res.json())
             .then(data => {
                 setSurah(data.chapter);
+                localStorage.setItem(`surah_info_${id}_${language}`, JSON.stringify(data.chapter));
                 // Reset verses when surah changes
                 setVerses([]);
                 setHasMore(true);
+                setIsOffline(false);
 
                 // If switching surah, set page to surah's first page
                 if (viewMode === 'page') {
                     setCurrentDisplayPage(data.chapter.pages[0]);
                 } else {
-                    setPage(1);
-                    fetchVerses(1);
+                    const targetVerseKey = location.state?.targetVerse;
+                    let initialLimit = 50;
+                    if (targetVerseKey) {
+                        const vNum = parseInt(targetVerseKey.split(':')[1]);
+                        if (vNum > 50) initialLimit = Math.min(Math.ceil(vNum / 50) * 50, 300);
+                    }
+                    setPage(initialLimit / 50);
+                    fetchVerses(1, initialLimit);
+                }
+            })
+            .catch(() => {
+                setIsOffline(true);
+                // Fallback to cache even for pagination logic if surah exists
+                if (cachedSurah && viewMode === 'list') {
+                    fetchVerses(1, 1000); // Load all cached if possible
                 }
             });
+
+        const handleOnline = () => setIsOffline(false);
+        const handleOffline = () => setIsOffline(true);
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('offline', handleOffline);
+        return () => {
+            window.removeEventListener('online', handleOnline);
+            window.removeEventListener('offline', handleOffline);
+        };
     }, [id, language]);
 
     // Update currentDisplayPage when viewMode changes to page
@@ -285,20 +340,37 @@ export default function SurahDetail() {
     }, [verses, location.state]);
 
     // Fetch Verses with Pagination
-    const fetchVerses = (pageNumber) => {
+    const fetchVerses = (pageNumber, customPerPage = 50) => {
         if (isLoading) return;
+
+        // Try load from cache first for List View
+        if (pageNumber === 1) {
+            const cachedVerses = localStorage.getItem(`surah_verses_${id}_${language}`);
+            if (cachedVerses) {
+                setVerses(JSON.parse(cachedVerses));
+            }
+        }
+
         setIsLoading(true);
 
-        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number&per_page=50&page=${pageNumber}`)
+        fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=${language}&words=true&translations=131,33,57&audio=1&fields=text_uthmani,text_uthmani_tajweed,text_indopak,page_number,juz_number&per_page=${customPerPage}&page=${pageNumber}`)
             .then(res => res.json())
             .then(data => {
                 if (data.verses.length === 0) {
                     setHasMore(false);
                 } else {
                     setVerses(prev => {
-                        // Avoid duplicates
                         const newVerses = data.verses.filter(v => !prev.some(p => p.id === v.id));
-                        return [...prev, ...newVerses];
+                        const combined = [...prev, ...newVerses];
+                        // Cache initial set of verses (e.g., first 100)
+                        if (pageNumber === 1 || combined.length <= 100) {
+                            try {
+                                localStorage.setItem(`surah_verses_${id}_${language}`, JSON.stringify(combined.slice(0, 150)));
+                            } catch (e) {
+                                console.warn('Verse cache overflow', e);
+                            }
+                        }
+                        return combined;
                     });
                     if (pageNumber === 1 && data.verses.length > 0) {
                         setAudioSrc(data.verses[0].audio.url);
@@ -306,7 +378,10 @@ export default function SurahDetail() {
                 }
                 setIsLoading(false);
             })
-            .catch(() => setIsLoading(false));
+            .catch(() => {
+                setIsLoading(false);
+                setIsOffline(true);
+            });
     };
 
     // Fetch Page (Page View)
@@ -435,28 +510,43 @@ export default function SurahDetail() {
 
     useEffect(() => {
         const bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
-        setIsSurahBookmarked(bookmarks.includes(parseInt(id)));
+        const isBookmarked = bookmarks.some(b => {
+            if (typeof b === 'number') return b === parseInt(id);
+            return b.id === parseInt(id);
+        });
+        setIsSurahBookmarked(isBookmarked);
     }, [id]);
 
     const toggleBookmark = () => {
         let bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
         const surahId = parseInt(id);
 
-        // Ensure all are numbers
-        bookmarks = bookmarks.map(b => parseInt(b));
+        // Normalize old bookmarks (numbers to objects)
+        bookmarks = bookmarks.map(b => typeof b === 'number' ? { id: b, tags: [] } : b);
 
-        let newBookmarks;
+        const index = bookmarks.findIndex(b => b.id === surahId);
 
-        if (bookmarks.includes(surahId)) {
-            newBookmarks = bookmarks.filter(b => b !== surahId);
+        if (index !== -1) {
+            const newBookmarks = bookmarks.filter(b => b.id !== surahId);
+            localStorage.setItem('quran_bookmarks', JSON.stringify(newBookmarks));
             setIsSurahBookmarked(false);
-            // alert('Bookmark Surah dihapus');
         } else {
-            newBookmarks = [...bookmarks, surahId];
-            setIsSurahBookmarked(true);
-            // alert('Surah berhasil disimpan');
+            // Open tag modal first
+            setTaggingItem({ type: 'surah', id: surahId });
+            setSelectedTags([]);
+            setShowTagModal(true);
         }
+    };
+
+    const saveSurahBookmark = (tags) => {
+        let bookmarks = JSON.parse(localStorage.getItem('quran_bookmarks') || '[]');
+        bookmarks = bookmarks.map(b => typeof b === 'number' ? { id: b, tags: [] } : b);
+
+        const surahId = parseInt(id);
+        const newBookmarks = [...bookmarks, { id: surahId, tags }];
         localStorage.setItem('quran_bookmarks', JSON.stringify(newBookmarks));
+        setIsSurahBookmarked(true);
+        setShowTagModal(false);
     };
 
     // Verse Bookmark Logic
@@ -470,25 +560,36 @@ export default function SurahDetail() {
     const toggleVerseBookmark = (verse) => {
         const saved = JSON.parse(localStorage.getItem('verse_bookmarks') || '[]');
         const isBookmarked = saved.some(b => b.verse_key === verse.verse_key);
-        let newBookmarks;
 
         if (isBookmarked) {
-            newBookmarks = saved.filter(b => b.verse_key !== verse.verse_key);
-            // alert('Bookmark Ayat dihapus');
+            const newBookmarks = saved.filter(b => b.verse_key !== verse.verse_key);
+            setBookmarkedVerses(newBookmarks);
+            localStorage.setItem('verse_bookmarks', JSON.stringify(newBookmarks));
         } else {
-            const translation = verse.translations.find(t => t.resource_id === 131)?.text.replace(/<[^>]*>?/gm, '');
-            const bookmarkData = {
-                verse_key: verse.verse_key,
-                text_uthmani: verse.text_uthmani,
-                translation: translation,
-                surah_name: surah.name_simple,
-                surah_id: surah.id
-            };
-            newBookmarks = [...saved, bookmarkData];
-            // alert('Ayat berhasil disimpan');
+            setTaggingItem({ type: 'verse', verse });
+            setSelectedTags([]);
+            setShowTagModal(true);
         }
+    };
+
+    const saveVerseBookmark = (tags) => {
+        const verse = taggingItem.verse;
+        const saved = JSON.parse(localStorage.getItem('verse_bookmarks') || '[]');
+
+        const translation = verse.translations.find(t => t.resource_id === 131)?.text.replace(/<[^>]*>?/gm, '');
+        const bookmarkData = {
+            verse_key: verse.verse_key,
+            text_uthmani: verse.text_uthmani,
+            translation: translation,
+            surah_name: surah.name_simple,
+            surah_id: surah.id,
+            tags: tags
+        };
+
+        const newBookmarks = [...saved, bookmarkData];
         setBookmarkedVerses(newBookmarks);
         localStorage.setItem('verse_bookmarks', JSON.stringify(newBookmarks));
+        setShowTagModal(false);
     };
 
     const handleVersePlay = (index) => {
@@ -513,10 +614,15 @@ export default function SurahDetail() {
     return (
         <div id="view-surah-detail" className="view active" ref={viewRef} onClick={() => setShowScriptMenu(false)}>
             <div className="detail-header">
-                <button className="icon-btn" onClick={() => navigate(-1)}>
-                    <i className="fa-solid fa-arrow-left"></i>
+                <button
+                    className="icon-btn"
+                    onClick={() => navigate(location.state?.fromSearch ? '/search' : -1)}
+                    style={{ width: location.state?.fromSearch ? 'auto' : '40px', padding: location.state?.fromSearch ? '0 15px' : '0' }}
+                >
+                    <i className="fa-solid fa-arrow-left" style={{ marginRight: location.state?.fromSearch ? '8px' : '0' }}></i>
+                    {location.state?.fromSearch && <span style={{ fontSize: '14px' }}>{t('search.backToSearch')}</span>}
                 </button>
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center', flex: 1 }}>
                     <h2 style={{ margin: 0, fontSize: '18px' }}>
                         {viewMode === 'page' && pageVerses.length > 0
                             ? (allChapters[pageVerses[0].chapter_id]?.name_simple || surah.name_simple)
@@ -606,6 +712,22 @@ export default function SurahDetail() {
 
 
             <div className="verses-list">
+                {isOffline && (
+                    <div style={{
+                        margin: '0 20px 15px',
+                        padding: '10px 15px',
+                        background: 'rgba(239, 68, 68, 0.1)',
+                        color: '#ef4444',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px'
+                    }}>
+                        <i className="fa-solid fa-cloud-slash"></i>
+                        {t('surah.offlineMode') || 'Mode Offline - Menampilkan ayat dari cache.'}
+                    </div>
+                )}
                 {viewMode === 'list' ? (
                     // LIST VIEW (Existing)
                     <>
@@ -649,10 +771,21 @@ export default function SurahDetail() {
                                     {scriptType === 'tajweed' ? (
                                         <div
                                             className="verse-arabic"
+                                            style={{
+                                                fontFamily: arabicFontFamily + ', serif',
+                                                fontSize: arabicFontSize + 'px',
+                                                lineHeight: '2.2'
+                                            }}
                                             dangerouslySetInnerHTML={{ __html: verse.text_uthmani_tajweed }}
                                         />
                                     ) : (
-                                        <div className="verse-arabic">{verse.text_uthmani}</div>
+                                        <div className="verse-arabic" style={{
+                                            fontFamily: arabicFontFamily + ', serif',
+                                            fontSize: arabicFontSize + 'px',
+                                            lineHeight: '2.2'
+                                        }}>
+                                            {arabicFontFamily === 'Indopak' ? verse.text_indopak : verse.text_uthmani}
+                                        </div>
                                     )}
                                     <div className="verse-transliteration">{transliteration}</div>
                                     <div className="verse-translation-group">
@@ -699,6 +832,8 @@ export default function SurahDetail() {
                                     toggleVerseBookmark={toggleVerseBookmark}
                                     handleVersePlay={handleVersePlay}
                                     formatTranslation={formatTranslation}
+                                    fontSize={arabicFontSize}
+                                    fontFamily={arabicFontFamily}
                                 />
                             </SwiperSlide>
                         ))}
@@ -752,6 +887,83 @@ export default function SurahDetail() {
                             <button className="tasbih-modal-btn primary" onClick={handleShareImage}>
                                 <i className="fa-solid fa-share-nodes" style={{ marginRight: '8px' }}></i>
                                 {t('surah.shareImage')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Bookmark Tag Modal */}
+            {showTagModal && (
+                <div className="tasbih-modal" onClick={() => setShowTagModal(false)}>
+                    <div className="tasbih-modal-content" onClick={e => e.stopPropagation()} style={{ width: '90%', maxWidth: '400px', padding: '20px' }}>
+                        <h3 style={{ marginBottom: '15px' }}>{t('bookmarks.manageTags')}</h3>
+                        <p style={{ fontSize: '14px', opacity: 0.7, marginBottom: '20px' }}>
+                            {taggingItem?.type === 'surah' ? surah?.name_simple : `QS ${taggingItem?.verse?.verse_key}`}
+                        </p>
+
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+                            {availableTags.map(tag => (
+                                <button
+                                    key={tag}
+                                    onClick={() => {
+                                        setSelectedTags(prev =>
+                                            prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+                                        );
+                                    }}
+                                    style={{
+                                        padding: '8px 15px',
+                                        borderRadius: '20px',
+                                        border: '1px solid',
+                                        borderColor: selectedTags.includes(tag) ? 'var(--primary)' : 'var(--text-muted)',
+                                        background: selectedTags.includes(tag) ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
+                                        color: selectedTags.includes(tag) ? 'var(--primary)' : 'var(--text-main)',
+                                        cursor: 'pointer',
+                                        fontSize: '12px'
+                                    }}
+                                >
+                                    {tag}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px', marginBottom: '25px' }}>
+                            <input
+                                id="new-tag-input"
+                                type="text"
+                                placeholder={t('bookmarks.addTag')}
+                                style={{
+                                    flex: 1,
+                                    padding: '10px',
+                                    borderRadius: '10px',
+                                    border: '1px solid var(--border)',
+                                    background: 'var(--bg-body)',
+                                    color: 'var(--text-main)'
+                                }}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' && e.target.value.trim()) {
+                                        const newTag = e.target.value.trim();
+                                        if (!availableTags.includes(newTag)) {
+                                            setAvailableTags(prev => [...prev, newTag]);
+                                        }
+                                        if (!selectedTags.includes(newTag)) {
+                                            setSelectedTags(prev => [...prev, newTag]);
+                                        }
+                                        e.target.value = '';
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                            <button className="tasbih-modal-btn secondary" onClick={() => setShowTagModal(false)}>
+                                {t('surah.cancel')}
+                            </button>
+                            <button
+                                className="tasbih-modal-btn primary"
+                                onClick={() => taggingItem.type === 'surah' ? saveSurahBookmark(selectedTags) : saveVerseBookmark(selectedTags)}
+                            >
+                                {t('surah.save')}
                             </button>
                         </div>
                     </div>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getHijriDate } from '../lib/hijri';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Header() {
+    const navigate = useNavigate();
     const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode') === 'true');
     const { language, setLanguage, t } = useLanguage();
 
@@ -40,6 +42,23 @@ export default function Header() {
                     }}
                 >
                     {language.toUpperCase()}
+                </button>
+                <button
+                    className="icon-btn"
+                    onClick={() => navigate('/search')}
+                    style={{
+                        background: 'var(--bg-card)',
+                        boxShadow: 'var(--shadow)',
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'var(--text-main)'
+                    }}
+                >
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <button
                     id="theme-toggle"
