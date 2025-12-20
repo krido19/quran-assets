@@ -69,23 +69,28 @@ function App() {
 
     const requestPermissions = async () => {
       try {
+        const platform = (await import('@capacitor/core')).Capacitor.getPlatform();
+        if (platform === 'web') return;
+
         // Request Location Permission
-        const locationStatus = await import('@capacitor/geolocation').then(m => m.Geolocation.checkPermissions());
+        const { Geolocation } = await import('@capacitor/geolocation');
+        const locationStatus = await Geolocation.checkPermissions();
         if (locationStatus.location !== 'granted') {
           try {
-            await import('@capacitor/geolocation').then(m => m.Geolocation.requestPermissions());
+            await Geolocation.requestPermissions();
           } catch (e) {
-            if (e.message !== "Not implemented on web") console.warn("Location permission error:", e);
+            console.warn("Location permission error:", e);
           }
         }
 
         // Request Notification Permission
-        const notificationStatus = await import('@capacitor/local-notifications').then(m => m.LocalNotifications.checkPermissions());
+        const { LocalNotifications } = await import('@capacitor/local-notifications');
+        const notificationStatus = await LocalNotifications.checkPermissions();
         if (notificationStatus.display !== 'granted') {
           try {
-            await import('@capacitor/local-notifications').then(m => m.LocalNotifications.requestPermissions());
+            await LocalNotifications.requestPermissions();
           } catch (e) {
-            if (e.message !== "Not implemented on web") console.warn("Notification permission error:", e);
+            console.warn("Notification permission error:", e);
           }
         }
       } catch (e) {

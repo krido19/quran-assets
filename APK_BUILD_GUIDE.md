@@ -157,6 +157,20 @@ sdk.dir=C\:\\Users\\NamaUser\\AppData\\Local\\Android\\Sdk
 ```
 *(Perhatikan double backslash `\\` dan titik dua `\:` yang di-escape)*
 
+### H. Log Update: 20 Des 2025 (PENTING) 🛡️
+**Masalah:** Build gagal dengan pesan `Define a valid SDK path in your local.properties` meskipun path sudah benar.
+**Penyebab:**
+1.  File `local.properties` tidak ada (karena di-ignore git).
+2.  Format path di Windows sering bermasalah jika menggunakan single backslash `\` atau encoding file bukan ASCII/UTF-8 murni (misal UTF-16 dari PowerShell).
+
+**Solusi Teruji:**
+1.  Buat file `android/local.properties` menggunakan command terminal (CMD/Bash) agar encoding-nya aman.
+2.  Gunakan **forward slash** `/` untuk path agar Gradle tidak bingung, contoh:
+    ```properties
+    sdk.dir=C:/Users/Administrator/AppData/Local/Android/Sdk
+    ```
+3.  Pastikan tidak ada spasi di akhir baris.
+
 ### G. FAQ: "Kok Build-nya Lama Banget?" ⏳
 **Jawab:** Wajar, apalagi di Windows. Berikut alasannya:
 1.  **Download Awal:** Saat pertama kali build (atau setelah `clean`), Gradle mendownload ratusan MB dependencies dan Gradle distribution itu sendiri.

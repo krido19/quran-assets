@@ -7,7 +7,7 @@
         "latin": "Allahumma baarik lanaa fiimaa rozaqtanaa wa qinaa 'adzaaban naar",
         "translation": "Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka.",
         "translation_en": "O Allah, bless us in what You have provided for us and protect us from the punishment of the Fire.",
-        "audio": "/audio/doa-1.mp3"
+        "audio": "/audio/doa-sebelum-makan.mp3"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         "latin": "Alhamdulillahilladzi ath-amanaa wa saqoonaa wa ja'alanaa muslimiin",
         "translation": "Segala puji bagi Allah yang telah memberi makan kami dan minuman kami, serta menjadikan kami sebagai orang-orang islam.",
         "translation_en": "All praise is due to Allah who has fed us and given us drink, and made us Muslims.",
-        "audio": "/audio/doa-2.mp3"
+        "audio": "/audio/doa-sesudah-makan.mp3"
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "latin": "Bismika allahumma ahyaa wa bismika amuut",
         "translation": "Dengan menyebut nama-Mu Ya Allah, aku hidup dan dengan menyebut nama-Mu aku mati.",
         "translation_en": "In Your name, O Allah, I live and in Your name I die.",
-        "audio": "/audio/doa-3.mp3"
+        "audio": "/audio/doa-sebelum-tidur.mp3"
     },
     {
         "id": 4,
@@ -37,7 +37,7 @@
         "latin": "Alhamdulillahilladzi ahyaanaa ba'damaa amaatanaa wa ilaihin nusyuur",
         "translation": "Segala puji bagi Allah yang telah menghidupkan kami sesudah kami mati (membangunkan dari tidur) dan hanya kepada-Nya kami dikembalikan.",
         "translation_en": "All praise is due to Allah who gave us life after having given us death, and unto Him is the resurrection.",
-        "audio": "/audio/doa-4.mp3"
+        "audio": "/audio/doa-bangun-tidur.mp3"
     },
     {
         "id": 5,
@@ -47,7 +47,7 @@
         "latin": "Allahummaf tahlii abwaaba rohmatik",
         "translation": "Ya Allah, bukalah untukku pintu-pintu rahmat-Mu.",
         "translation_en": "O Allah, open for me the doors of Your mercy.",
-        "audio": "/audio/doa-5.mp3"
+        "audio": "/audio/doa-masuk-masjid.mp3"
     },
     {
         "id": 6,
@@ -57,6 +57,6 @@
         "latin": "Allahumma innii as-aluka min fadhlik",
         "translation": "Ya Allah, sesungguhnya aku memohon keutamaan dari-Mu.",
         "translation_en": "O Allah, I ask You for Your bounty.",
-        "audio": "/audio/doa-6.mp3"
+        "audio": "/audio/doa-keluar-masjid.mp3"
     }
 ]

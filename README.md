@@ -1,40 +1,40 @@
-# ✨ Islamic App v1.1 - Perjalanan Spiritual yang Lebih Personal
+﻿# âœ¨ Islamic App v1.1 - Perjalanan Spiritual yang Lebih Personal
 
-Selamat datang di versi **1.1**! Kami telah bekerja keras untuk membawa fitur-fitur yang akan membimbing Anda menjadi versi terbaik diri Anda setiap harinya. 🌟
+Selamat datang di versi **1.1**! Kami telah bekerja keras untuk membawa fitur-fitur yang akan membimbing Anda menjadi versi terbaik diri Anda setiap harinya. ðŸŒŸ
 
 ---
 
-## 🚀 Apa yang Baru di v1.1?
+## ðŸš€ Apa yang Baru di v1.1?
 
-### 🎨 Personalitas dalam Membaca (Font Customization)
+### ðŸŽ¨ Personalitas dalam Membaca (Font Customization)
 Kini Al-Qur'an terasa lebih dekat. Atur sendiri gaya membaca Anda:
 - **3 Pilihan Font Arabic Premium**: *Amiri (Utsmani)* yang elegan, *Indopak* yang familiar, atau *Lateef* yang tegas.
 - **Slider Ukuran Font**: Sesuaikan kenyamanan mata Anda, dari yang mungil hingga yang besar dan jelas.
 - **Live Preview**: Lihat perubahan seketika di halaman Profil!
 
-### 📈 Mutaba'ah Yaumiyah (Worship Tracker)
+### ðŸ“ˆ Mutaba'ah Yaumiyah (Worship Tracker)
 Jadilah hamba yang istiqomah dengan asisten tracker pribadi Anda:
 - **Checklist Ibadah Harian**: Catat Sholat Fardhu, Sunnah, Tilawah, hingga Sedekah.
 - **Visualisasi Progres**: Lihat persentase pencapaian harian Anda dengan progress bar yang dinamis.
 - **Riwayat Kalender**: Pantau konsistensi Anda dari hari ke hari dengan mudah.
 
-### 🔔 Pengingat Cerdas (Random Reminders)
+### ðŸ”” Pengingat Cerdas (Random Reminders)
 Kami hadir untuk mengingatkan dengan penuh kasih sayang:
 - **Notifikasi Setelah Maghrib**: Pengingat otomatis muncul di waktu acak setelah Maghrib (saat-saat produktivitas spiritual meningkat).
-- **Pesan Menyentuh**: *"Sudah sholat 5 waktu?"*, *"Sudah baca Al-Qur'an?"* — pengingat kecil untuk makna yang besar.
+- **Pesan Menyentuh**: *"Sudah sholat 5 waktu?"*, *"Sudah baca Al-Qur'an?"* â€” pengingat kecil untuk makna yang besar.
 - **Integrasi Android/iOS**: Berjalan mulus di perangkat mobile melalui Capacitor.
 
 - **Auto-Scroll Magic**: Ketuk hasil pencarian, dan Anda akan langsung dibawa ke ayat tersebut, bahkan untuk ayat nomor besar sekalipun.
 - **Hasil Murni Terjemahan**: Pencarian kini lebih fokus dengan hanya menampilkan arti/terjemahan ayat, tanpa teks Arab yang memenuhi layar.
 - **Desain Premium**: Tombol "Lihat Lebih Banyak Hasil" dengan gradasi warna dan hover effect yang modern.
 
-### 🌐 Mode Offline-First (PWA & Smart Caching)
+### ðŸŒ Mode Offline-First (PWA & Smart Caching)
 Bawa Al-Qur'an kemanapun, bahkan ke tempat tanpa sinyal:
 - **Offline Access**: Berkat teknologi PWA, aplikasi tetap bisa dibuka tanpa internet.
 - **Smart Data Caching**: Daftar Surah dan ayat yang pernah Anda buka otomatis tersimpan di memori ponsel.
 - **Indikator Koneksi**: Pesan cerdas yang memberitahu saat Anda sedang menggunakan data cache karena offline.
 
-### 🏷️ Bookmark Berbasis Tag (Enhanced Bookmarks)
+### ðŸ·ï¸ Bookmark Berbasis Tag (Enhanced Bookmarks)
 Kelola perpustakaan spiritual Anda dengan lebih rapi:
 - **Kategorisasi**: Tambahkan tag seperti *Hafalan*, *Favorit*, atau *Penting* pada setiap bookmark.
 - **Custom Tags**: Buat tag kustom Anda sendiri sesuai kebutuhan.
@@ -43,7 +43,7 @@ Kelola perpustakaan spiritual Anda dengan lebih rapi:
 
 ---
 
-## 🛠️ Catatan Teknis (Developer Guide)
+## ðŸ› ï¸ Catatan Teknis (Developer Guide)
 
 Dokumen ini berisi catatan lengkap proses pengembangan aplikasi Al-Quran & Jadwal Sholat berbasis React + Capacitor.
 
@@ -78,11 +78,14 @@ Dokumen ini berisi catatan lengkap proses pengembangan aplikasi Al-Quran & Jadwa
 
 ---
 
-## 🤝 Kontribusi & Lisensi
+## ðŸ¤ Kontribusi & Lisensi
 Proyek ini menggunakan lisensi **MIT**. Mari bersama membangun aplikasi yang bermanfaat bagi umat.
 
 ---
-📖 **Ingin tahu lebih dalam tentang teknis aplikasi ini?**  
+ðŸ“– **Ingin tahu lebih dalam tentang teknis aplikasi ini?**  
 Cek [DEVELOPER_GUIDE.md](file:///c:/Antigravity/QURAN/Quran/DEVELOPER_GUIDE.md) untuk panduan lengkap pengembangan, deployment, dan troubleshooting.
 
-*Dibuat dengan ❤️ oleh Antigravity & Sahabat Muslim - 2025*
+*Dibuat dengan â¤ï¸ oleh Antigravity & Sahabat Muslim - 2025*
+
+
+

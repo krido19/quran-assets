@@ -76,7 +76,13 @@ export default function DailyPrayers() {
             setIsPlaying(true);
         }).catch(e => {
             console.error("Audio Play Error:", e);
-            alert("Gagal memuat audio. Pastikan internet aktif.");
+            if (e.name === 'NotAllowedError') {
+                alert("Browser memblokir pemutaran otomatis. Silakan klik tombol play lagi.");
+            } else if (e.name === 'NotSupportedError' || e.message.includes('supported source')) {
+                alert("File audio tidak ditemukan atau format tidak didukung. Pastikan file ada di public/audio/");
+            } else {
+                alert("Gagal memuat audio. Pastikan internet aktif dan file tersedia.");
+            }
             setPlayingId(null);
             setIsPlaying(false);
         });
