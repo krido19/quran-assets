@@ -151,7 +151,7 @@ export default function ProphetStories() {
                 }}>
                     <img
                         loading="lazy"
-                        src={`/images/prophets/${selectedProphet.illustration?.split('_')[0] || selectedProphet.name_id?.toLowerCase()}.png`}
+                        src={`/images/prophets/${selectedProphet.illustration?.split('_')[0] || selectedProphet.name_id?.toLowerCase()}.webp`}
                         alt=""
                         style={{
                             width: '100%', height: '100%', objectFit: 'cover'

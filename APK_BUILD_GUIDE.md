@@ -178,3 +178,57 @@ sdk.dir=C\:\\Users\\NamaUser\\AppData\\Local\\Android\\Sdk
 3.  **Antivirus (Windows Defender):** Ini musuh utama performa build. Defender scan setiap file `.class` yang digenerate.
     *   *Tips:* Exclude folder project ini dari Windows Defender jika ingin ngebut.
 4.  **Hardware:** Android build sangat boros CPU & RAM.
+
+## 5. Live Update Troubleshooting (GitHub Actions) 🔄
+
+Jika Anda merubah workflow GitHub Actions untuk fitur Live Update, pastikan 2 hal ini agar tidak error:
+
+### A. Masalah Permission 403 (Forbidden)
+**Gejala:** Workflow gagal saat step "Create GitHub Release" dengan error `403`.
+**Solusi:**
+Wajib tambahkan permission `contents: write` di file `.github/workflows/release-bundle.yml`:
+```yaml
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    ...
+```
+
+### B. Masalah `npm ci` Fail
+**Gejala:** Workflow gagal di step "Install dependencies" jika `package-lock.json` tidak sinkron.
+**Solusi:**
+Gunakan `npm install` sebagai gantinya agar lebih aman:
+```yaml
+- name: Install dependencies
+  run: npm install --legacy-peer-deps
+```
+*(Jangan gunakan `npm ci` kecuali Anda yakin lockfile 100% benar)*
+
+## 6. Cara Deploy Live Update (Tanpa Ganti APK) 🚀
+
+Setelah APK terinstal di HP user, Anda tidak perlu meminta mereka download ulang untuk update kecil (perbaikan bug, ganti teks, fitur baru Javascript). Cukup push update ke GitHub.
+
+**Langkah-langkah:**
+
+1.  **Edit Kode:** Lakukan perubahan kode seperti biasa.
+2.  **Naikkan Versi:**
+    *   Buka file `src/lib/updater.js`.
+    *   Ubah `CURRENT_VERSION` ke angka baru (misal: dari `'1.0.2'` ke `'1.0.3'`).
+3.  **Commit & Push Tag:**
+    Buka terminal VS Code dan jalankan perintah ini (ganti `v1.0.3` dengan versi baru Anda):
+    ```bash
+    git add -A
+    git commit -m "Update fitur baru (v1.0.3)"
+    git tag v1.0.3
+    git push origin main --tags
+    ```
+4.  **Selesai!**
+    *   GitHub Actions akan otomatis membuat "Release" baru.
+    *   Saat user membuka aplikasi di HP, update akan didownload & dipasang otomatis (butuh restart app sekali).
+
+**⚠️ PENTING:**
+*   Live Update **TIDAK BISA** jika Anda mengubah konfigurasi Native (misal: `android/`, `capacitor.config.json`, tambah plugin baru, ganti Icon/Splash).
+*   Untuk perubahan Native, Anda wajib Build APK ulang (Lihat **Section 2**).
+
