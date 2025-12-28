@@ -5,6 +5,7 @@ export default function Menu() {
     const { t } = useLanguage();
 
     const menuItems = [
+        { path: '/prophet-stories', icon: 'fa-solid fa-book-open-reader', label: t('menu.prophetStories'), color: '#E91E63' },
         { path: '/asmaul-husna', icon: 'fa-solid fa-star-and-crescent', label: t('menu.asmaulHusna'), color: '#FFD700' },
         { path: '/daily-prayers', icon: 'fa-solid fa-hands-praying', label: t('menu.dailyPrayers'), color: '#4CAF50' },
         { path: '/dzikir-pagi-petang', icon: 'fa-solid fa-sun', label: t('menu.dzikir'), color: '#FF9800' },

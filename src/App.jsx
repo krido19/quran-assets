@@ -24,6 +24,10 @@ import DoaSholat from './pages/DoaSholat';
 import Mutabah from './pages/Mutabah';
 import GlobalSearch from './pages/GlobalSearch';
 import Menu from './pages/Menu';
+import ProphetStories from './pages/ProphetStories';
+import ProphetTimeline from './pages/ProphetTimeline';
+import ProphetFamilyTree from './pages/ProphetFamilyTree';
+import ProphetQuiz from './pages/ProphetQuiz';
 import { scheduleRandomMutabahReminder } from './lib/reminderScheduler';
 
 const DeepLinkHandler = () => {
@@ -132,6 +136,10 @@ function App() {
                       <Route path="/mutabah" element={<Mutabah />} />
                       <Route path="/search" element={<GlobalSearch />} />
                       <Route path="/menu" element={<Menu />} />
+                      <Route path="/prophet-stories" element={<ProphetStories />} />
+                      <Route path="/prophet-timeline" element={<ProphetTimeline />} />
+                      <Route path="/prophet-family-tree" element={<ProphetFamilyTree />} />
+                      <Route path="/prophet-quiz" element={<ProphetQuiz />} />
                     </Routes>
                   </main>
                   <Navbar />

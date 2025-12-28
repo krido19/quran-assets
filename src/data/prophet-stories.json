@@ -1,0 +1,2401 @@
+[
+    {
+        "id": 1,
+        "name": "آدم",
+        "name_id": "Adam",
+        "name_en": "Adam",
+        "category": [
+            "first"
+        ],
+        "era": -4000,
+        "location": "Surga/Bumi",
+        "parentId": null,
+        "miracle_id": "Diciptakan langsung oleh Allah dari tanah",
+        "miracle_en": "Created directly by Allah from clay",
+        "sections_id": [
+            {
+                "title": "Awal Penciptaan",
+                "icon": "fa-star",
+                "content": "Sebelum menciptakan Adam, Allah SWT memberitahu para malaikat bahwa Dia akan menjadikan khalifah di muka bumi. Malaikat bertanya mengapa Allah hendak menjadikan makhluk yang akan membuat kerusakan. Allah menjawab: 'Sesungguhnya Aku mengetahui apa yang tidak kalian ketahui.'"
+            },
+            {
+                "title": "Proses Penciptaan",
+                "icon": "fa-hand-sparkles",
+                "content": "Allah mengutus malaikat untuk mengambil tanah dari berbagai penjuru bumi - tanah merah, putih, hitam. Inilah sebab manusia memiliki warna kulit yang berbeda. Tanah dicampur air menjadi tanah liat, dibiarkan berbau, dibentuk menjadi sosok manusia, dan dikeringkan seperti tembikar."
+            },
+            {
+                "title": "Ruh Ditiupkan",
+                "icon": "fa-wind",
+                "content": "Ketika Allah meniupkan ruh, ruh masuk dari kepala. Saat sampai di hidung, Adam bersin dan mengucapkan 'Alhamdulillah'. Allah menjawab: 'Yarhamukallah'. Ketika sampai di mata, Adam melihat buah-buahan surga. Inilah asal sifat manusia yang tergesa-gesa."
+            },
+            {
+                "title": "Diajarkan Nama-nama",
+                "icon": "fa-book",
+                "content": "Allah mengajarkan Adam nama-nama segala sesuatu. Kemudian Allah memperlihatkan nama-nama itu kepada malaikat. Malaikat menjawab: 'Maha Suci Engkau, tidak ada yang kami ketahui selain apa yang telah Engkau ajarkan.' Adam menyebutkan seluruh nama itu."
+            },
+            {
+                "title": "Iblis Menolak Sujud",
+                "icon": "fa-fire",
+                "content": "Allah memerintahkan malaikat bersujud kepada Adam. Semua bersujud kecuali Iblis. Allah bertanya: 'Mengapa engkau tidak sujud?' Iblis menjawab sombong: 'Aku lebih baik darinya. Engkau ciptakan aku dari api, sedangkan dia dari tanah.' Iblis dikutuk dan diusir."
+            },
+            {
+                "title": "Bertemu Hawa",
+                "icon": "fa-heart",
+                "content": "Adam ditempatkan di surga namun merasa kesepian. Ia terbangun dan menemukan seorang wanita. Adam bertanya: 'Siapa engkau?' Wanita menjawab: 'Wanita, diciptakan agar engkau merasa tenteram.' Adam menamainya Hawa karena diciptakan dari sesuatu yang hidup."
+            },
+            {
+                "title": "Buah Terlarang",
+                "icon": "fa-apple-whole",
+                "content": "Adam dan Hawa hidup bahagia di surga. Mereka boleh makan dari mana saja kecuali satu pohon. Iblis terus menggoda. Akhirnya keduanya tergoda dan memakan buah terlarang. Seketika itu aurat mereka tersingkap dan mereka malu."
+            },
+            {
+                "title": "Turun ke Bumi",
+                "icon": "fa-earth-asia",
+                "content": "Allah menurunkan Adam, Hawa, dan Iblis ke bumi. Adam turun di India, Hawa di Jeddah. Keduanya terpisah dan tidak bertemu selama bertahun-tahun. Adam menangis penuh penyesalan."
+            },
+            {
+                "title": "Bertemu di Arafah",
+                "icon": "fa-users",
+                "content": "Setelah sekian lama mencari, Adam dan Hawa akhirnya bertemu kembali di Padang Arafah. Tempat itu dinamakan Arafah yang berarti 'berkenalan'. Mereka bersyukur kepada Allah."
+            },
+            {
+                "title": "Menjadi Nabi",
+                "icon": "fa-mosque",
+                "content": "Allah menerima taubat Adam dan mengangkatnya sebagai nabi pertama. Adam mengajarkan keturunannya tentang tauhid dan ibadah. Mereka berkembang biak dan menyebar di bumi."
+            },
+            {
+                "title": "Habil dan Qabil",
+                "icon": "fa-people-arrows",
+                "content": "Dua putra Adam yang terkenal adalah Habil dan Qabil. Keduanya diminta berkurban kepada Allah. Kurban Habil diterima, Qabil ditolak. Karena iri, Qabil membunuh Habil - pembunuhan pertama dalam sejarah."
+            },
+            {
+                "title": "Wafatnya Adam",
+                "icon": "fa-dove",
+                "content": "Nabi Adam hidup sekitar 1000 tahun. Ketika wafat, para malaikat memandikan, mengkafani, menyalatkan, dan menguburkannya. Adam dimakamkan di Gua Abu Qubais dekat Mekkah."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "The Beginning",
+                "icon": "fa-star",
+                "content": "Before creating Adam, Allah informed the angels that He would place a vicegerent on Earth. The angels asked why He would create a being that would cause corruption. Allah replied: 'Indeed, I know what you do not know.'"
+            },
+            {
+                "title": "Creation Process",
+                "icon": "fa-hand-sparkles",
+                "content": "Allah sent angels to gather clay from various parts of the earth - red, white, and black soil. This is why humans have different skin colors. The clay was mixed with water, shaped into human form, and dried like pottery."
+            },
+            {
+                "title": "Soul Breathed In",
+                "icon": "fa-wind",
+                "content": "When Allah breathed the soul in, it entered from the head. When it reached the nose, Adam sneezed and said 'Alhamdulillah'. Allah replied: 'May Allah have mercy on you'. This is the origin of human hastiness."
+            },
+            {
+                "title": "Taught All Names",
+                "icon": "fa-book",
+                "content": "Allah taught Adam the names of all things. Then Allah presented these names to the angels. The angels replied: 'Glory be to You, we have no knowledge except what You taught us.' Adam then named them all."
+            },
+            {
+                "title": "Satan's Refusal",
+                "icon": "fa-fire",
+                "content": "Allah commanded the angels to prostrate to Adam. All prostrated except Iblis. Allah asked: 'Why did you not prostrate?' Iblis arrogantly replied: 'I am better than him.' Iblis was cursed and expelled."
+            },
+            {
+                "title": "Meeting Eve",
+                "icon": "fa-heart",
+                "content": "Adam was placed in Paradise but felt lonely. He awoke to find a woman near him. Adam asked: 'Who are you?' She answered: 'A woman, created so you may find comfort.' Adam named her Hawa (Eve)."
+            },
+            {
+                "title": "Forbidden Fruit",
+                "icon": "fa-apple-whole",
+                "content": "Adam and Eve lived happily in Paradise. They could eat from anywhere except one tree. Satan continuously tempted them. Eventually they ate from the forbidden tree. Instantly they felt ashamed."
+            },
+            {
+                "title": "Descent to Earth",
+                "icon": "fa-earth-asia",
+                "content": "Allah sent Adam, Eve, and Satan down to Earth. Adam landed in India, Eve in Jeddah. They were separated and didn't meet for many years. Adam wept with deep regret."
+            },
+            {
+                "title": "Reunion at Arafat",
+                "icon": "fa-users",
+                "content": "After searching for so long, Adam and Eve finally reunited at the Plain of Arafat. The place was named Arafat meaning 'recognition'. They thanked Allah."
+            },
+            {
+                "title": "Becoming Prophet",
+                "icon": "fa-mosque",
+                "content": "Allah accepted Adam's repentance and appointed him as the first prophet. Adam taught his descendants about monotheism. They multiplied and spread across the Earth."
+            },
+            {
+                "title": "Abel and Cain",
+                "icon": "fa-people-arrows",
+                "content": "Two famous sons were Abel and Cain. Both offered sacrifice to Allah. Abel's was accepted, Cain's rejected. Out of jealousy, Cain killed Abel - the first murder in history."
+            },
+            {
+                "title": "Adam's Death",
+                "icon": "fa-dove",
+                "content": "Prophet Adam lived for approximately 1000 years. When he passed away, angels washed, shrouded, prayed over, and buried him near Makkah."
+            }
+        ],
+        "lessons_id": [
+            "Taubat diterima Allah",
+            "Bahaya kesombongan",
+            "Setan musuh nyata"
+        ],
+        "lessons_en": [
+            "Repentance is accepted",
+            "Danger of arrogance",
+            "Satan is an enemy"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 2,
+                "verseKey": "2:30",
+                "desc_id": "Khalifah",
+                "desc_en": "Vicegerent"
+            },
+            {
+                "surahId": 2,
+                "verseKey": "2:34",
+                "desc_id": "Sujud",
+                "desc_en": "Prostration"
+            }
+        ],
+        "illustration": "adam_creation"
+    },
+    {
+        "id": 2,
+        "name": "إدريس",
+        "name_id": "Idris",
+        "name_en": "Idris (Enoch)",
+        "category": [
+            "early"
+        ],
+        "era": -3500,
+        "location": "Mesopotamia",
+        "parentId": null,
+        "miracle_id": "Diangkat ke langit dalam keadaan hidup",
+        "miracle_en": "Raised to heaven while still alive",
+        "sections_id": [
+            {
+                "title": "Keturunan Adam",
+                "icon": "fa-seedling",
+                "content": "Nabi Idris adalah keturunan Nabi Adam yang hidup beberapa generasi setelahnya. Nama aslinya adalah Akhnukh. Beliau adalah keturunan kelima dari Nabi Adam melalui garis Syits."
+            },
+            {
+                "title": "Penemu Tulisan",
+                "icon": "fa-pen",
+                "content": "Nabi Idris adalah orang pertama yang menulis dengan pena. Beliau menjadi pelopor penggunaan tulisan untuk menyebarkan ilmu pengetahuan."
+            },
+            {
+                "title": "Menjahit Pakaian",
+                "icon": "fa-shirt",
+                "content": "Beliau dikenal sebagai orang pertama yang menjahit pakaian. Sebelumnya manusia hanya menggunakan kulit binatang sebagai penutup tubuh."
+            },
+            {
+                "title": "Ilmu Astronomi",
+                "icon": "fa-moon",
+                "content": "Nabi Idris mengajarkan kaumnya berbagai ilmu pengetahuan termasuk astronomi dan matematika. Beliau sangat berilmu dan bijaksana."
+            },
+            {
+                "title": "Dakwah dan Ibadah",
+                "icon": "fa-hands-praying",
+                "content": "Sepanjang hidupnya, Nabi Idris berdakwah mengajak kaumnya menyembah Allah semata. Beliau sangat tekun beribadah dan banyak berpuasa."
+            },
+            {
+                "title": "Diangkat ke Langit",
+                "icon": "fa-cloud",
+                "content": "Allah SWT mengangkat Nabi Idris ke tempat yang tinggi dalam keadaan hidup. Menurut sebagian ulama, beliau diangkat ke langit keempat."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Descendant of Adam",
+                "icon": "fa-seedling",
+                "content": "Prophet Idris was a descendant of Prophet Adam who lived several generations later. His original name was Enoch."
+            },
+            {
+                "title": "Inventor of Writing",
+                "icon": "fa-pen",
+                "content": "Prophet Idris was the first person to write with a pen. He pioneered the use of writing to spread knowledge."
+            },
+            {
+                "title": "Sewing Garments",
+                "icon": "fa-shirt",
+                "content": "He was known as the first to sew clothes. Before him, humans only used animal skins as body covering."
+            },
+            {
+                "title": "Astronomy Knowledge",
+                "icon": "fa-moon",
+                "content": "Prophet Idris taught his people various sciences including astronomy and mathematics. He was very knowledgeable and wise."
+            },
+            {
+                "title": "Preaching and Worship",
+                "icon": "fa-hands-praying",
+                "content": "Throughout his life, Prophet Idris preached, calling people to worship Allah alone. He was very dedicated to worship."
+            },
+            {
+                "title": "Raised to Heaven",
+                "icon": "fa-cloud",
+                "content": "Allah raised Prophet Idris to a high station while still alive. According to some scholars, he was raised to the fourth heaven."
+            }
+        ],
+        "lessons_id": [
+            "Pentingnya ilmu",
+            "Ketekunan ibadah"
+        ],
+        "lessons_en": [
+            "Importance of knowledge",
+            "Dedication in worship"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 19,
+                "verseKey": "19:56",
+                "desc_id": "Idris jujur",
+                "desc_en": "Truthful Idris"
+            }
+        ],
+        "illustration": "idris_writing"
+    },
+    {
+        "id": 3,
+        "name": "نوح",
+        "name_id": "Nuh",
+        "name_en": "Noah",
+        "category": [
+            "ululAzmi"
+        ],
+        "era": -3000,
+        "location": "Mesopotamia",
+        "parentId": null,
+        "miracle_id": "Bahtera raksasa menyelamatkan dari banjir",
+        "miracle_en": "Giant Ark saved from the great flood",
+        "sections_id": [
+            {
+                "title": "Diutus ke Kaumnya",
+                "icon": "fa-bullhorn",
+                "content": "Nabi Nuh diutus kepada kaumnya yang menyembah berhala bernama Wadd, Suwa', Yaghuts, Ya'uq, dan Nasr. Awalnya itu adalah nama orang-orang shaleh yang kemudian disembah."
+            },
+            {
+                "title": "950 Tahun Dakwah",
+                "icon": "fa-hourglass-half",
+                "content": "Nabi Nuh berdakwah dengan sangat sabar selama 950 tahun! Beliau mengajak kaumnya siang dan malam. Namun hanya sedikit yang beriman, tidak lebih dari 80 orang."
+            },
+            {
+                "title": "Penolakan Kaum",
+                "icon": "fa-face-angry",
+                "content": "Kaumnya menuduh Nuh gila dan mengancam akan merajamnya. Para pemuka kaum menyuruh rakyat menutup telinga agar tidak mendengar dakwah Nuh."
+            },
+            {
+                "title": "Putra yang Durhaka",
+                "icon": "fa-user-xmark",
+                "content": "Putra Nabi Nuh bernama Kan'an termasuk yang menolak beriman. Istrinya juga kafir. Ini menunjukkan bahwa hidayah adalah hak Allah semata."
+            },
+            {
+                "title": "Membangun Bahtera",
+                "icon": "fa-hammer",
+                "content": "Allah memerintahkan Nuh membangun bahtera besar di daratan jauh dari laut. Kaumnya mengejeknya dan menganggapnya gila."
+            },
+            {
+                "title": "Memasuki Bahtera",
+                "icon": "fa-ship",
+                "content": "Ketika bahtera selesai, Allah memerintahkan Nuh memasukkan sepasang dari setiap jenis hewan dan orang-orang beriman. Hewan-hewan datang dengan sendirinya."
+            },
+            {
+                "title": "Banjir Besar",
+                "icon": "fa-water",
+                "content": "Hujan sangat deras turun dan air memancar dari dalam bumi. Banjir besar melanda seluruh dunia. Air naik setinggi gunung-gunung. Kan'an menolak naik bahtera."
+            },
+            {
+                "title": "Mendarat di Judi",
+                "icon": "fa-mountain",
+                "content": "Setelah banjir surut, bahtera mendarat di Gunung Judi. Allah berfirman: 'Hai bumi, telanlah airmu!' Nabi Nuh dan pengikutnya turun dan memulai peradaban baru."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Sent to His People",
+                "icon": "fa-bullhorn",
+                "content": "Prophet Noah was sent to his people who worshipped idols named Wadd, Suwa', Yaghuts, Ya'uq, and Nasr."
+            },
+            {
+                "title": "950 Years of Preaching",
+                "icon": "fa-hourglass-half",
+                "content": "Prophet Noah preached with incredible patience for 950 years! He invited his people day and night. Yet only a few believed, no more than 80 people."
+            },
+            {
+                "title": "People's Rejection",
+                "icon": "fa-face-angry",
+                "content": "His people accused Noah of madness and threatened to stone him. The leaders told people to cover their ears."
+            },
+            {
+                "title": "Rebellious Son",
+                "icon": "fa-user-xmark",
+                "content": "Noah's son Kan'an was among those who refused to believe. His wife was also a disbeliever. This shows guidance belongs to Allah alone."
+            },
+            {
+                "title": "Building the Ark",
+                "icon": "fa-hammer",
+                "content": "Allah commanded Noah to build a massive ark on dry land far from any sea. His people ridiculed him."
+            },
+            {
+                "title": "Boarding the Ark",
+                "icon": "fa-ship",
+                "content": "When the ark was completed, Allah commanded Noah to load a pair of every animal species and the believers."
+            },
+            {
+                "title": "The Great Flood",
+                "icon": "fa-water",
+                "content": "Torrential rain came and water gushed from the earth. A great flood engulfed the entire world. Kan'an refused to board."
+            },
+            {
+                "title": "Landing at Judi",
+                "icon": "fa-mountain",
+                "content": "After the flood receded, the ark landed on Mount Judi. Allah said: 'O earth, swallow your water!' Prophet Noah and his followers began a new civilization."
+            }
+        ],
+        "lessons_id": [
+            "Kesabaran luar biasa",
+            "Hidayah milik Allah"
+        ],
+        "lessons_en": [
+            "Extraordinary patience",
+            "Guidance belongs to Allah"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 71,
+                "verseKey": "71:1",
+                "desc_id": "Surah Nuh",
+                "desc_en": "Surah Noah"
+            }
+        ],
+        "illustration": "noah_ark"
+    },
+    {
+        "id": 4,
+        "name": "هود",
+        "name_id": "Hud",
+        "name_en": "Hud",
+        "category": [
+            "arabian"
+        ],
+        "era": -2500,
+        "location": "Ahqaf, Yaman",
+        "parentId": null,
+        "miracle_id": "Selamat dari angin topan yang menghancurkan kaum Ad",
+        "miracle_en": "Saved from the destructive wind that destroyed the Ad people",
+        "sections_id": [
+            {
+                "title": "Kaum Ad yang Sombong",
+                "icon": "fa-building",
+                "content": "Kaum Ad adalah keturunan Nuh yang tinggal di Ahqaf, Yaman. Mereka membangun bangunan-bangunan tinggi dan megah. Mereka sangat kuat dan sombong."
+            },
+            {
+                "title": "Penyembahan Berhala",
+                "icon": "fa-landmark",
+                "content": "Kaum Ad menyembah berhala dan melupakan Allah. Mereka menindas kaum lemah dan berbuat sewenang-wenang. Allah mengutus Nabi Hud untuk membimbing mereka."
+            },
+            {
+                "title": "Dakwah Nabi Hud",
+                "icon": "fa-bullhorn",
+                "content": "Nabi Hud mengajak kaumnya menyembah Allah semata dan meninggalkan berhala. Beliau mengingatkan mereka akan nikmat Allah. Namun mereka menolak dengan keras."
+            },
+            {
+                "title": "Ancaman Azab",
+                "icon": "fa-cloud-bolt",
+                "content": "Nabi Hud memperingatkan kaumnya akan azab Allah jika mereka tidak bertaubat. Mereka malah menantang dan meminta azab itu segera datang."
+            },
+            {
+                "title": "Angin Topan",
+                "icon": "fa-wind",
+                "content": "Allah mengirimkan angin topan yang sangat dahsyat selama 7 malam 8 hari. Angin itu menghancurkan segala sesuatu. Kaum Ad yang sombong binasa."
+            },
+            {
+                "title": "Keselamatan Orang Beriman",
+                "icon": "fa-shield",
+                "content": "Nabi Hud dan para pengikutnya yang beriman diselamatkan oleh Allah. Mereka dilindungi dari angin topan yang menghancurkan. Kisah ini menjadi pelajaran bagi umat manusia."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "The Arrogant Ad People",
+                "icon": "fa-building",
+                "content": "The Ad people were descendants of Noah living in Ahqaf, Yemen. They built tall magnificent buildings. They were very strong and arrogant."
+            },
+            {
+                "title": "Idol Worship",
+                "icon": "fa-landmark",
+                "content": "The Ad people worshipped idols and forgot Allah. They oppressed the weak and acted tyrannically. Allah sent Prophet Hud to guide them."
+            },
+            {
+                "title": "Hud's Preaching",
+                "icon": "fa-bullhorn",
+                "content": "Prophet Hud invited his people to worship Allah alone. He reminded them of Allah's blessings. But they rejected him strongly."
+            },
+            {
+                "title": "Warning of Punishment",
+                "icon": "fa-cloud-bolt",
+                "content": "Prophet Hud warned his people of Allah's punishment if they didn't repent. They challenged him and asked for the punishment to come."
+            },
+            {
+                "title": "The Devastating Wind",
+                "icon": "fa-wind",
+                "content": "Allah sent a devastating wind for 7 nights and 8 days. The wind destroyed everything. The arrogant Ad people perished."
+            },
+            {
+                "title": "Salvation of Believers",
+                "icon": "fa-shield",
+                "content": "Prophet Hud and his faithful followers were saved by Allah. They were protected from the destructive wind."
+            }
+        ],
+        "lessons_id": [
+            "Bahaya kesombongan",
+            "Azab bagi yang ingkar"
+        ],
+        "lessons_en": [
+            "Danger of arrogance",
+            "Punishment for disbelievers"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 11,
+                "verseKey": "11:50",
+                "desc_id": "Kisah Hud",
+                "desc_en": "Story of Hud"
+            }
+        ],
+        "illustration": "hud_storm"
+    },
+    {
+        "id": 5,
+        "name": "صالح",
+        "name_id": "Shalih",
+        "name_en": "Salih",
+        "category": [
+            "arabian"
+        ],
+        "era": -2000,
+        "location": "Hijr, Arabia",
+        "parentId": null,
+        "miracle_id": "Unta betina keluar dari batu karang",
+        "miracle_en": "She-camel emerged from a rock",
+        "sections_id": [
+            {
+                "title": "Kaum Tsamud",
+                "icon": "fa-mountain",
+                "content": "Kaum Tsamud tinggal di daerah Hijr (Madain Salih). Mereka ahli memahat rumah di gunung-gunung. Mereka makmur namun menyembah berhala."
+            },
+            {
+                "title": "Diutusnya Nabi Shalih",
+                "icon": "fa-user",
+                "content": "Allah mengutus Nabi Shalih dari kalangan mereka sendiri. Beliau mengajak mereka menyembah Allah dan meninggalkan berhala. Mereka menolak dan meminta bukti."
+            },
+            {
+                "title": "Mukjizat Unta",
+                "icon": "fa-hippo",
+                "content": "Kaum Tsamud meminta Nabi Shalih mengeluarkan unta dari batu karang. Dengan izin Allah, batu karang terbelah dan keluarlah unta betina yang besar dan hamil. Ini adalah mukjizat nyata."
+            },
+            {
+                "title": "Aturan Giliran Air",
+                "icon": "fa-droplet",
+                "content": "Nabi Shalih menetapkan aturan: satu hari unta minum, satu hari kaum minum. Unta itu memberi susu yang cukup untuk seluruh kaum. Namun mereka tetap tidak bersyukur."
+            },
+            {
+                "title": "Unta Dibunuh",
+                "icon": "fa-skull",
+                "content": "Sembilan orang jahat berkomplot membunuh unta itu. Mereka menyembelih unta mukjizat tersebut. Nabi Shalih memperingatkan bahwa azab akan datang dalam 3 hari."
+            },
+            {
+                "title": "Azab Suara Dahsyat",
+                "icon": "fa-bolt",
+                "content": "Pada hari ketiga, datanglah suara dahsyat dari langit yang menghancurkan kaum Tsamud. Mereka semua binasa kecuali Nabi Shalih dan para pengikutnya yang beriman."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "The Thamud People",
+                "icon": "fa-mountain",
+                "content": "The Thamud people lived in Hijr (Madain Salih). They were skilled at carving homes in mountains. They were prosperous but worshipped idols."
+            },
+            {
+                "title": "Prophet Salih Sent",
+                "icon": "fa-user",
+                "content": "Allah sent Prophet Salih from among them. He invited them to worship Allah. They rejected and demanded proof."
+            },
+            {
+                "title": "The Camel Miracle",
+                "icon": "fa-hippo",
+                "content": "They asked Prophet Salih to bring a camel from a rock. By Allah's permission, the rock split and a large pregnant she-camel emerged. This was a clear miracle."
+            },
+            {
+                "title": "Water Sharing Rule",
+                "icon": "fa-droplet",
+                "content": "Prophet Salih established a rule: one day the camel drinks, one day the people drink. The camel provided milk for everyone. But they were ungrateful."
+            },
+            {
+                "title": "Camel Killed",
+                "icon": "fa-skull",
+                "content": "Nine evil men plotted and killed the camel. They slaughtered the miraculous camel. Prophet Salih warned that punishment would come in 3 days."
+            },
+            {
+                "title": "The Devastating Sound",
+                "icon": "fa-bolt",
+                "content": "On the third day, a devastating sound from the sky destroyed the Thamud people. They all perished except Prophet Salih and his faithful followers."
+            }
+        ],
+        "lessons_id": [
+            "Jangan merusak nikmat Allah",
+            "Azab datang sesuai janji"
+        ],
+        "lessons_en": [
+            "Don't destroy Allah's blessings",
+            "Punishment comes as promised"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 7,
+                "verseKey": "7:73",
+                "desc_id": "Unta Shalih",
+                "desc_en": "Salih's camel"
+            }
+        ],
+        "illustration": "salih_camel"
+    },
+    {
+        "id": 6,
+        "name": "إبراهيم",
+        "name_id": "Ibrahim",
+        "name_en": "Abraham",
+        "category": [
+            "ululAzmi"
+        ],
+        "era": -1900,
+        "location": "Ur, Palestina, Mekah",
+        "parentId": null,
+        "miracle_id": "Selamat dari api yang menjadi dingin",
+        "miracle_en": "Saved from fire that became cool",
+        "sections_id": [
+            {
+                "title": "Mencari Tuhan",
+                "icon": "fa-search",
+                "content": "Ibrahim kecil hidup di tengah kaum penyembah berhala. Ia merenungkan bintang, bulan, dan matahari, namun semuanya terbenam. Ia menyimpulkan bahwa Tuhan yang benar tidak terbenam."
+            },
+            {
+                "title": "Menghancurkan Berhala",
+                "icon": "fa-hammer",
+                "content": "Ketika kaumnya pergi ke pesta, Ibrahim menghancurkan semua berhala kecuali yang terbesar. Ia menggantungkan kapak di leher berhala besar. Ketika ditanya, ia berkata: 'Tanyakan pada berhala besar itu.'"
+            },
+            {
+                "title": "Dibakar Hidup-hidup",
+                "icon": "fa-fire",
+                "content": "Raja Namrud memerintahkan Ibrahim dibakar. Api besar dinyalakan. Ibrahim dilemparkan ke dalam api. Namun Allah berfirman: 'Hai api, jadilah dingin dan selamat bagi Ibrahim.'"
+            },
+            {
+                "title": "Hijrah ke Palestina",
+                "icon": "fa-route",
+                "content": "Ibrahim hijrah bersama istrinya Sarah dan keponakannya Luth. Mereka menuju Palestina, kemudian ke Mesir, dan kembali ke Palestina."
+            },
+            {
+                "title": "Hajar dan Ismail",
+                "icon": "fa-baby",
+                "content": "Sarah tidak memiliki anak dan menyarankan Ibrahim menikahi Hajar. Lahirlah Ismail. Atas perintah Allah, Ibrahim membawa Hajar dan Ismail ke lembah tandus di Mekah."
+            },
+            {
+                "title": "Zamzam dan Ka'bah",
+                "icon": "fa-kaaba",
+                "content": "Di padang pasir, Hajar berlari antara Shafa dan Marwa mencari air. Allah memunculkan mata air Zamzam. Kemudian Ibrahim dan Ismail membangun Ka'bah."
+            },
+            {
+                "title": "Ujian Menyembelih",
+                "icon": "fa-moon",
+                "content": "Allah memerintahkan Ibrahim menyembelih Ismail dalam mimpi. Keduanya patuh. Ketika pisau diayunkan, Allah mengganti Ismail dengan domba. Ini menjadi asal kurban Idul Adha."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Seeking God",
+                "icon": "fa-search",
+                "content": "Young Ibrahim lived among idol worshippers. He pondered the stars, moon, and sun, but they all set. He concluded that the true God doesn't set."
+            },
+            {
+                "title": "Destroying Idols",
+                "icon": "fa-hammer",
+                "content": "When his people went to a festival, Ibrahim destroyed all idols except the largest. He hung an axe on the big idol. When asked, he said: 'Ask the big one.'"
+            },
+            {
+                "title": "Thrown into Fire",
+                "icon": "fa-fire",
+                "content": "King Namrud ordered Ibrahim to be burned. A huge fire was lit. Ibrahim was thrown in. But Allah said: 'O fire, be cool and safe for Ibrahim.'"
+            },
+            {
+                "title": "Migration to Palestine",
+                "icon": "fa-route",
+                "content": "Ibrahim migrated with his wife Sarah and nephew Lut. They went to Palestine, then Egypt, and returned to Palestine."
+            },
+            {
+                "title": "Hajar and Ismail",
+                "icon": "fa-baby",
+                "content": "Sarah had no children and suggested Ibrahim marry Hajar. Ismail was born. By Allah's command, Ibrahim took Hajar and Ismail to a barren valley in Mecca."
+            },
+            {
+                "title": "Zamzam and Ka'bah",
+                "icon": "fa-kaaba",
+                "content": "In the desert, Hajar ran between Safa and Marwa seeking water. Allah brought forth the Zamzam spring. Later Ibrahim and Ismail built the Ka'bah."
+            },
+            {
+                "title": "Sacrifice Test",
+                "icon": "fa-moon",
+                "content": "Allah commanded Ibrahim to sacrifice Ismail in a dream. Both obeyed. When the knife was swung, Allah replaced Ismail with a ram. This became the origin of Eid al-Adha sacrifice."
+            }
+        ],
+        "lessons_id": [
+            "Tauhid murni",
+            "Ketaatan kepada Allah",
+            "Pengorbanan"
+        ],
+        "lessons_en": [
+            "Pure monotheism",
+            "Obedience to Allah",
+            "Sacrifice"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 21,
+                "verseKey": "21:69",
+                "desc_id": "Api jadi dingin",
+                "desc_en": "Fire became cool"
+            }
+        ],
+        "illustration": "ibrahim_fire"
+    },
+    {
+        "id": 7,
+        "name": "لوط",
+        "name_id": "Luth",
+        "name_en": "Lot",
+        "category": [
+            "ibrahim"
+        ],
+        "era": -1850,
+        "location": "Sodom",
+        "parentId": 6,
+        "miracle_id": "Selamat dari azab yang menghancurkan kaumnya",
+        "miracle_en": "Saved from punishment that destroyed his people",
+        "sections_id": [
+            {
+                "title": "Keponakan Ibrahim",
+                "icon": "fa-users",
+                "content": "Nabi Luth adalah keponakan Nabi Ibrahim. Beliau ikut berhijrah bersama Ibrahim dari Ur ke Palestina. Beliau kemudian diutus ke kota Sodom."
+            },
+            {
+                "title": "Kaum yang Menyimpang",
+                "icon": "fa-ban",
+                "content": "Kaum Luth melakukan perbuatan keji yang belum pernah dilakukan manusia sebelumnya - yaitu homoseksual. Mereka juga merampok dan berbuat jahat."
+            },
+            {
+                "title": "Dakwah yang Ditolak",
+                "icon": "fa-bullhorn",
+                "content": "Nabi Luth mengajak kaumnya bertaubat dan meninggalkan perbuatan keji. Namun mereka menolak dan mengancam mengusir Luth dari kota."
+            },
+            {
+                "title": "Malaikat Datang",
+                "icon": "fa-feather",
+                "content": "Allah mengutus malaikat dalam rupa pemuda tampan ke rumah Luth. Kaumnya datang mengerumuni rumah dengan niat jahat. Luth sangat tertekan."
+            },
+            {
+                "title": "Azab dari Langit",
+                "icon": "fa-cloud-bolt",
+                "content": "Malaikat menyuruh Luth pergi bersama keluarganya dan tidak menoleh ke belakang. Kemudian hujan batu dari langit menghujani kota Sodom. Kota itu dibalikkan."
+            },
+            {
+                "title": "Istri yang Durhaka",
+                "icon": "fa-user-xmark",
+                "content": "Istri Luth termasuk yang binasa karena ia berpihak kepada kaumnya. Ia menoleh ke belakang dan tertimpa azab. Nabi Luth dan putri-putrinya selamat."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Ibrahim's Nephew",
+                "icon": "fa-users",
+                "content": "Prophet Lot was Prophet Ibrahim's nephew. He migrated with Ibrahim from Ur to Palestine. He was then sent to the city of Sodom."
+            },
+            {
+                "title": "Deviant People",
+                "icon": "fa-ban",
+                "content": "Lot's people committed shameful acts never done before - homosexuality. They also robbed and committed evil deeds."
+            },
+            {
+                "title": "Rejected Preaching",
+                "icon": "fa-bullhorn",
+                "content": "Prophet Lot invited his people to repent. But they rejected and threatened to expel Lot from the city."
+            },
+            {
+                "title": "Angels Arrive",
+                "icon": "fa-feather",
+                "content": "Allah sent angels in the form of handsome young men to Lot's house. His people surrounded the house with evil intentions."
+            },
+            {
+                "title": "Punishment from Sky",
+                "icon": "fa-cloud-bolt",
+                "content": "The angels told Lot to leave with his family and not look back. Then stones rained from the sky on Sodom. The city was overturned."
+            },
+            {
+                "title": "Disobedient Wife",
+                "icon": "fa-user-xmark",
+                "content": "Lot's wife was among those who perished because she sided with her people. She looked back and was struck. Prophet Lot and his daughters were saved."
+            }
+        ],
+        "lessons_id": [
+            "Bahaya perbuatan keji",
+            "Azab bagi kaum yang menyimpang"
+        ],
+        "lessons_en": [
+            "Danger of shameful acts",
+            "Punishment for deviant people"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 11,
+                "verseKey": "11:77",
+                "desc_id": "Kisah Luth",
+                "desc_en": "Story of Lot"
+            }
+        ],
+        "illustration": "lut_destruction"
+    },
+    {
+        "id": 8,
+        "name": "إسماعيل",
+        "name_id": "Ismail",
+        "name_en": "Ishmael",
+        "category": [
+            "ibrahim"
+        ],
+        "era": -1850,
+        "location": "Mekah",
+        "parentId": 6,
+        "miracle_id": "Menemukan air Zamzam dan membangun Ka'bah",
+        "miracle_en": "Finding Zamzam water and building the Ka'bah",
+        "sections_id": [
+            {
+                "title": "Lahir dari Hajar",
+                "icon": "fa-baby",
+                "content": "Ismail adalah putra pertama Nabi Ibrahim dari Hajar. Kelahirannya adalah jawaban doa Ibrahim yang lama menginginkan keturunan."
+            },
+            {
+                "title": "Ditinggal di Mekah",
+                "icon": "fa-desert",
+                "content": "Atas perintah Allah, Ibrahim membawa Hajar dan Ismail bayi ke lembah tandus di Mekah. Ibrahim meninggalkan mereka dengan sedikit bekal dan kembali ke Palestina."
+            },
+            {
+                "title": "Zamzam",
+                "icon": "fa-droplet",
+                "content": "Ketika air habis, Hajar berlari antara bukit Shafa dan Marwa mencari air. Malaikat Jibril memunculkan sumber air Zamzam di dekat kaki bayi Ismail."
+            },
+            {
+                "title": "Membangun Ka'bah",
+                "icon": "fa-kaaba",
+                "content": "Setelah dewasa, Ismail membantu ayahnya Ibrahim membangun Ka'bah atas perintah Allah. Mereka berdoa: 'Ya Tuhan kami, terimalah dari kami.'"
+            },
+            {
+                "title": "Ujian Penyembelihan",
+                "icon": "fa-moon",
+                "content": "Ibrahim bermimpi menyembelih Ismail. Ismail dengan patuh menerima perintah Allah. Ketika pisau diayunkan, Allah mengganti Ismail dengan domba."
+            },
+            {
+                "title": "Leluhur Arab",
+                "icon": "fa-users",
+                "content": "Ismail menikah dengan wanita dari suku Jurhum. Ia menjadi leluhur bangsa Arab dan nenek moyang Nabi Muhammad SAW."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Born from Hajar",
+                "icon": "fa-baby",
+                "content": "Ishmael was Prophet Ibrahim's first son from Hajar. His birth was an answer to Ibrahim's long prayer for offspring."
+            },
+            {
+                "title": "Left in Mecca",
+                "icon": "fa-desert",
+                "content": "By Allah's command, Ibrahim took Hajar and baby Ishmael to a barren valley in Mecca, leaving them with little provisions."
+            },
+            {
+                "title": "Zamzam",
+                "icon": "fa-droplet",
+                "content": "When water ran out, Hajar ran between Safa and Marwa seeking water. Angel Jibril brought forth the Zamzam spring near baby Ishmael's feet."
+            },
+            {
+                "title": "Building Ka'bah",
+                "icon": "fa-kaaba",
+                "content": "After growing up, Ishmael helped his father Ibrahim build the Ka'bah by Allah's command. They prayed: 'Our Lord, accept from us.'"
+            },
+            {
+                "title": "Sacrifice Test",
+                "icon": "fa-moon",
+                "content": "Ibrahim dreamed of sacrificing Ishmael. Ishmael obediently accepted Allah's command. When the knife was swung, Allah replaced Ishmael with a ram."
+            },
+            {
+                "title": "Ancestor of Arabs",
+                "icon": "fa-users",
+                "content": "Ishmael married a woman from the Jurhum tribe. He became the ancestor of the Arabs and forefather of Prophet Muhammad."
+            }
+        ],
+        "lessons_id": [
+            "Ketaatan kepada orang tua",
+            "Pengorbanan untuk Allah"
+        ],
+        "lessons_en": [
+            "Obedience to parents",
+            "Sacrifice for Allah"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 37,
+                "verseKey": "37:102",
+                "desc_id": "Kurban",
+                "desc_en": "Sacrifice"
+            }
+        ],
+        "illustration": "ismail_zamzam"
+    },
+    {
+        "id": 9,
+        "name": "إسحاق",
+        "name_id": "Ishaq",
+        "name_en": "Isaac",
+        "category": [
+            "ibrahim"
+        ],
+        "era": -1800,
+        "location": "Palestina",
+        "parentId": 6,
+        "miracle_id": "Lahir dari ibu yang sudah tua",
+        "miracle_en": "Born from an elderly mother",
+        "sections_id": [
+            {
+                "title": "Kabar Gembira",
+                "icon": "fa-gift",
+                "content": "Para malaikat menyampaikan kabar gembira kepada Ibrahim dan Sarah bahwa mereka akan memiliki anak. Sarah tertawa tidak percaya karena ia sudah tua."
+            },
+            {
+                "title": "Kelahiran Ajaib",
+                "icon": "fa-baby",
+                "content": "Sarah melahirkan Ishaq meskipun ia sudah sangat tua. Ini adalah mukjizat dari Allah. Ishaq menjadi putra kedua Nabi Ibrahim."
+            },
+            {
+                "title": "Tinggal di Palestina",
+                "icon": "fa-home",
+                "content": "Berbeda dengan Ismail yang tinggal di Mekah, Ishaq tinggal bersama ibunya Sarah di Palestina. Ia tumbuh menjadi nabi yang shaleh."
+            },
+            {
+                "title": "Leluhur Bani Israil",
+                "icon": "fa-sitemap",
+                "content": "Ishaq menjadi leluhur Bani Israil melalui putranya Yaqub. Dari keturunan Ishaq lahir banyak nabi-nabi Bani Israil."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Good News",
+                "icon": "fa-gift",
+                "content": "Angels brought good news to Ibrahim and Sarah that they would have a child. Sarah laughed in disbelief as she was old."
+            },
+            {
+                "title": "Miraculous Birth",
+                "icon": "fa-baby",
+                "content": "Sarah gave birth to Isaac despite being very old. This was a miracle from Allah. Isaac became Prophet Ibrahim's second son."
+            },
+            {
+                "title": "Living in Palestine",
+                "icon": "fa-home",
+                "content": "Unlike Ishmael who lived in Mecca, Isaac lived with his mother Sarah in Palestine. He grew up to be a righteous prophet."
+            },
+            {
+                "title": "Ancestor of Israel",
+                "icon": "fa-sitemap",
+                "content": "Isaac became the ancestor of the Children of Israel through his son Jacob. From Isaac's lineage, many prophets of Israel were born."
+            }
+        ],
+        "lessons_id": [
+            "Mukjizat Allah tak terbatas",
+            "Bersyukur atas nikmat"
+        ],
+        "lessons_en": [
+            "Allah's miracles are limitless",
+            "Gratitude for blessings"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 11,
+                "verseKey": "11:71",
+                "desc_id": "Kabar Ishaq",
+                "desc_en": "News of Isaac"
+            }
+        ],
+        "illustration": "ishaq_blessing"
+    },
+    {
+        "id": 10,
+        "name": "يعقوب",
+        "name_id": "Yaqub",
+        "name_en": "Jacob",
+        "category": [
+            "ibrahim"
+        ],
+        "era": -1750,
+        "location": "Palestina",
+        "parentId": 9,
+        "miracle_id": "Mata yang buta sembuh dengan baju Yusuf",
+        "miracle_en": "Blind eyes healed by Yusuf's shirt",
+        "sections_id": [
+            {
+                "title": "Putra Ishaq",
+                "icon": "fa-user",
+                "content": "Yaqub adalah putra Nabi Ishaq dan cucu Nabi Ibrahim. Beliau juga dikenal dengan nama Israel, yang berarti hamba Allah."
+            },
+            {
+                "title": "Dua Belas Putra",
+                "icon": "fa-users",
+                "content": "Yaqub memiliki 12 putra dari beberapa istri. Putra-putranya menjadi nenek moyang 12 suku Bani Israil. Putra kesayangannya adalah Yusuf."
+            },
+            {
+                "title": "Kehilangan Yusuf",
+                "icon": "fa-heart-crack",
+                "content": "Saudara-saudara Yusuf iri dan membuang Yusuf ke sumur. Mereka berbohong kepada Yaqub bahwa Yusuf dimakan serigala. Yaqub sangat sedih hingga matanya buta."
+            },
+            {
+                "title": "Kesabaran",
+                "icon": "fa-hands-praying",
+                "content": "Meskipun sangat sedih, Yaqub tetap sabar dan berserah kepada Allah. Ia tidak pernah putus asa akan rahmat Allah dan terus berdoa."
+            },
+            {
+                "title": "Sembuh Kembali",
+                "icon": "fa-eye",
+                "content": "Setelah bertahun-tahun, baju Yusuf dikirim dari Mesir. Ketika diletakkan di wajah Yaqub, matanya kembali sembuh. Ini adalah mukjizat Allah."
+            },
+            {
+                "title": "Bertemu Yusuf",
+                "icon": "fa-face-smile",
+                "content": "Yaqub akhirnya bertemu kembali dengan Yusuf di Mesir. Seluruh keluarga pindah ke Mesir dan hidup bahagia. Yaqub wafat di Mesir."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Son of Isaac",
+                "icon": "fa-user",
+                "content": "Jacob was the son of Prophet Isaac and grandson of Prophet Ibrahim. He was also known as Israel, meaning servant of God."
+            },
+            {
+                "title": "Twelve Sons",
+                "icon": "fa-users",
+                "content": "Jacob had 12 sons from several wives. His sons became ancestors of the 12 tribes of Israel. His favorite was Joseph."
+            },
+            {
+                "title": "Losing Yusuf",
+                "icon": "fa-heart-crack",
+                "content": "Yusuf's brothers were jealous and threw him into a well. They lied that a wolf ate him. Jacob was so sad his eyes became blind."
+            },
+            {
+                "title": "Patience",
+                "icon": "fa-hands-praying",
+                "content": "Despite great sadness, Jacob remained patient and surrendered to Allah. He never lost hope in Allah's mercy."
+            },
+            {
+                "title": "Healed Again",
+                "icon": "fa-eye",
+                "content": "After years, Yusuf's shirt was sent from Egypt. When placed on Jacob's face, his eyes healed. This was Allah's miracle."
+            },
+            {
+                "title": "Reunited with Yusuf",
+                "icon": "fa-face-smile",
+                "content": "Jacob finally reunited with Yusuf in Egypt. The whole family moved to Egypt and lived happily. Jacob passed away in Egypt."
+            }
+        ],
+        "lessons_id": [
+            "Kesabaran dalam ujian",
+            "Jangan putus asa"
+        ],
+        "lessons_en": [
+            "Patience in trials",
+            "Never lose hope"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 12,
+                "verseKey": "12:86",
+                "desc_id": "Kesabaran Yaqub",
+                "desc_en": "Jacob's patience"
+            }
+        ],
+        "illustration": "yaqub_tears"
+    },
+    {
+        "id": 11,
+        "name": "يوسف",
+        "name_id": "Yusuf",
+        "name_en": "Joseph",
+        "category": [
+            "ibrahim"
+        ],
+        "era": -1700,
+        "location": "Mesir",
+        "parentId": 10,
+        "miracle_id": "Menafsirkan mimpi dan menjadi bendahara Mesir",
+        "miracle_en": "Interpreting dreams and becoming Egypt's treasurer",
+        "sections_id": [
+            {
+                "title": "Mimpi Sebelas Bintang",
+                "icon": "fa-star",
+                "content": "Yusuf kecil bermimpi melihat sebelas bintang, matahari, dan bulan bersujud kepadanya. Ayahnya Yaqub memahami ini pertanda kemuliaan dan menyuruhnya merahasiakan."
+            },
+            {
+                "title": "Dibuang ke Sumur",
+                "icon": "fa-circle-down",
+                "content": "Saudara-saudara Yusuf iri karena ia sangat dicintai ayahnya. Mereka membuang Yusuf ke dalam sumur dan berbohong kepada ayahnya."
+            },
+            {
+                "title": "Dijual sebagai Budak",
+                "icon": "fa-coins",
+                "content": "Kafilah menemukan Yusuf di sumur dan menjualnya sebagai budak di Mesir. Ia dibeli oleh Al-Aziz, pejabat tinggi kerajaan."
+            },
+            {
+                "title": "Godaan dan Penjara",
+                "icon": "fa-lock",
+                "content": "Istri Al-Aziz bernama Zulaikha tergoda oleh ketampanan Yusuf. Yusuf menolak dan dijebloskan ke penjara atas tuduhan palsu."
+            },
+            {
+                "title": "Menafsir Mimpi",
+                "icon": "fa-moon",
+                "content": "Di penjara, Yusuf menafsirkan mimpi dua tahanan dengan tepat. Kemudian Raja bermimpi tentang tujuh sapi dan tujuh tangkai. Hanya Yusuf yang bisa menafsirkan."
+            },
+            {
+                "title": "Menjadi Bendahara",
+                "icon": "fa-crown",
+                "content": "Raja mengangkat Yusuf sebagai bendahara Mesir. Yusuf mempersiapkan cadangan makanan menghadapi masa paceklik. Ia menjadi orang kedua berkuasa di Mesir."
+            },
+            {
+                "title": "Bertemu Saudara",
+                "icon": "fa-users",
+                "content": "Saudara-saudara Yusuf datang ke Mesir mencari makanan saat paceklik. Mereka tidak mengenali Yusuf. Akhirnya Yusuf memaafkan mereka."
+            },
+            {
+                "title": "Keluarga Bersatu",
+                "icon": "fa-house",
+                "content": "Yusuf mengundang seluruh keluarganya pindah ke Mesir. Yaqub dan saudara-saudara Yusuf bersujud menghormatinya - tepat seperti mimpi masa kecil."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Dream of Eleven Stars",
+                "icon": "fa-star",
+                "content": "Young Joseph dreamed of eleven stars, sun, and moon prostrating to him. His father Jacob understood this as a sign of honor."
+            },
+            {
+                "title": "Thrown into Well",
+                "icon": "fa-circle-down",
+                "content": "Joseph's brothers were jealous because he was loved most by their father. They threw Joseph into a well and lied to their father."
+            },
+            {
+                "title": "Sold as Slave",
+                "icon": "fa-coins",
+                "content": "A caravan found Joseph in the well and sold him as a slave in Egypt. He was bought by Al-Aziz, a high official."
+            },
+            {
+                "title": "Temptation and Prison",
+                "icon": "fa-lock",
+                "content": "Al-Aziz's wife Zulaikha was tempted by Joseph's beauty. Joseph refused and was thrown into prison on false charges."
+            },
+            {
+                "title": "Interpreting Dreams",
+                "icon": "fa-moon",
+                "content": "In prison, Joseph accurately interpreted two prisoners' dreams. Then the King dreamed of seven cows and seven stalks. Only Joseph could interpret."
+            },
+            {
+                "title": "Becoming Treasurer",
+                "icon": "fa-crown",
+                "content": "The King appointed Joseph as Egypt's treasurer. He prepared food reserves for famine. He became the second most powerful in Egypt."
+            },
+            {
+                "title": "Meeting Brothers",
+                "icon": "fa-users",
+                "content": "Joseph's brothers came to Egypt seeking food during famine. They didn't recognize Joseph. Eventually Joseph forgave them."
+            },
+            {
+                "title": "Family Reunited",
+                "icon": "fa-house",
+                "content": "Joseph invited his whole family to move to Egypt. Jacob and brothers prostrated to honor him - just like his childhood dream."
+            }
+        ],
+        "lessons_id": [
+            "Sabar dalam ujian",
+            "Takdir Allah terbaik",
+            "Memaafkan"
+        ],
+        "lessons_en": [
+            "Patience in trials",
+            "Allah's destiny is best",
+            "Forgiveness"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 12,
+                "verseKey": "12:4",
+                "desc_id": "Mimpi Yusuf",
+                "desc_en": "Joseph's dream"
+            }
+        ],
+        "illustration": "yusuf_palace"
+    },
+    {
+        "id": 12,
+        "name": "أيوب",
+        "name_id": "Ayyub",
+        "name_en": "Job",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -1600,
+        "location": "Syam",
+        "parentId": null,
+        "miracle_id": "Sembuh dari penyakit dengan air mata dan kesabaran",
+        "miracle_en": "Healed from illness through patience",
+        "sections_id": [
+            {
+                "title": "Harta Berlimpah",
+                "icon": "fa-coins",
+                "content": "Nabi Ayyub adalah orang yang sangat kaya dengan harta, anak, dan kesehatan. Ia selalu bersyukur kepada Allah dan dermawan kepada fakir miskin."
+            },
+            {
+                "title": "Ujian Bertubi",
+                "icon": "fa-cloud-bolt",
+                "content": "Allah menguji Ayyub dengan musibah bertubi-tubi. Hartanya habis, anak-anaknya meninggal, dan ia ditimpa penyakit kulit yang parah."
+            },
+            {
+                "title": "Dijauhi Manusia",
+                "icon": "fa-user-slash",
+                "content": "Karena penyakitnya, masyarakat menjauhi Ayyub. Ia dibuang ke luar kota. Hanya istrinya yang setia merawatnya dengan penuh kasih sayang."
+            },
+            {
+                "title": "Kesabaran Luar Biasa",
+                "icon": "fa-hands-praying",
+                "content": "Meskipun menderita bertahun-tahun, Ayyub tidak pernah mengeluh kepada Allah. Ia tetap bersyukur dan tidak putus harapan. Kesabarannya menjadi teladan."
+            },
+            {
+                "title": "Doa Ayyub",
+                "icon": "fa-praying-hands",
+                "content": "Setelah sekian lama, Ayyub berdoa: 'Ya Tuhanku, sesungguhnya aku ditimpa penyakit dan Engkau adalah Yang Maha Penyayang.' Allah mengabulkan doanya."
+            },
+            {
+                "title": "Kesembuhan",
+                "icon": "fa-heart",
+                "content": "Allah memerintahkan Ayyub menghentakkan kakinya ke tanah. Keluarlah mata air. Setelah mandi dan minum, Ayyub sembuh total dan kembali muda. Allah mengembalikan hartanya dua kali lipat."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Abundant Wealth",
+                "icon": "fa-coins",
+                "content": "Prophet Job was very wealthy with property, children, and health. He was always grateful to Allah and generous to the poor."
+            },
+            {
+                "title": "Successive Trials",
+                "icon": "fa-cloud-bolt",
+                "content": "Allah tested Job with successive calamities. His wealth was lost, children died, and he was struck with severe skin disease."
+            },
+            {
+                "title": "Shunned by People",
+                "icon": "fa-user-slash",
+                "content": "Due to his illness, society shunned Job. He was cast outside the city. Only his wife faithfully cared for him with love."
+            },
+            {
+                "title": "Extraordinary Patience",
+                "icon": "fa-hands-praying",
+                "content": "Despite suffering for years, Job never complained to Allah. He remained grateful and never lost hope. His patience became an example."
+            },
+            {
+                "title": "Job's Prayer",
+                "icon": "fa-praying-hands",
+                "content": "After so long, Job prayed: 'My Lord, harm has afflicted me, and You are the Most Merciful.' Allah answered his prayer."
+            },
+            {
+                "title": "Healing",
+                "icon": "fa-heart",
+                "content": "Allah commanded Job to strike the ground with his foot. A spring emerged. After bathing and drinking, Job was completely healed. Allah returned his wealth twofold."
+            }
+        ],
+        "lessons_id": [
+            "Kesabaran dalam ujian",
+            "Allah tidak menguji di luar kemampuan"
+        ],
+        "lessons_en": [
+            "Patience in trials",
+            "Allah doesn't test beyond capacity"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 21,
+                "verseKey": "21:83",
+                "desc_id": "Doa Ayyub",
+                "desc_en": "Job's prayer"
+            }
+        ],
+        "illustration": "ayyub_healing"
+    },
+    {
+        "id": 13,
+        "name": "شعيب",
+        "name_id": "Syu'aib",
+        "name_en": "Shuayb",
+        "category": [
+            "arabian"
+        ],
+        "era": -1550,
+        "location": "Madyan",
+        "parentId": null,
+        "miracle_id": "Khatibu'l Anbiya (Orator of the Prophets)",
+        "miracle_en": "Eloquent speaker among prophets",
+        "sections_id": [
+            {
+                "title": "Penduduk Madyan",
+                "icon": "fa-users",
+                "content": "Nabi Syu'aib diutus kepada penduduk Madyan, kaum pedagang yang suka menipu dalam timbangan dan takaran. Mereka juga menyembah berhala."
+            },
+            {
+                "title": "Juru Bicara Handal",
+                "icon": "fa-microphone",
+                "content": "Nabi Syu'aib dikenal sebagai Khatibu'l Anbiya karena kepandaiannya berbicara dan berargumen. Beliau menggunakan kemampuan ini untuk berdakwah."
+            },
+            {
+                "title": "Seruan Kejujuran",
+                "icon": "fa-balance-scale",
+                "content": "Syu'aib mengajak kaumnya untuk jujur dalam berdagang, menyempurnakan timbangan, dan tidak merugikan orang lain. Ia juga mengajak menyembah Allah."
+            },
+            {
+                "title": "Penolakan Kaum",
+                "icon": "fa-ban",
+                "content": "Kaum Madyan menolak dakwah Syu'aib. Mereka mengancam mengusirnya dan para pengikutnya. Mereka tetap berlaku curang dan menyembah berhala."
+            },
+            {
+                "title": "Azab Gempa",
+                "icon": "fa-house-crack",
+                "content": "Allah menurunkan azab berupa gempa dahsyat dan awan panas. Penduduk Madyan yang kafir binasa. Rumah-rumah mereka runtuh menimpa mereka."
+            },
+            {
+                "title": "Keselamatan Mukmin",
+                "icon": "fa-shield",
+                "content": "Nabi Syu'aib dan para pengikutnya yang beriman diselamatkan dari azab. Mereka menyaksikan bagaimana Allah menghukum orang-orang yang curang."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "People of Madyan",
+                "icon": "fa-users",
+                "content": "Prophet Shuayb was sent to the people of Madyan, merchants who cheated in weights and measures. They also worshipped idols."
+            },
+            {
+                "title": "Eloquent Speaker",
+                "icon": "fa-microphone",
+                "content": "Prophet Shuayb was known as the 'Orator of Prophets' for his eloquent speech and argumentation. He used this ability for preaching."
+            },
+            {
+                "title": "Call for Honesty",
+                "icon": "fa-balance-scale",
+                "content": "Shuayb called his people to be honest in trade, give full measure, and not harm others. He also invited them to worship Allah."
+            },
+            {
+                "title": "People's Rejection",
+                "icon": "fa-ban",
+                "content": "The people of Madyan rejected Shuayb's preaching. They threatened to expel him and his followers. They continued cheating and idol worship."
+            },
+            {
+                "title": "Earthquake Punishment",
+                "icon": "fa-house-crack",
+                "content": "Allah sent a severe earthquake and hot cloud as punishment. The disbelieving people of Madyan perished. Their houses collapsed on them."
+            },
+            {
+                "title": "Believers Saved",
+                "icon": "fa-shield",
+                "content": "Prophet Shuayb and his faithful followers were saved from punishment. They witnessed how Allah punished the cheaters."
+            }
+        ],
+        "lessons_id": [
+            "Kejujuran dalam bermuamalah",
+            "Bahaya kecurangan"
+        ],
+        "lessons_en": [
+            "Honesty in dealings",
+            "Danger of cheating"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 7,
+                "verseKey": "7:85",
+                "desc_id": "Dakwah Syu'aib",
+                "desc_en": "Shuayb's preaching"
+            }
+        ],
+        "illustration": "shuayb_scales"
+    },
+    {
+        "id": 14,
+        "name": "موسى",
+        "name_id": "Musa",
+        "name_en": "Moses",
+        "category": [
+            "ululAzmi"
+        ],
+        "era": -1400,
+        "location": "Mesir, Sinai",
+        "parentId": null,
+        "miracle_id": "Tongkat berubah menjadi ular, laut terbelah",
+        "miracle_en": "Staff became snake, sea parted",
+        "sections_id": [
+            {
+                "title": "Lahir di Masa Firaun",
+                "icon": "fa-baby",
+                "content": "Musa lahir saat Firaun memerintahkan membunuh semua bayi laki-laki Bani Israil. Ibunya menaruhnya di peti dan menghanyutkannya di sungai Nil."
+            },
+            {
+                "title": "Diasuh Istri Firaun",
+                "icon": "fa-house",
+                "content": "Peti bayi Musa ditemukan istri Firaun, Asiyah. Ia jatuh cinta pada bayi itu dan memutuskan mengasuhnya. Musa tumbuh di istana Firaun."
+            },
+            {
+                "title": "Membunuh dan Melarikan Diri",
+                "icon": "fa-person-running",
+                "content": "Musa secara tidak sengaja membunuh seorang Mesir yang menzalimi orang Israil. Ia melarikan diri ke Madyan dan tinggal bersama Nabi Syu'aib."
+            },
+            {
+                "title": "Wahyu di Bukit Sinai",
+                "icon": "fa-fire",
+                "content": "Musa melihat api di bukit. Ketika mendekat, Allah berfirman kepadanya dan mengutusnya kembali ke Mesir untuk menghadapi Firaun."
+            },
+            {
+                "title": "Menghadapi Firaun",
+                "icon": "fa-crown",
+                "content": "Musa dan saudaranya Harun datang ke Firaun dengan mukjizat tongkat berubah ular. Para penyihir Firaun kalah dan beriman kepada Allah."
+            },
+            {
+                "title": "Sepuluh Tulah",
+                "icon": "fa-bugs",
+                "content": "Allah menurunkan berbagai bencana ke Mesir: darah, katak, kutu, lalat, penyakit ternak, bisul, hujan es, belalang, kegelapan, dan kematian anak sulung."
+            },
+            {
+                "title": "Laut Terbelah",
+                "icon": "fa-water",
+                "content": "Bani Israil melarikan diri. Di tepi Laut Merah, Musa memukul air dengan tongkat dan laut terbelah dua. Firaun dan tentaranya tenggelam saat mengejar."
+            },
+            {
+                "title": "Menerima Taurat",
+                "icon": "fa-book",
+                "content": "Di Bukit Sinai, Musa menerima Taurat dari Allah. Ia berpuasa 40 hari. Turunlah Sepuluh Perintah dan hukum-hukum untuk Bani Israil."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Born Under Pharaoh",
+                "icon": "fa-baby",
+                "content": "Moses was born when Pharaoh ordered all Israelite baby boys killed. His mother put him in a basket and floated it on the Nile."
+            },
+            {
+                "title": "Raised by Pharaoh's Wife",
+                "icon": "fa-house",
+                "content": "Baby Moses's basket was found by Pharaoh's wife, Asiyah. She loved him and decided to raise him. Moses grew up in Pharaoh's palace."
+            },
+            {
+                "title": "Killing and Fleeing",
+                "icon": "fa-person-running",
+                "content": "Moses accidentally killed an Egyptian who wronged an Israelite. He fled to Madyan and lived with Prophet Shuayb."
+            },
+            {
+                "title": "Revelation at Sinai",
+                "icon": "fa-fire",
+                "content": "Moses saw a fire on a mountain. When he approached, Allah spoke to him and sent him back to Egypt to confront Pharaoh."
+            },
+            {
+                "title": "Confronting Pharaoh",
+                "icon": "fa-crown",
+                "content": "Moses and his brother Aaron came to Pharaoh with the miracle of staff turning to snake. Pharaoh's magicians lost and believed in Allah."
+            },
+            {
+                "title": "Ten Plagues",
+                "icon": "fa-bugs",
+                "content": "Allah sent plagues to Egypt: blood, frogs, lice, flies, livestock disease, boils, hail, locusts, darkness, and firstborn death."
+            },
+            {
+                "title": "Sea Parted",
+                "icon": "fa-water",
+                "content": "The Israelites fled. At the Red Sea, Moses struck the water with his staff and it parted in two. Pharaoh and his army drowned while pursuing."
+            },
+            {
+                "title": "Receiving Torah",
+                "icon": "fa-book",
+                "content": "At Mount Sinai, Moses received the Torah from Allah. He fasted 40 days. The Ten Commandments and laws for the Israelites were revealed."
+            }
+        ],
+        "lessons_id": [
+            "Keberanian melawan kezaliman",
+            "Mukjizat Allah"
+        ],
+        "lessons_en": [
+            "Courage against tyranny",
+            "Allah's miracles"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 20,
+                "verseKey": "20:9",
+                "desc_id": "Kisah Musa",
+                "desc_en": "Story of Moses"
+            }
+        ],
+        "illustration": "musa_sea"
+    },
+    {
+        "id": 15,
+        "name": "هارون",
+        "name_id": "Harun",
+        "name_en": "Aaron",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -1400,
+        "location": "Mesir, Sinai",
+        "parentId": null,
+        "miracle_id": "Pendamping Musa dalam menghadapi Firaun",
+        "miracle_en": "Moses's companion against Pharaoh",
+        "sections_id": [
+            {
+                "title": "Kakak Musa",
+                "icon": "fa-users",
+                "content": "Harun adalah kakak kandung Nabi Musa. Ia lebih fasih berbicara. Allah menjadikannya nabi pendamping Musa atas permintaan Musa."
+            },
+            {
+                "title": "Pembantu Dakwah",
+                "icon": "fa-hands-helping",
+                "content": "Harun membantu Musa berdakwah kepada Firaun dan Bani Israil. Ia menjadi juru bicara dan penerjemah. Keduanya bekerja sama dengan harmonis."
+            },
+            {
+                "title": "Ujian Sapi Emas",
+                "icon": "fa-cow",
+                "content": "Saat Musa di bukit Sinai, Samiri membuat patung sapi emas. Bani Israil menyembahnya. Harun berusaha mencegah tapi tidak mampu."
+            },
+            {
+                "title": "Wafat di Padang Tih",
+                "icon": "fa-mountain",
+                "content": "Harun wafat di padang pasir Tih sebelum Bani Israil memasuki Tanah Suci. Ia dikuburkan di sebuah gunung yang dikenal sebagai Gunung Harun."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Moses's Brother",
+                "icon": "fa-users",
+                "content": "Aaron was Prophet Moses's older brother. He was more eloquent. Allah made him a prophet to accompany Moses at Moses's request."
+            },
+            {
+                "title": "Preaching Helper",
+                "icon": "fa-hands-helping",
+                "content": "Aaron helped Moses preach to Pharaoh and the Israelites. He served as spokesman and interpreter. They worked together harmoniously."
+            },
+            {
+                "title": "Golden Calf Trial",
+                "icon": "fa-cow",
+                "content": "While Moses was at Mount Sinai, Samiri made a golden calf statue. The Israelites worshipped it. Aaron tried to prevent but couldn't."
+            },
+            {
+                "title": "Death in the Desert",
+                "icon": "fa-mountain",
+                "content": "Aaron died in the Tih desert before the Israelites entered the Holy Land. He was buried on a mountain known as Mount Aaron."
+            }
+        ],
+        "lessons_id": [
+            "Kerjasama dalam dakwah",
+            "Keterbatasan manusia"
+        ],
+        "lessons_en": [
+            "Cooperation in preaching",
+            "Human limitations"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 20,
+                "verseKey": "20:29",
+                "desc_id": "Harun pendamping",
+                "desc_en": "Aaron as helper"
+            }
+        ],
+        "illustration": "harun_helper"
+    },
+    {
+        "id": 16,
+        "name": "ذو الكفل",
+        "name_id": "Dzulkifli",
+        "name_en": "Dhul-Kifl",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -1350,
+        "location": "Syam",
+        "parentId": null,
+        "miracle_id": "Menanggung dengan sabar segala cobaan",
+        "miracle_en": "Bearing all trials with patience",
+        "sections_id": [
+            {
+                "title": "Nabi yang Penuh Kesabaran",
+                "icon": "fa-hand-holding-heart",
+                "content": "Dzulkifli bermakna 'yang menanggung.' Ia terkenal karena kesabaran luar biasa dalam menghadapi cobaan dan menjalankan amanah."
+            },
+            {
+                "title": "Amanah Besar",
+                "icon": "fa-scroll",
+                "content": "Dzulkifli menerima amanah besar untuk memimpin umatnya. Ia berjanji akan shalat malam, puasa siang, dan tidak marah. Ia menepati janjinya."
+            },
+            {
+                "title": "Ujian dari Iblis",
+                "icon": "fa-skull",
+                "content": "Iblis mencoba menggodanya dengan berbagai cara. Iblis menyamar sebagai orang tua yang meminta tolong di waktu istirahat. Dzulkifli tetap sabar."
+            },
+            {
+                "title": "Teladan Kesabaran",
+                "icon": "fa-star",
+                "content": "Allah memuji Dzulkifli dalam Al-Quran sebagai orang yang sabar. Ia menjadi teladan bagi umat Islam dalam menjalani cobaan hidup dengan tabah."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Prophet of Patience",
+                "icon": "fa-hand-holding-heart",
+                "content": "Dhul-Kifl means 'one who bears.' He was famous for extraordinary patience in facing trials and carrying out responsibilities."
+            },
+            {
+                "title": "Great Responsibility",
+                "icon": "fa-scroll",
+                "content": "Dhul-Kifl accepted a great responsibility to lead his people. He promised to pray at night, fast by day, and never get angry. He kept his promise."
+            },
+            {
+                "title": "Satan's Test",
+                "icon": "fa-skull",
+                "content": "Satan tried to tempt him in various ways. Satan disguised as an old man asking for help during rest time. Dhul-Kifl remained patient."
+            },
+            {
+                "title": "Model of Patience",
+                "icon": "fa-star",
+                "content": "Allah praised Dhul-Kifl in the Quran as a patient person. He became an example for Muslims in facing life's trials with resilience."
+            }
+        ],
+        "lessons_id": [
+            "Kesabaran menghadapi ujian",
+            "Menepati janji"
+        ],
+        "lessons_en": [
+            "Patience facing trials",
+            "Keeping promises"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 21,
+                "verseKey": "21:85",
+                "desc_id": "Dzulkifli sabar",
+                "desc_en": "Dhul-Kifl patient"
+            }
+        ],
+        "illustration": "dzulkifli_patience"
+    },
+    {
+        "id": 17,
+        "name": "داود",
+        "name_id": "Dawud",
+        "name_en": "David",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -1000,
+        "location": "Palestina",
+        "parentId": null,
+        "miracle_id": "Suara merdu, melunakkan besi, membunuh Jalut",
+        "miracle_en": "Beautiful voice, softening iron, killing Goliath",
+        "sections_id": [
+            {
+                "title": "Pembunuh Jalut",
+                "icon": "fa-shield",
+                "content": "Dawud muda mengalahkan raksasa Jalut (Goliath) dengan ketapel. Tentara Bani Israil takut menghadapi Jalut, tapi Dawud berani dan berhasil membunuhnya."
+            },
+            {
+                "title": "Raja dan Nabi",
+                "icon": "fa-crown",
+                "content": "Dawud menjadi raja Bani Israil sekaligus nabi. Ia memerintah dengan adil dan bijaksana. Rakyat hidup makmur di bawah kepemimpinannya."
+            },
+            {
+                "title": "Suara Merdu",
+                "icon": "fa-music",
+                "content": "Allah memberi Dawud suara yang sangat merdu. Ketika ia membaca Zabur, gunung-gunung dan burung-burung ikut bertasbih bersama."
+            },
+            {
+                "title": "Melunakkan Besi",
+                "icon": "fa-hammer",
+                "content": "Allah melunakkan besi untuk Dawud. Ia bisa membentuk besi seperti tanah liat tanpa api. Ia membuat baju besi untuk perang."
+            },
+            {
+                "title": "Kitab Zabur",
+                "icon": "fa-book",
+                "content": "Dawud menerima kitab Zabur (Mazmur) dari Allah. Kitab ini berisi doa-doa, pujian, dan hikmah yang sangat indah."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Slayer of Goliath",
+                "icon": "fa-shield",
+                "content": "Young David defeated the giant Goliath with a slingshot. The Israelite army feared Goliath, but David bravely killed him."
+            },
+            {
+                "title": "King and Prophet",
+                "icon": "fa-crown",
+                "content": "David became both king and prophet of Israel. He ruled with justice and wisdom. People prospered under his leadership."
+            },
+            {
+                "title": "Beautiful Voice",
+                "icon": "fa-music",
+                "content": "Allah gave David a very beautiful voice. When he recited the Psalms, mountains and birds would glorify Allah together with him."
+            },
+            {
+                "title": "Softening Iron",
+                "icon": "fa-hammer",
+                "content": "Allah softened iron for David. He could shape iron like clay without fire. He made armor for battle."
+            },
+            {
+                "title": "Book of Psalms",
+                "icon": "fa-book",
+                "content": "David received the Zabur (Psalms) from Allah. This book contains beautiful prayers, praises, and wisdom."
+            }
+        ],
+        "lessons_id": [
+            "Keberanian melawan kezaliman",
+            "Bersyukur atas nikmat"
+        ],
+        "lessons_en": [
+            "Courage against tyranny",
+            "Gratitude for blessings"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 34,
+                "verseKey": "34:10",
+                "desc_id": "Nikmat Dawud",
+                "desc_en": "David's blessings"
+            }
+        ],
+        "illustration": "dawud_iron"
+    },
+    {
+        "id": 18,
+        "name": "سليمان",
+        "name_id": "Sulaiman",
+        "name_en": "Solomon",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -950,
+        "location": "Palestina",
+        "parentId": 17,
+        "miracle_id": "Menguasai jin, angin, dan memahami bahasa binatang",
+        "miracle_en": "Controlled jinn, wind, and understood animal language",
+        "sections_id": [
+            {
+                "title": "Putra Dawud",
+                "icon": "fa-crown",
+                "content": "Sulaiman adalah putra Nabi Dawud yang mewarisi kerajaan ayahnya. Ia menjadi raja paling kaya dan berkuasa dalam sejarah."
+            },
+            {
+                "title": "Memahami Bahasa Binatang",
+                "icon": "fa-dove",
+                "content": "Allah memberi Sulaiman kemampuan memahami bahasa binatang. Ia bisa berbicara dengan burung, semut, dan hewan lainnya."
+            },
+            {
+                "title": "Pasukan Jin",
+                "icon": "fa-ghost",
+                "content": "Jin-jin tunduk kepada Sulaiman dan bekerja untuknya. Mereka membangun istana, menyelam mencari mutiara, dan membuat berbagai benda."
+            },
+            {
+                "title": "Angin Sebagai Kendaraan",
+                "icon": "fa-wind",
+                "content": "Sulaiman bisa mengendalikan angin untuk bepergian. Dalam sehari perjalanan angin, ia bisa menempuh jarak sebulan perjalanan biasa."
+            },
+            {
+                "title": "Ratu Saba/Bilqis",
+                "icon": "fa-gem",
+                "content": "Sulaiman mengundang Ratu Bilqis dari Saba (Yaman). Singgasananya dipindahkan dalam sekejap. Bilqis kagum dan beriman kepada Allah."
+            },
+            {
+                "title": "Wafat di Singgasana",
+                "icon": "fa-chair",
+                "content": "Sulaiman wafat dalam keadaan bersandar pada tongkatnya. Jin-jin tidak tahu ia sudah wafat sampai rayap memakan tongkatnya dan ia terjatuh."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Son of David",
+                "icon": "fa-crown",
+                "content": "Solomon was Prophet David's son who inherited his father's kingdom. He became the wealthiest and most powerful king in history."
+            },
+            {
+                "title": "Understanding Animal Language",
+                "icon": "fa-dove",
+                "content": "Allah gave Solomon the ability to understand animal language. He could speak with birds, ants, and other animals."
+            },
+            {
+                "title": "Army of Jinn",
+                "icon": "fa-ghost",
+                "content": "Jinn submitted to Solomon and worked for him. They built palaces, dived for pearls, and made various objects."
+            },
+            {
+                "title": "Wind as Transport",
+                "icon": "fa-wind",
+                "content": "Solomon could control the wind for travel. In one day's wind journey, he could cover a month's regular travel distance."
+            },
+            {
+                "title": "Queen of Sheba/Bilqis",
+                "icon": "fa-gem",
+                "content": "Solomon invited Queen Bilqis from Sheba (Yemen). Her throne was transported instantly. Bilqis was amazed and believed in Allah."
+            },
+            {
+                "title": "Death on Throne",
+                "icon": "fa-chair",
+                "content": "Solomon died while leaning on his staff. The jinn didn't know he had died until termites ate his staff and he fell."
+            }
+        ],
+        "lessons_id": [
+            "Kekuasaan milik Allah",
+            "Bersyukur atas nikmat"
+        ],
+        "lessons_en": [
+            "Power belongs to Allah",
+            "Gratitude for blessings"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 27,
+                "verseKey": "27:16",
+                "desc_id": "Kerajaan Sulaiman",
+                "desc_en": "Solomon's kingdom"
+            }
+        ],
+        "illustration": "sulaiman_throne"
+    },
+    {
+        "id": 19,
+        "name": "إلياس",
+        "name_id": "Ilyas",
+        "name_en": "Elijah",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -850,
+        "location": "Ba'labak, Syam",
+        "parentId": null,
+        "miracle_id": "Diangkat ke langit",
+        "miracle_en": "Raised to heaven",
+        "sections_id": [
+            {
+                "title": "Nabi untuk Ba'labak",
+                "icon": "fa-user",
+                "content": "Ilyas diutus kepada penduduk Ba'labak di Syam. Mereka menyembah berhala bernama Ba'al. Ilyas mengajak mereka menyembah Allah semata."
+            },
+            {
+                "title": "Penolakan Kaum",
+                "icon": "fa-ban",
+                "content": "Kaumnya menolak dakwah Ilyas dengan keras. Mereka tetap menyembah Ba'al dan mengancam akan menyakiti Ilyas."
+            },
+            {
+                "title": "Doa Dikabulkan",
+                "icon": "fa-cloud-rain",
+                "content": "Ilyas berdoa agar hujan ditahan dari kaumnya yang durhaka. Allah mengabulkan doanya dan terjadi kekeringan panjang."
+            },
+            {
+                "title": "Diangkat ke Langit",
+                "icon": "fa-cloud",
+                "content": "Menurut sebagian riwayat, Ilyas diangkat ke langit seperti Nabi Idris. Beliau termasuk nabi yang dipuji Allah dalam Al-Quran."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Prophet for Ba'labak",
+                "icon": "fa-user",
+                "content": "Elijah was sent to the people of Ba'labak in Syria. They worshipped an idol named Ba'al. Elijah invited them to worship Allah alone."
+            },
+            {
+                "title": "People's Rejection",
+                "icon": "fa-ban",
+                "content": "His people strongly rejected Elijah's preaching. They continued worshipping Ba'al and threatened to harm Elijah."
+            },
+            {
+                "title": "Prayer Answered",
+                "icon": "fa-cloud-rain",
+                "content": "Elijah prayed for rain to be withheld from his disobedient people. Allah answered his prayer and a long drought occurred."
+            },
+            {
+                "title": "Raised to Heaven",
+                "icon": "fa-cloud",
+                "content": "According to some narrations, Elijah was raised to heaven like Prophet Idris. He is among the prophets praised by Allah in the Quran."
+            }
+        ],
+        "lessons_id": [
+            "Istiqamah dalam dakwah",
+            "Doa nabi dikabulkan"
+        ],
+        "lessons_en": [
+            "Steadfastness in preaching",
+            "Prophet's prayers answered"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 37,
+                "verseKey": "37:123",
+                "desc_id": "Ilyas rasul",
+                "desc_en": "Elijah messenger"
+            }
+        ],
+        "illustration": "ilyas_heaven"
+    },
+    {
+        "id": 20,
+        "name": "اليسع",
+        "name_id": "Ilyasa",
+        "name_en": "Elisha",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -800,
+        "location": "Syam",
+        "parentId": null,
+        "miracle_id": "Melanjutkan dakwah Ilyas",
+        "miracle_en": "Continued Elijah's preaching",
+        "sections_id": [
+            {
+                "title": "Penerus Ilyas",
+                "icon": "fa-user",
+                "content": "Ilyasa adalah penerus Nabi Ilyas. Ia melanjutkan dakwah kepada Bani Israil setelah Ilyas diangkat ke langit."
+            },
+            {
+                "title": "Nabi yang Sabar",
+                "icon": "fa-hands-praying",
+                "content": "Ilyasa berdakwah dengan penuh kesabaran kepada kaumnya. Ia termasuk nabi yang dipuji Allah dalam Al-Quran sebagai orang pilihan."
+            },
+            {
+                "title": "Termasuk Orang Baik",
+                "icon": "fa-star",
+                "content": "Allah menyebutkan Ilyasa bersama nabi-nabi lain yang diberi petunjuk. Ia termasuk orang-orang yang baik dan berilmu."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Successor of Elijah",
+                "icon": "fa-user",
+                "content": "Elisha was Prophet Elijah's successor. He continued preaching to the Israelites after Elijah was raised to heaven."
+            },
+            {
+                "title": "Patient Prophet",
+                "icon": "fa-hands-praying",
+                "content": "Elisha preached with great patience to his people. He is among prophets praised by Allah in the Quran as chosen ones."
+            },
+            {
+                "title": "Among the Good",
+                "icon": "fa-star",
+                "content": "Allah mentioned Elisha with other prophets who were guided. He was among the good and knowledgeable people."
+            }
+        ],
+        "lessons_id": [
+            "Melanjutkan perjuangan",
+            "Kesabaran"
+        ],
+        "lessons_en": [
+            "Continuing the struggle",
+            "Patience"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 6,
+                "verseKey": "6:86",
+                "desc_id": "Ilyasa pilihan",
+                "desc_en": "Elisha chosen"
+            }
+        ],
+        "illustration": "ilyasa_preach"
+    },
+    {
+        "id": 21,
+        "name": "يونس",
+        "name_id": "Yunus",
+        "name_en": "Jonah",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -750,
+        "location": "Ninawa, Iraq",
+        "parentId": null,
+        "miracle_id": "Ditelan ikan paus dan selamat",
+        "miracle_en": "Swallowed by whale and survived",
+        "sections_id": [
+            {
+                "title": "Diutus ke Ninawa",
+                "icon": "fa-city",
+                "content": "Yunus diutus ke penduduk Ninawa (Irak modern). Mereka adalah kaum yang durhaka dan menyembah berhala. Yunus mengajak mereka bertaubat."
+            },
+            {
+                "title": "Meninggalkan Kaum",
+                "icon": "fa-person-walking",
+                "content": "Setelah lama berdakwah tanpa hasil, Yunus meninggalkan kaumnya dalam keadaan marah. Ia naik kapal untuk pergi jauh."
+            },
+            {
+                "title": "Ditelan Ikan",
+                "icon": "fa-fish",
+                "content": "Di tengah laut, terjadi badai. Awak kapal mengundi siapa yang harus dilempar. Yunus terpilih dan dilempar ke laut. Seekor ikan besar menelannya."
+            },
+            {
+                "title": "Doa dalam Kegelapan",
+                "icon": "fa-moon",
+                "content": "Dalam perut ikan yang gelap gulita, Yunus berdoa: 'Tidak ada Tuhan selain Engkau. Maha Suci Engkau, sesungguhnya aku termasuk orang yang zalim.'"
+            },
+            {
+                "title": "Diselamatkan",
+                "icon": "fa-leaf",
+                "content": "Allah menerima taubat Yunus. Ikan memuntahkan Yunus di pantai dalam keadaan lemah. Allah menumbuhkan pohon labu untuk menaunginya."
+            },
+            {
+                "title": "Kaumnya Bertaubat",
+                "icon": "fa-users",
+                "content": "Penduduk Ninawa akhirnya bertaubat setelah Yunus pergi. Mereka melihat tanda-tanda azab dan segera beriman. Allah memaafkan mereka."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Sent to Nineveh",
+                "icon": "fa-city",
+                "content": "Jonah was sent to the people of Nineveh (modern Iraq). They were disobedient idol worshippers. Jonah called them to repent."
+            },
+            {
+                "title": "Leaving His People",
+                "icon": "fa-person-walking",
+                "content": "After long preaching without success, Jonah left his people in anger. He boarded a ship to travel far away."
+            },
+            {
+                "title": "Swallowed by Fish",
+                "icon": "fa-fish",
+                "content": "At sea, a storm occurred. The crew drew lots to see who should be thrown overboard. Jonah was chosen and thrown into the sea. A huge fish swallowed him."
+            },
+            {
+                "title": "Prayer in Darkness",
+                "icon": "fa-moon",
+                "content": "In the dark belly of the fish, Jonah prayed: 'There is no god but You. Glory be to You, indeed I was among the wrongdoers.'"
+            },
+            {
+                "title": "Rescued",
+                "icon": "fa-leaf",
+                "content": "Allah accepted Jonah's repentance. The fish spat Jonah onto the shore in a weak state. Allah grew a gourd plant to shade him."
+            },
+            {
+                "title": "His People Repented",
+                "icon": "fa-users",
+                "content": "The people of Nineveh eventually repented after Jonah left. They saw signs of punishment and quickly believed. Allah forgave them."
+            }
+        ],
+        "lessons_id": [
+            "Jangan putus asa dari rahmat Allah",
+            "Taubat diterima"
+        ],
+        "lessons_en": [
+            "Never despair of Allah's mercy",
+            "Repentance accepted"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 21,
+                "verseKey": "21:87",
+                "desc_id": "Doa Yunus",
+                "desc_en": "Jonah's prayer"
+            }
+        ],
+        "illustration": "yunus_whale"
+    },
+    {
+        "id": 22,
+        "name": "زكريا",
+        "name_id": "Zakariya",
+        "name_en": "Zechariah",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -100,
+        "location": "Palestina",
+        "parentId": null,
+        "miracle_id": "Diberi anak di usia sangat tua",
+        "miracle_en": "Given child at very old age",
+        "sections_id": [
+            {
+                "title": "Pengasuh Maryam",
+                "icon": "fa-user",
+                "content": "Zakariya adalah nabi yang saleh dan pengasuh Maryam (ibu Nabi Isa). Ia melihat mukjizat makanan dari Allah untuk Maryam di mihrab."
+            },
+            {
+                "title": "Doa untuk Keturunan",
+                "icon": "fa-hands-praying",
+                "content": "Zakariya sudah sangat tua dan istrinya mandul. Ia sangat ingin keturunan untuk melanjutkan dakwah. Ia berdoa dengan sangat khusyuk."
+            },
+            {
+                "title": "Kabar Yahya",
+                "icon": "fa-gift",
+                "content": "Malaikat menyampaikan kabar gembira bahwa Zakariya akan memiliki putra bernama Yahya. Ini adalah mukjizat karena ia dan istrinya sudah sangat tua."
+            },
+            {
+                "title": "Tanda Bisu",
+                "icon": "fa-comment-slash",
+                "content": "Sebagai tanda, Zakariya tidak bisa berbicara selama tiga hari kecuali dengan isyarat. Kemudian lahirlah Yahya."
+            },
+            {
+                "title": "Kesyahidan",
+                "icon": "fa-heart",
+                "content": "Menurut sebagian riwayat, Zakariya wafat sebagai syahid. Ia dibunuh oleh penguasa zalim. Ia tetap setia kepada Allah hingga akhir."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Guardian of Mary",
+                "icon": "fa-user",
+                "content": "Zechariah was a righteous prophet and guardian of Mary (mother of Prophet Jesus). He witnessed miraculous food from Allah for Mary in her chamber."
+            },
+            {
+                "title": "Prayer for Offspring",
+                "icon": "fa-hands-praying",
+                "content": "Zechariah was very old and his wife was barren. He desperately wanted offspring to continue preaching. He prayed with great devotion."
+            },
+            {
+                "title": "News of John",
+                "icon": "fa-gift",
+                "content": "An angel brought good news that Zechariah would have a son named John. This was a miracle as he and his wife were very old."
+            },
+            {
+                "title": "Sign of Silence",
+                "icon": "fa-comment-slash",
+                "content": "As a sign, Zechariah couldn't speak for three days except by gestures. Then John was born."
+            },
+            {
+                "title": "Martyrdom",
+                "icon": "fa-heart",
+                "content": "According to some narrations, Zechariah died as a martyr. He was killed by a tyrant ruler. He remained faithful to Allah until the end."
+            }
+        ],
+        "lessons_id": [
+            "Doa dikabulkan walau mustahil",
+            "Istiqamah dalam ibadah"
+        ],
+        "lessons_en": [
+            "Prayer answered even if impossible",
+            "Steadfastness in worship"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 19,
+                "verseKey": "19:7",
+                "desc_id": "Kabar Yahya",
+                "desc_en": "News of John"
+            }
+        ],
+        "illustration": "zakariya_prayer"
+    },
+    {
+        "id": 23,
+        "name": "يحيى",
+        "name_id": "Yahya",
+        "name_en": "John",
+        "category": [
+            "baniIsrail"
+        ],
+        "era": -50,
+        "location": "Palestina",
+        "parentId": 22,
+        "miracle_id": "Lahir dari orang tua yang sangat tua dan mandul",
+        "miracle_en": "Born from very old and barren parents",
+        "sections_id": [
+            {
+                "title": "Kelahiran Ajaib",
+                "icon": "fa-baby",
+                "content": "Yahya lahir dari ayah yang sudah sangat tua (Zakariya) dan ibu yang mandul. Kelahirannya adalah mukjizat langsung dari Allah."
+            },
+            {
+                "title": "Diberi Hikmah Sejak Kecil",
+                "icon": "fa-book",
+                "content": "Allah memberi Yahya hikmah dan pemahaman agama sejak kecil. Ia sangat saleh, berbakti kepada orang tua, dan tidak sombong."
+            },
+            {
+                "title": "Zuhud dan Ibadah",
+                "icon": "fa-hands-praying",
+                "content": "Yahya hidup sangat zuhud dan sederhana. Ia makan dari tanaman liar dan menghabiskan hidupnya untuk beribadah dan berdakwah."
+            },
+            {
+                "title": "Menyambut Isa",
+                "icon": "fa-handshake",
+                "content": "Yahya adalah sepupu Nabi Isa. Ia menyambut dan membenarkan kenabian Isa. Keduanya saling mendukung dalam dakwah."
+            },
+            {
+                "title": "Syahid",
+                "icon": "fa-heart",
+                "content": "Yahya wafat sebagai syahid. Ia dibunuh oleh penguasa zalim karena menyampaikan kebenaran. Ia tetap teguh hingga akhir hayatnya."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Miraculous Birth",
+                "icon": "fa-baby",
+                "content": "John was born from a very old father (Zechariah) and a barren mother. His birth was a direct miracle from Allah."
+            },
+            {
+                "title": "Wisdom from Childhood",
+                "icon": "fa-book",
+                "content": "Allah gave John wisdom and religious understanding from childhood. He was very pious, dutiful to parents, and not arrogant."
+            },
+            {
+                "title": "Asceticism and Worship",
+                "icon": "fa-hands-praying",
+                "content": "John lived very simply and ascetically. He ate from wild plants and spent his life worshipping and preaching."
+            },
+            {
+                "title": "Welcoming Jesus",
+                "icon": "fa-handshake",
+                "content": "John was Prophet Jesus's cousin. He welcomed and affirmed Jesus's prophethood. They supported each other in preaching."
+            },
+            {
+                "title": "Martyrdom",
+                "icon": "fa-heart",
+                "content": "John died as a martyr. He was killed by a tyrant ruler for speaking the truth. He remained steadfast until his last breath."
+            }
+        ],
+        "lessons_id": [
+            "Zuhud dari dunia",
+            "Istiqamah dalam kebenaran"
+        ],
+        "lessons_en": [
+            "Asceticism from worldly matters",
+            "Steadfastness in truth"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 19,
+                "verseKey": "19:12",
+                "desc_id": "Hikmah Yahya",
+                "desc_en": "John's wisdom"
+            }
+        ],
+        "illustration": "yahya_ascetic"
+    },
+    {
+        "id": 24,
+        "name": "عيسى",
+        "name_id": "Isa",
+        "name_en": "Jesus",
+        "category": [
+            "ululAzmi"
+        ],
+        "era": 1,
+        "location": "Palestina",
+        "parentId": null,
+        "miracle_id": "Lahir tanpa ayah, menyembuhkan orang buta dan kusta, menghidupkan orang mati",
+        "miracle_en": "Born without father, healed blind and lepers, raised dead",
+        "sections_id": [
+            {
+                "title": "Kelahiran dari Maryam",
+                "icon": "fa-baby",
+                "content": "Isa lahir dari Maryam tanpa ayah. Malaikat Jibril meniupkan ruh ke dalam rahim Maryam atas perintah Allah. Ini adalah mukjizat besar."
+            },
+            {
+                "title": "Berbicara di Buaian",
+                "icon": "fa-comment",
+                "content": "Ketika Maryam dituduh berzina, bayi Isa berbicara membela ibunya: 'Sesungguhnya aku hamba Allah. Dia memberiku Kitab dan menjadikanku nabi.'"
+            },
+            {
+                "title": "Mukjizat Penyembuhan",
+                "icon": "fa-hand-holding-medical",
+                "content": "Dengan izin Allah, Isa menyembuhkan orang buta sejak lahir, orang berpenyakit kusta, dan menghidupkan orang mati. Ia juga membuat burung dari tanah liat."
+            },
+            {
+                "title": "Injil",
+                "icon": "fa-book",
+                "content": "Isa menerima kitab Injil dari Allah. Ia berdakwah kepada Bani Israil untuk menyembah Allah semata dan mengikuti ajaran yang benar."
+            },
+            {
+                "title": "Pengikut yang Setia",
+                "icon": "fa-users",
+                "content": "Isa memiliki dua belas murid setia yang disebut Hawariyyun. Mereka membantu menyebarkan dakwah dan beriman kepada Isa."
+            },
+            {
+                "title": "Diangkat ke Langit",
+                "icon": "fa-cloud",
+                "content": "Ketika orang Yahudi ingin membunuhnya, Allah mengangkat Isa ke langit. Ia tidak mati disalib. Ia akan turun kembali di akhir zaman."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Birth from Mary",
+                "icon": "fa-baby",
+                "content": "Jesus was born from Mary without a father. Angel Gabriel breathed the spirit into Mary's womb by Allah's command. This was a great miracle."
+            },
+            {
+                "title": "Speaking in Cradle",
+                "icon": "fa-comment",
+                "content": "When Mary was accused of adultery, baby Jesus spoke defending his mother: 'I am indeed a servant of Allah. He gave me the Book and made me a prophet.'"
+            },
+            {
+                "title": "Healing Miracles",
+                "icon": "fa-hand-holding-medical",
+                "content": "By Allah's permission, Jesus healed those blind from birth, lepers, and raised the dead. He also made birds from clay."
+            },
+            {
+                "title": "Gospel",
+                "icon": "fa-book",
+                "content": "Jesus received the Gospel (Injil) from Allah. He preached to the Israelites to worship Allah alone and follow true teachings."
+            },
+            {
+                "title": "Faithful Disciples",
+                "icon": "fa-users",
+                "content": "Jesus had twelve faithful disciples called the Hawariyyun. They helped spread the message and believed in Jesus."
+            },
+            {
+                "title": "Raised to Heaven",
+                "icon": "fa-cloud",
+                "content": "When the Jews wanted to kill him, Allah raised Jesus to heaven. He was not crucified. He will return at the end of time."
+            }
+        ],
+        "lessons_id": [
+            "Mukjizat milik Allah",
+            "Isa hamba Allah bukan anak"
+        ],
+        "lessons_en": [
+            "Miracles belong to Allah",
+            "Jesus is Allah's servant not son"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 3,
+                "verseKey": "3:45",
+                "desc_id": "Isa Al-Masih",
+                "desc_en": "Jesus the Messiah"
+            }
+        ],
+        "illustration": "isa_miracle"
+    },
+    {
+        "id": 25,
+        "name": "محمد",
+        "name_id": "Muhammad",
+        "name_en": "Muhammad",
+        "category": [
+            "ululAzmi"
+        ],
+        "era": 570,
+        "location": "Mekah, Madinah",
+        "parentId": null,
+        "miracle_id": "Al-Quran, Isra Miraj, pembelahan bulan",
+        "miracle_en": "The Quran, Night Journey, splitting of moon",
+        "sections_id": [
+            {
+                "title": "Yatim Sejak Kecil",
+                "icon": "fa-baby",
+                "content": "Muhammad lahir dalam keadaan yatim. Ayahnya Abdullah wafat sebelum ia lahir. Ibunya Aminah wafat saat ia berusia 6 tahun. Ia diasuh kakeknya dan pamannya."
+            },
+            {
+                "title": "Al-Amin",
+                "icon": "fa-handshake",
+                "content": "Muhammad dikenal sebagai Al-Amin (yang terpercaya) dan As-Shadiq (yang jujur). Masyarakat Mekah sangat menghormatinya karena akhlaknya yang mulia."
+            },
+            {
+                "title": "Wahyu Pertama",
+                "icon": "fa-book-quran",
+                "content": "Pada usia 40 tahun, malaikat Jibril datang di Gua Hira dan menyampaikan wahyu pertama: 'Bacalah dengan nama Tuhanmu yang menciptakan.'"
+            },
+            {
+                "title": "Dakwah di Mekah",
+                "icon": "fa-bullhorn",
+                "content": "Muhammad berdakwah di Mekah selama 13 tahun. Ia menghadapi penolakan, penyiksaan, dan boikot dari kaum Quraisy. Pengikutnya disiksa dan dibunuh."
+            },
+            {
+                "title": "Isra Miraj",
+                "icon": "fa-moon",
+                "content": "Allah membawa Muhammad dari Masjidil Haram ke Masjidil Aqsa, kemudian naik ke Sidratul Muntaha. Di sana diperintahkan shalat lima waktu."
+            },
+            {
+                "title": "Hijrah ke Madinah",
+                "icon": "fa-route",
+                "content": "Muhammad hijrah ke Madinah bersama para sahabat. Di Madinah, ia membangun masyarakat Islam pertama. Ia menjadi pemimpin agama dan negara."
+            },
+            {
+                "title": "Penaklukan Mekah",
+                "icon": "fa-flag",
+                "content": "Setelah 8 tahun di Madinah, Muhammad menaklukkan Mekah tanpa pertumpahan darah. Ia memaafkan semua musuhnya dan menghancurkan berhala di Ka'bah."
+            },
+            {
+                "title": "Haji Wada",
+                "icon": "fa-kaaba",
+                "content": "Muhammad melaksanakan haji terakhir (Haji Wada) dan menyampaikan khutbah persamaan manusia. Tak lama setelahnya, beliau wafat di Madinah."
+            }
+        ],
+        "sections_en": [
+            {
+                "title": "Orphan from Childhood",
+                "icon": "fa-baby",
+                "content": "Muhammad was born an orphan. His father Abdullah died before he was born. His mother Aminah died when he was 6. He was raised by grandfather and uncle."
+            },
+            {
+                "title": "The Trustworthy",
+                "icon": "fa-handshake",
+                "content": "Muhammad was known as Al-Amin (the trustworthy) and As-Sadiq (the truthful). Meccan society greatly respected him for his noble character."
+            },
+            {
+                "title": "First Revelation",
+                "icon": "fa-book-quran",
+                "content": "At age 40, angel Gabriel came to Cave Hira and delivered the first revelation: 'Read in the name of your Lord who created.'"
+            },
+            {
+                "title": "Preaching in Mecca",
+                "icon": "fa-bullhorn",
+                "content": "Muhammad preached in Mecca for 13 years. He faced rejection, torture, and boycott from the Quraysh. His followers were tortured and killed."
+            },
+            {
+                "title": "Night Journey",
+                "icon": "fa-moon",
+                "content": "Allah took Muhammad from Masjid al-Haram to Masjid al-Aqsa, then up to Sidrat al-Muntaha. There the five daily prayers were commanded."
+            },
+            {
+                "title": "Migration to Medina",
+                "icon": "fa-route",
+                "content": "Muhammad migrated to Medina with his companions. In Medina, he built the first Islamic society. He became religious and state leader."
+            },
+            {
+                "title": "Conquest of Mecca",
+                "icon": "fa-flag",
+                "content": "After 8 years in Medina, Muhammad conquered Mecca without bloodshed. He forgave all his enemies and destroyed the idols in Ka'bah."
+            },
+            {
+                "title": "Farewell Pilgrimage",
+                "icon": "fa-kaaba",
+                "content": "Muhammad performed his final pilgrimage (Hajj Wada) and delivered a sermon on human equality. Shortly after, he passed away in Medina."
+            }
+        ],
+        "lessons_id": [
+            "Akhlak mulia",
+            "Kesabaran dalam dakwah",
+            "Rahmat bagi alam"
+        ],
+        "lessons_en": [
+            "Noble character",
+            "Patience in preaching",
+            "Mercy for all worlds"
+        ],
+        "quranRefs": [
+            {
+                "surahId": 33,
+                "verseKey": "33:21",
+                "desc_id": "Teladan Muhammad",
+                "desc_en": "Muhammad's example"
+            }
+        ],
+        "illustration": "muhammad_mecca"
+    }
+]

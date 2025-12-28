@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useSettings } from '../context/SettingsContext';
 import { useNavigate, Link } from 'react-router-dom';
+import BackupRestore from '../components/BackupRestore';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -115,6 +116,8 @@ export default function Login() {
                         </h3>
                         <BookmarksList t={t} />
                     </div>
+
+                    <BackupRestore user={user} />
                 </div>
             </div>
         );

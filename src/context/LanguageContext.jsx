@@ -146,7 +146,10 @@ const translations = {
         "bookmarks.tagFavorit": "Favorit",
         "bookmarks.tagPenting": "Penting",
         "bookmarks.noTags": "Belum ada tag",
-        "search.backToSearch": "Kembali ke Pencarian"
+        "search.backToSearch": "Kembali ke Pencarian",
+        "menu.prophetStories": "Kisah Nabi",
+        "prophetStories.subtitle": "Kisah 25 Nabi dalam Al-Quran",
+        "prophetStories.search": "Cari nama nabi..."
     },
     en: {
         "app.title": "Al Quran",
@@ -292,7 +295,10 @@ const translations = {
         "bookmarks.tagFavorit": "Favorite",
         "bookmarks.tagPenting": "Important",
         "bookmarks.noTags": "No tags yet",
-        "search.backToSearch": "Back to Search"
+        "search.backToSearch": "Back to Search",
+        "menu.prophetStories": "Prophet Stories",
+        "prophetStories.subtitle": "Stories of 25 Prophets in the Quran",
+        "prophetStories.search": "Search prophet name..."
     }
 };
 
