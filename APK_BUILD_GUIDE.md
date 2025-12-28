@@ -21,6 +21,22 @@ Before starting, ensure your PC is ready:
 
 ---
 
+---
+
+## Tips: Mengurangi Ukuran APK (Optimization) 📉
+
+Sebelum build final, sangat disarankan untuk mengkompres aset (gambar/audio) agar APK tidak bengkak.
+
+**Cara Kompres Gambar Otomatis:**
+Project ini punya script khusus untuk mengubah PNG besar menjadi WebP (hemat ~15MB).
+```powershell
+# Jalankan perintah ini sebelum build
+node scripts/optimize-images.js
+```
+*Script ini akan otomatis mengubah file `.png` di `public/images/prophets` menjadi `.webp` dan memperbarui kodingan.*
+
+---
+
 ## 2. Cara Build APK 
 
 ### Metode A: Build Cepat via Terminal (Hemat RAM) 🚀
