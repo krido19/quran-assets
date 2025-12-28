@@ -20,7 +20,7 @@ export default function Header() {
     return (
         <header className="app-header">
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h1 id="page-title" style={{ margin: 0, lineHeight: '1.2' }}>{t('app.title')} 🚀</h1>
+                <h1 id="page-title" style={{ margin: 0, lineHeight: '1.2' }}>{t('app.title')}</h1>
                 <span style={{ fontSize: '12px', opacity: 0.8, fontWeight: 'normal' }}>{getHijriDate()}</span>
             </div>
             <div className="header-actions" style={{ display: 'flex', gap: '10px' }}>

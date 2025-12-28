@@ -3,7 +3,7 @@ import { Capacitor } from '@capacitor/core';
 
 const GITHUB_OWNER = 'krido19';
 const GITHUB_REPO = 'quran-assets';
-const CURRENT_VERSION = '1.0.6'; // Update this when releasing
+const CURRENT_VERSION = '1.0.7'; // Update this when releasing
 
 // Store version in localStorage
 const VERSION_KEY = 'app_bundle_version';
