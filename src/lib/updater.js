@@ -1,9 +1,9 @@
 import { CapacitorUpdater } from '@capgo/capacitor-updater';
 import { Capacitor } from '@capacitor/core';
 
-const GITHUB_OWNER = 'rido19';
-const GITHUB_REPO = 'Quran';
-const CURRENT_VERSION = '1.0.5'; // Update this when releasing
+const GITHUB_OWNER = 'krido19';
+const GITHUB_REPO = 'quran-assets';
+const CURRENT_VERSION = '1.0.6'; // Update this when releasing
 
 // Store version in localStorage
 const VERSION_KEY = 'app_bundle_version';
