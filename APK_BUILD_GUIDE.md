@@ -248,3 +248,35 @@ Setelah APK terinstal di HP user, Anda tidak perlu meminta mereka download ulang
 *   Live Update **TIDAK BISA** jika Anda mengubah konfigurasi Native (misal: `android/`, `capacitor.config.json`, tambah plugin baru, ganti Icon/Splash).
 *   Untuk perubahan Native, Anda wajib Build APK ulang (Lihat **Section 2**).
 
+## 7. FAQ & Troubleshooting Lanjutan (Update Terbaru) 🔴
+
+Berikut adalah pembelajaran penting dari masalah yang sering ditemui saat implementasi Live Update:
+
+### A. Update Gagal (404 Not Found)
+**Penyebab:** Repository GitHub Anda berstatus **Private**.
+**Logika:** GitHub API tidak mengizinkan akses ke repository private tanpa token autentikasi (dan kita tidak menyimpan token di APK demi keamanan).
+**Solusi:**
+1.  Ubah Repository jadi **PUBLIC** (Settings > Helper > Visibility).
+2.  Atau gunakan repository terpisah khusus aset yang Public (seperti `quran-assets` yang kita lakukan).
+
+### B. Migrasi Server Update
+**Kasus:** Anda mengganti URL repository di `updater.js` (misal dari repo Private ke repo Public baru).
+**Konsekuensi:** APK lama **PUTUS KONEKSI**. APK lama masih mencoba akses URL lama.
+**Solusi:**
+Wajib **Build APK Ulang** 1x lagi setelah mengganti `GITHUB_OWNER` atau `GITHUB_REPO` di `updater.js`. Install ulang di HP user.
+
+### C. Apa yang BISA vs TIDAK BISA Di-update Otomatis?
+Jangan bingung, ini panduannya:
+
+✅ **BISA (Live Update):**
+*   Coding React/JS/CSS/HTML.
+*   Gambar/Font di dalam `src/` atau `public/`.
+*   Logika aplikasi, bugfix, typo, ganti warna.
+
+❌ **TIDAK BISA (Wajib Ganti APK):**
+*   **Plugin Baru:** Install library native (kamera, GPS, notifikasi, dll).
+*   **Splash Screen & Icon:** Karena ini aset native Android.
+*   **Config:** Ubah `capacitor.config.json` atau `AndroidManifest.xml`.
+*   **Native Code:** Ubah file Java/Kotlin di folder `android/`.
+
+
